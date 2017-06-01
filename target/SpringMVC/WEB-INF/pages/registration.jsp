@@ -12,7 +12,7 @@
 <div class="testbox">
     <h1>${message}</h1>
 
-    <c:url var="homeURL" value="home.jsp"/>
+    <c:url var="homeURL" value="/home"/>
     <form action="${homeURL}">
         <hr>
         <div class="accounttype">

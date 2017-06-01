@@ -12,9 +12,10 @@ public class HelloController {
 	@RequestMapping("/")
 	public String printWelcome(ModelMap model) {
 		model.addAttribute("message", "Registration");
-		return "registeration";
+		return "registration";
 	}
 
+	//Test to another request.
 	@RequestMapping("/myhello")
 	public String printWelcome1(ModelMap model) {
 		model.addAttribute("message1", "Hello world myhello!!");
