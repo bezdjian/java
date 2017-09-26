@@ -1,1 +1,1 @@
-# JAVA
+# Empty master branch, see other branches in this repository.
