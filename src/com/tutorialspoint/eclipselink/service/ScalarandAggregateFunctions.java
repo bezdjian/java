@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
+import com.tutorialspoint.eclipselink.entity.Employee;
+
 public class ScalarandAggregateFunctions {
 
 	public static void main(String args[]) {
@@ -15,12 +17,12 @@ public class ScalarandAggregateFunctions {
 		EntityManager eManager = emFactory.createEntityManager();
 		
 		//Scalar function
-		Query query = eManager.createQuery("SELECT UPPER(e.name) FROM Employee e");
-		List<String> list = query.getResultList();
+		Query query = eManager.createQuery("SELECT e FROM Employee e");
+		List<Employee> list = query.getResultList();
 		
 		//Loop names
-		for(String e:list) {
-			System.out.println("Employee name: " + e);
+		for(Employee e:list) {
+			System.out.println( e );
 		}
 		
 		//Aggregate function
