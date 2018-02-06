@@ -4,9 +4,14 @@
 	
 	<!-- Defining modules -->
 	<class>com.tutorialspoint.eclipselink.entity.Employee</class>
+	
 	<class>com.tutorialspoint.eclipselink.entity.Staff</class>
 	<class>com.tutorialspoint.eclipselink.entity.TeachingStaff</class>
 	<class>com.tutorialspoint.eclipselink.entity.NonTeachingStaff</class>
+	
+	<class>com.tutorialspoint.eclipselink.entity.StaffJoined</class>
+	<class>com.tutorialspoint.eclipselink.entity.TeachingStaffJoined</class>
+	<class>com.tutorialspoint.eclipselink.entity.NonTeachingStaffJoined</class>
 	
 	<!-- Defining MySql DB -->
 	<properties>

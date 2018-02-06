@@ -5,8 +5,8 @@ import javax.persistence.*;
 @Entity
 @Table
 @Inheritance( strategy = InheritanceType.SINGLE_TABLE) //Single table, you can create sub classes who extends from this class and inserts into DB
-@DiscriminatorColumn(name = "type")
-public class Staff {
+@DiscriminatorColumn(name = "type") // This one differs from sub classes
+public class Staff{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
