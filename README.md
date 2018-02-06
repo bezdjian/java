@@ -2,3 +2,4 @@
 <p>- Contains modules (tables) to insert into DB with EntityManager </p>
 <p>- Using MySql DB</p>
 <p>- SINGLE_TABLE inheritance</p>
+<p>- JOINED_TABLE inheritance</p>
