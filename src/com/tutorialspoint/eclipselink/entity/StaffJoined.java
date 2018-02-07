@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table
 @Inheritance(strategy = InheritanceType.JOINED)
+@NamedNativeQuery(name = "myquery", query="SELECT sf.*, tf.qualification FROM STAFFJOINED sf left join TEACHINGSTAFFJOINED tf on tf.sid = sf.sid left join NONTEACHINGSTAFFJOINED ntf on ntf.sid = sf.sid")
 public class StaffJoined {
 	
 	@Id

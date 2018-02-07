@@ -11,6 +11,10 @@ public class SaveClientJoined {
 
 	public static void main(String args[]) {
 		
+		
+	}
+	
+	static void saveClientJoined() {
 		EntityManagerFactory emFactory = Persistence.createEntityManagerFactory("tutorialspoint_JPA_Eclipselink");
 		EntityManager eManager = emFactory.createEntityManager();
 		eManager.getTransaction().begin();
