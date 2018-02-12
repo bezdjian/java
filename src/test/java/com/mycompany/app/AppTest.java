@@ -18,6 +18,8 @@ public class AppTest
     public AppTest( String testName )
     {
         super( testName );
+        App.display();
+        System.out.println("TEST: KAKAKA");
     }
 
     /**

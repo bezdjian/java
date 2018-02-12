@@ -15,6 +15,11 @@ public class App
     {
 
         System.out.println( "Hello World!" );
+        display();
+    }
+
+    public static String display(){
+        String display = "";
         try{
             //1. Load driver class
             Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -29,14 +34,16 @@ public class App
             ResultSet resultSet = statement.executeQuery("SELECT * FROM USERS");
 
             while(resultSet.next()){
-                System.out.println("ID: " + resultSet.getInt("ID"));
-                System.out.println("FIRSTNAME: " + resultSet.getString("FIRSTNAME"));
-                System.out.println("LASTNAME: " + resultSet.getString("LASTNAME"));
-                System.out.println("EMAIL: " + resultSet.getString("EMAIL"));
+                display += "ID: " + resultSet.getInt("ID");
+                display += "FIRSTNAME: " + resultSet.getString("FIRSTNAME");
+                display += "LASTNAME: " + resultSet.getString("LASTNAME");
+                display += "EMAIL: " + resultSet.getString("EMAIL");
             }
         }catch(Exception e){
             System.out.println("- Exception ------ ");
             e.printStackTrace();
         }
+
+        return display;
     }
 }
