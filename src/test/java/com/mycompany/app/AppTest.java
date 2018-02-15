@@ -18,8 +18,9 @@ public class AppTest
     public AppTest( String testName )
     {
         super( testName );
+        System.out.println("Before display");
         App.display();
-        System.out.println("TEST: KAKAKA");
+        System.out.println("After display");
     }
 
     /**
