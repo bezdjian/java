@@ -5,14 +5,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
 import javax.enterprise.context.ApplicationScoped;
-import javax.inject.Inject;
-import javax.json.Json;
-import javax.json.JsonObject;
-import javax.json.JsonReader;
-import javax.json.stream.JsonParser;
 import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
-import java.io.StringReader;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
