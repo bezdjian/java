@@ -7,25 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="764b69e3-6370-4ecf-b9f8-fcf48492ddd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/hbe/example/websocketv1/websocket/DeviceWebsocketServerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/hbe/example/websocketv1/websocket/DeviceWebsocketServerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1.war" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/model/Device.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/lib/javax.json-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/lib/javax.json-api-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/lib/json-simple-1.1.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/web.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/index.jsp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/websocket.js" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -97,6 +79,7 @@
         <counts>
           <entry key="class" value="8" />
           <entry key="css" value="2" />
+          <entry key="gitignore" value="1" />
           <entry key="java" value="6" />
           <entry key="js" value="1" />
           <entry key="jsp" value="1" />
@@ -113,12 +96,14 @@
           <entry key="JSP" value="1" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="1" />
+          <entry key="PLAIN_TEXT" value="1" />
           <entry key="TypeScript" value="1" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="gitignore" value="17" />
           <entry key="java" value="3175" />
           <entry key="js" value="7" />
           <entry key="md" value="64" />
@@ -130,6 +115,7 @@
           <entry key="JAVA" value="3175" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="64" />
+          <entry key="PLAIN_TEXT" value="17" />
           <entry key="XML" value="45" />
         </counts>
       </usages-collector>
@@ -169,8 +155,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="44">
-              <caret line="49" column="66" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="66" />
+            <state relative-caret-position="323">
+              <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -179,6 +165,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="19">
+              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="326">
@@ -224,6 +219,7 @@
         <option value="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java" />
         <option value="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java" />
         <option value="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -347,7 +343,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538326897744" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538326967866" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/bin/git.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -611,7 +607,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538163472581</updated>
-      <workItem from="1538163473725" duration="16271000" />
+      <workItem from="1538163473725" duration="16356000" />
     </task>
     <servers />
   </component>
@@ -648,7 +644,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16271000" />
+    <option name="totallyTimeSpent" value="16356000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -660,7 +656,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21750806" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21750806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Application Servers" weight="0.32960895" />
       <window_info anchor="bottom" id="Terminal" weight="0.32960895" />
@@ -672,7 +668,7 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946293" weight="0.4435754" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -684,7 +680,7 @@
       <window_info anchor="right" id="Maven Projects" weight="0.32975295" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.21643394" />
+      <window_info anchor="right" id="Coverage" side_tool="true" weight="0.21643394" />
       <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -864,16 +860,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="49" column="66" selection-start-line="49" selection-start-column="55" selection-end-line="49" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="326">
@@ -881,6 +867,23 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="53" lean-forward="true" selection-start-line="17" selection-start-column="53" selection-end-line="17" selection-end-column="53" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
         </state>
       </provider>
     </entry>
