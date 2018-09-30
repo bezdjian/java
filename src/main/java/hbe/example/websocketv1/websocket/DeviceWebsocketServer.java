@@ -19,30 +19,25 @@ public class DeviceWebsocketServer {
 
     @OnOpen
     public void open(Session session) {
-        System.out.println("Session: " + session.getId());
-        System.out.println("SessionHandler: " + sessionHandler.toString());
         sessionHandler.addSession(session);
+        log(Level.INFO, "Session added: " + session.getId());
     }
 
     @OnClose
     public void close(Session session) {
         sessionHandler.removeSession(session);
+        log(Level.INFO, "Session closed: " + session.getId());
     }
 
     @OnError
     public void onError(Throwable error) {
-        Logger.getLogger(DeviceWebsocketServer.class.getName()).log(Level.SEVERE, "----- onError: " + error.getMessage(), error);
+        log(Level.SEVERE, error);
     }
 
     @OnMessage
     public void handleMessage(String message, Session session) {
         try{
-            //JsonReader jsonReader = new Json.createReader(new StringReader(message));
-            //JsonObject jsonMessage = jsonReader.readObject();
-
             JSONObject jsonMessage = (JSONObject) new JSONParser().parse(message);
-            System.out.println("----- handleMessage -> jsonMessage: " + message);
-
 
             if ("add".equals(jsonMessage.get("action"))) {
                 Device device = new Device();
@@ -51,19 +46,31 @@ public class DeviceWebsocketServer {
                 device.setType(jsonMessage.get("type").toString());
                 device.setStatus("Off");
                 sessionHandler.addDevice(device);
+                log(Level.INFO, "Device added: " + device.getName());
             }
 
             if ("remove".equals(jsonMessage.get("action"))) {
                 String id = jsonMessage.get("id").toString();
-                sessionHandler.removeDevice(Integer.parseInt(id));
+                Device d = sessionHandler.removeDevice(Integer.parseInt(id));
+                log(Level.INFO, "Device removed: " + d.getName());
             }
 
             if ("toggle".equals(jsonMessage.get("action"))) {
                 String id = jsonMessage.get("id").toString();
+                Device d = sessionHandler.getDeviceById(Integer.parseInt(id));
                 sessionHandler.toggleDevice(Integer.parseInt(id));
+                log(Level.INFO, "Device toggled: " + d.getName() +
+                        " to status " + d.getStatus());
             }
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+    private void log(Level level, Throwable error){
+        Logger.getLogger(DeviceWebsocketServer.class.getName()).log(level, "----- onError: " + error.getMessage(), error);
+    }
+    private void log(Level level, String message){
+        Logger.getLogger(DeviceWebsocketServer.class.getName()).log(level, "----- log: " + message);
     }
 }

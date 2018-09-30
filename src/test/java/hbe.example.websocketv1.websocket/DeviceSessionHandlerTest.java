@@ -27,8 +27,6 @@ public class DeviceSessionHandlerTest {
     private Session session;
     @Mock
     private RemoteEndpoint.Basic basic;
-    @Mock
-    private JsonProvider provider;
 
     @Test
     public void getDevicesTest(){

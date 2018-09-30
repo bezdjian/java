@@ -45,7 +45,7 @@ public class DeviceSessionHandler {
         sendToAllConnectedSessions(addMessage);
     }
 
-    public void removeDevice(int id) {
+    public Device removeDevice(int id) {
         Device device = getDeviceById(id);
         if (device != null) {
             devices.remove(device);
@@ -55,7 +55,9 @@ public class DeviceSessionHandler {
                     .add("id", id)
                     .build();
             sendToAllConnectedSessions(removeMessage);
+            return device;
         }
+        return null;
     }
 
     public void toggleDevice(int id) {
@@ -76,7 +78,7 @@ public class DeviceSessionHandler {
         }
     }
 
-    private Device getDeviceById(int id) {
+    public Device getDeviceById(int id) {
         for (Device device : devices) {
             if (device.getId() == id) {
                 return device;

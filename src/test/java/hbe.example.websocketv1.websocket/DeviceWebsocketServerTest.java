@@ -26,8 +26,11 @@ public class DeviceWebsocketServerTest {
     @Test
     public void handleMessageActionWithActions(){
         websocketServer.handleMessage(jsonString("add"), session);
-        websocketServer.handleMessage(jsonString("remove"), session);
         websocketServer.handleMessage(jsonString("toggle"), session);
+        websocketServer.handleMessage(jsonString("remove"), session);
+
+        //OnError
+        websocketServer.onError(new Throwable("lala"));
     }
 
     private String jsonString(String action){
