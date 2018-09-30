@@ -7,18 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="764b69e3-6370-4ecf-b9f8-fcf48492ddd2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/model/Device.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/model/Device.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/META-INF/MANIFEST.MF" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/model/Device.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/model/Device.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/hbe/example/websocketv1/websocket/DeviceWebsocketServerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/hbe/example/websocketv1/websocket/DeviceWebsocketServerTest.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,16 +20,19 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest.ic" NAME="DeviceWebsocketServerTest Coverage Results" MODIFIED="1538319296406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_addDeviceTest.ic" NAME="DeviceWebsocketServerTest.addDeviceTest Coverage Results" MODIFIED="1538320443493" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_addDeviceTest.ic" NAME="DeviceWebsocketServerTest.addDeviceTest Coverage Results" MODIFIED="1538319785403" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest.ic" NAME="DeviceWebsocketServerTest Coverage Results" MODIFIED="1538320538682" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$hbe_example_websocketv1_websocket_in_websocketv1.ic" NAME="hbe.example.websocketv1.websocket in websocketv1 Coverage Results" MODIFIED="1538318913206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_getDevicesTest.ic" NAME="DeviceWebsocketServerTest.getDevicesTest Coverage Results" MODIFIED="1538319694156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_removeDeviceTest.ic" NAME="DeviceWebsocketServerTest.removeDeviceTest Coverage Results" MODIFIED="1538320469203" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_getDevicesTest.ic" NAME="DeviceWebsocketServerTest.getDevicesTest Coverage Results" MODIFIED="1538320404696" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_test.ic" NAME="DeviceWebsocketServerTest.test Coverage Results" MODIFIED="1538317685950" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -85,7 +79,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="1725" />
+          <entry key="java" value="1755" />
           <entry key="js" value="7" />
           <entry key="md" value="64" />
           <entry key="xml" value="45" />
@@ -93,7 +87,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="1725" />
+          <entry key="JAVA" value="1755" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="64" />
           <entry key="XML" value="45" />
@@ -115,12 +109,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="278">
-              <caret line="42" column="56" lean-forward="true" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+            <state relative-caret-position="202">
+              <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1442#1443#0" expanded="true" />
                 <element signature="e#1503#1504#0" expanded="true" />
+                <element signature="e#1546#1547#0" expanded="true" />
+                <element signature="e#1607#1608#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -129,8 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="145">
-              <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            <state relative-caret-position="316">
+              <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#526#527#0" expanded="true" />
@@ -297,7 +293,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538319863608" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538320537940" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/bin/git.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -321,7 +317,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DeviceWebsocketServerTest.getDevicesTest">
+  <component name="RunManager" selected="JUnit.DeviceWebsocketServerTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -379,6 +375,23 @@
       <option name="METHOD_NAME" value="getDevicesTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceWebsocketServerTest.removeDeviceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="websocketv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hbe.example.websocketv1.websocket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
+      <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceWebsocketServerTest" />
+      <option name="METHOD_NAME" value="removeDeviceTest" />
+      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -522,13 +535,14 @@
       <item itemvalue="JUnit.DeviceWebsocketServerTest.getDevicesTest" />
       <item itemvalue="JUnit.DeviceWebsocketServerTest" />
       <item itemvalue="JUnit.DeviceWebsocketServerTest.addDeviceTest" />
+      <item itemvalue="JUnit.DeviceWebsocketServerTest.removeDeviceTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DeviceWebsocketServerTest.getDevicesTest" />
-        <item itemvalue="JUnit.DeviceWebsocketServerTest.addDeviceTest" />
         <item itemvalue="JUnit.DeviceWebsocketServerTest" />
-        <item itemvalue="JUnit.hbe.example.websocketv1.websocket in websocketv1" />
+        <item itemvalue="JUnit.DeviceWebsocketServerTest.removeDeviceTest" />
+        <item itemvalue="JUnit.DeviceWebsocketServerTest.addDeviceTest" />
+        <item itemvalue="JUnit.DeviceWebsocketServerTest.getDevicesTest" />
         <item itemvalue="JUnit.hbe.example.websocketv1.websocket in websocketv1" />
       </list>
     </recent_temporary>
@@ -543,44 +557,44 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538163472581</updated>
-      <workItem from="1538163473725" duration="10127000" />
+      <workItem from="1538163473725" duration="10786000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 16h 59m 07s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 16h 59m 45s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 01m 02s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 01m 18s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 01m 35s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 01m 53s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 02m 05s.xml">
-      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_addDeviceTest - 2018.09.30 at 17h 02m 38s.xml">
-      <configuration name="DeviceWebsocketServerTest.addDeviceTest" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_addDeviceTest - 2018.09.30 at 17h 03m 06s.xml">
-      <configuration name="DeviceWebsocketServerTest.addDeviceTest" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 03m 27s.xml">
       <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 12m 11s.xml">
+      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 12m 59s.xml">
+      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 13m 15s.xml">
+      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_getDevicesTest - 2018.09.30 at 17h 13m 25s.xml">
+      <configuration name="DeviceWebsocketServerTest.getDevicesTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_addDeviceTest - 2018.09.30 at 17h 13m 41s.xml">
+      <configuration name="DeviceWebsocketServerTest.addDeviceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_addDeviceTest - 2018.09.30 at 17h 13m 49s.xml">
+      <configuration name="DeviceWebsocketServerTest.addDeviceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_addDeviceTest - 2018.09.30 at 17h 14m 04s.xml">
+      <configuration name="DeviceWebsocketServerTest.addDeviceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest_removeDeviceTest - 2018.09.30 at 17h 14m 30s.xml">
+      <configuration name="DeviceWebsocketServerTest.removeDeviceTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="DeviceWebsocketServerTest - 2018.09.30 at 17h 14m 47s.xml">
+      <configuration name="DeviceWebsocketServerTest" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10127000" />
+    <option name="totallyTimeSpent" value="10786000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -728,8 +742,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="145">
-          <caret line="35" column="24" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+        <state relative-caret-position="316">
+          <caret line="38" lean-forward="true" selection-start-line="38" selection-end-line="38" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#526#527#0" expanded="true" />
@@ -742,12 +756,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="278">
-          <caret line="42" column="56" lean-forward="true" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
+        <state relative-caret-position="202">
+          <caret line="45" column="60" selection-start-line="45" selection-start-column="60" selection-end-line="45" selection-end-column="60" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1442#1443#0" expanded="true" />
             <element signature="e#1503#1504#0" expanded="true" />
+            <element signature="e#1546#1547#0" expanded="true" />
+            <element signature="e#1607#1608#0" expanded="true" />
           </folding>
         </state>
       </provider>
