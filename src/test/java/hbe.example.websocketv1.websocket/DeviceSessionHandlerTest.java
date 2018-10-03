@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.mockito.Matchers.anyObject;
+import static org.mockito.Matchers.anyString;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 @RunWith(MockitoJUnitRunner.class)
@@ -52,6 +56,9 @@ public class DeviceSessionHandlerTest {
         sessionHandler.toggleDevice(deviceList().get(0).getId());
         // Remove with the same device ID 1
         sessionHandler.removeDevice(deviceList().get(0).getId());
+        //Remove with different ID to get to the return null part
+        sessionHandler.addDevice(deviceList().get(0));
+        sessionHandler.removeDevice(666);
     }
 
     @Test
@@ -61,9 +68,11 @@ public class DeviceSessionHandlerTest {
 
     @Test
     public void sendToSessionExceptionTest() throws IOException {
-        //doThrow(new RuntimeException("oh!")).when(session).getBasicRemote().sendText("lala");
+        when(session.getBasicRemote()).thenReturn(basic);
         sessionHandler.addDevice(deviceListWithError().get(0));
-        sessionHandler.removeDevice(deviceListWithError().get(0).getId());
+        sessionHandler.addSession(session);
+        doThrow(new RuntimeException("oh!")).when(session).getBasicRemote().sendText("");
+        sessionHandler.addDevice(deviceListWithError().get(0));
     }
 
     private List<Device> deviceList(){
@@ -77,6 +86,7 @@ public class DeviceSessionHandlerTest {
         devices.add(d);
         return devices;
     }
+
     private List<Device> deviceListWithError(){
         ArrayList<Device> devices = new ArrayList<>();
         Device d = new Device();
@@ -88,6 +98,7 @@ public class DeviceSessionHandlerTest {
         devices.add(d);
         return devices;
     }
+
     public JsonObjectBuilder getJsonObject(){
         JsonProvider provider = JsonProvider.provider();
         JsonObjectBuilder addMessage = provider.createObjectBuilder()

@@ -9,19 +9,7 @@
     <list default="true" id="764b69e3-6370-4ecf-b9f8-fcf48492ddd2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/surefire-reports/hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.txt" beforeDir="false" afterPath="$PROJECT_DIR$/target/surefire-reports/hbe.example.websocketv1.websocket.DeviceWebsocketServerTest.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/hbe/example/websocketv1/websocket/DeviceWebsocketServerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/hbe/example/websocketv1/websocket/DeviceWebsocketServerTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceSessionHandler.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/websocketv1/WEB-INF/classes/hbe/example/websocketv1/websocket/DeviceWebsocketServer.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -41,13 +29,16 @@
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest.ic" NAME="DeviceWebsocketServerTest Coverage Results" MODIFIED="1538329709559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/websocketv1$DeviceSessionHandlerTest.ic" NAME="DeviceSessionHandlerTest Coverage Results" MODIFIED="1538329715625" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceSessionHandlerTest.ic" NAME="DeviceSessionHandlerTest Coverage Results" MODIFIED="1538421937396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_handleMessageActionWithActions.ic" NAME="DeviceWebsocketServerTest.handleMessageActionWithActions Coverage Results" MODIFIED="1538329567892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_onErrorTest.ic" NAME="DeviceWebsocketServerTest.onErrorTest Coverage Results" MODIFIED="1538329678393" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceSessionHandlerTest_sendToSessionExceptionTest.ic" NAME="DeviceSessionHandlerTest.sendToSessionExceptionTest Coverage Results" MODIFIED="1538423374044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_testOpenClose.ic" NAME="DeviceWebsocketServerTest.testOpenClose Coverage Results" MODIFIED="1538325994579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -60,6 +51,9 @@
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_removeSessionTest.ic" NAME="DeviceWebsocketServerTest.removeSessionTest Coverage Results" MODIFIED="1538322942407" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceSessionHandlerTest_addDeviceTest.ic" NAME="DeviceSessionHandlerTest.addDeviceTest Coverage Results" MODIFIED="1538421920555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/websocketv1$hbe_example_websocketv1_websocket_in_websocketv1.ic" NAME="hbe.example.websocketv1.websocket in websocketv1 Coverage Results" MODIFIED="1538318913206" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
@@ -80,12 +74,15 @@
     <SUITE FILE_PATH="coverage/websocketv1$DeviceWebsocketServerTest_sendToSessionExceptionTest.ic" NAME="DeviceWebsocketServerTest.sendToSessionExceptionTest Coverage Results" MODIFIED="1538325767281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/websocketv1$DeviceSessionHandlerTest_getDevicesTest.ic" NAME="DeviceSessionHandlerTest.getDevicesTest Coverage Results" MODIFIED="1538421773609" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>hbe.example.websocketv1.websocket.*</FILTER>
+    </SUITE>
   </component>
   <component name="CoverageOptionsProvider">
     <option name="myAddOrReplace" value="1" />
   </component>
   <component name="CoverageViewManager">
-    <option name="myElementSize" value="140" />
+    <option name="myElementSize" value="93" />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="1321085517">
@@ -97,9 +94,9 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="8" />
+          <entry key="class" value="15" />
           <entry key="css" value="2" />
-          <entry key="gitignore" value="2" />
+          <entry key="gitignore" value="3" />
           <entry key="java" value="8" />
           <entry key="js" value="1" />
           <entry key="jsp" value="1" />
@@ -110,21 +107,21 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="8" />
+          <entry key="CLASS" value="15" />
           <entry key="CSS" value="2" />
           <entry key="JAVA" value="8" />
           <entry key="JSP" value="1" />
           <entry key="JavaScript" value="1" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="2" />
+          <entry key="PLAIN_TEXT" value="3" />
           <entry key="TypeScript" value="1" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="gitignore" value="25" />
-          <entry key="java" value="3651" />
+          <entry key="gitignore" value="44" />
+          <entry key="java" value="4235" />
           <entry key="js" value="7" />
           <entry key="md" value="64" />
           <entry key="xml" value="45" />
@@ -132,10 +129,10 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3651" />
+          <entry key="JAVA" value="4235" />
           <entry key="JavaScript" value="7" />
           <entry key="Markdown" value="64" />
-          <entry key="PLAIN_TEXT" value="25" />
+          <entry key="PLAIN_TEXT" value="44" />
           <entry key="XML" value="45" />
         </counts>
       </usages-collector>
@@ -143,11 +140,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-719">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="255">
+              <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1679#1680#0" expanded="true" />
@@ -160,23 +157,14 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-774">
-              <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+            <state relative-caret-position="269">
+              <caret line="114" selection-start-line="114" selection-end-line="114" />
               <folding>
                 <element signature="e#526#527#0" expanded="true" />
                 <element signature="e#566#567#0" expanded="true" />
                 <element signature="e#606#607#0" expanded="true" />
                 <element signature="e#653#654#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/.gitignore">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="1" selection-start-column="1" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -222,6 +210,7 @@
     <findStrings>
       <find>createreader</find>
       <find>devices</find>
+      <find>sendToSession</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -240,8 +229,8 @@
         <option value="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java" />
         <option value="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceWebsocketServerTest.java" />
-        <option value="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java" />
       </list>
     </option>
   </component>
@@ -281,7 +270,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1936" />
@@ -368,7 +357,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538329878664" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538425270543" />
     <property name="last_opened_file_path" value="D:/Program Files/Git/bin/git.exe" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -392,7 +381,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.DeviceSessionHandlerTest">
+  <component name="RunManager" selected="JUnit.DeviceSessionHandlerTest.sendToSessionExceptionTest">
     <configuration default="true" type="Applet" factoryName="Applet">
       <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
       <method v="2">
@@ -401,23 +390,6 @@
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="All Features in: hbe.example.websocketv1.websocket" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java" temporary="true" nameIsGenerated="true">
-      <option name="CUCUMBER_CORE_VERSION" value="3" />
-      <option name="FILE_PATH" value="$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket" />
-      <option name="MAIN_CLASS_NAME" value="cucumber.api.cli.Main" />
-      <module name="websocketv1" />
-      <option name="PROGRAM_PARAMETERS" value=" --plugin org.jetbrains.plugins.cucumber.java.run.CucumberJvm3SMFormatter" />
-      <option name="SUGGESTED_NAME" value="All Features in: hbe.example.websocketv1.websocket" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cucumber.api.cli.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -437,6 +409,57 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DeviceSessionHandlerTest.addDeviceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="websocketv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hbe.example.websocketv1.websocket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
+      <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceSessionHandlerTest" />
+      <option name="METHOD_NAME" value="addDeviceTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceSessionHandlerTest.getDevicesTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="websocketv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hbe.example.websocketv1.websocket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
+      <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceSessionHandlerTest" />
+      <option name="METHOD_NAME" value="getDevicesTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="websocketv1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="hbe.example.websocketv1.websocket.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
+      <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceSessionHandlerTest" />
+      <option name="METHOD_NAME" value="sendToSessionExceptionTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DeviceWebsocketServerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="websocketv1" />
       <extension name="coverage">
@@ -447,40 +470,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
       <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceWebsocketServerTest" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeviceWebsocketServerTest.handleMessageActionWithActions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="websocketv1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hbe.example.websocketv1.websocket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
-      <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceWebsocketServerTest" />
-      <option name="METHOD_NAME" value="handleMessageActionWithActions" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DeviceWebsocketServerTest.onErrorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="websocketv1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="hbe.example.websocketv1.websocket.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="hbe.example.websocketv1.websocket" />
-      <option name="MAIN_CLASS_NAME" value="hbe.example.websocketv1.websocket.DeviceWebsocketServerTest" />
-      <option name="METHOD_NAME" value="onErrorTest" />
-      <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -603,18 +592,18 @@
     <list>
       <item itemvalue="Tomcat Server.Tomcat7" />
       <item itemvalue="JUnit.DeviceSessionHandlerTest" />
-      <item itemvalue="Cucumber java.All Features in: hbe.example.websocketv1.websocket" />
       <item itemvalue="JUnit.DeviceWebsocketServerTest" />
-      <item itemvalue="JUnit.DeviceWebsocketServerTest.handleMessageActionWithActions" />
-      <item itemvalue="JUnit.DeviceWebsocketServerTest.onErrorTest" />
+      <item itemvalue="JUnit.DeviceSessionHandlerTest.sendToSessionExceptionTest" />
+      <item itemvalue="JUnit.DeviceSessionHandlerTest.getDevicesTest" />
+      <item itemvalue="JUnit.DeviceSessionHandlerTest.addDeviceTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DeviceSessionHandlerTest.sendToSessionExceptionTest" />
         <item itemvalue="JUnit.DeviceSessionHandlerTest" />
+        <item itemvalue="JUnit.DeviceSessionHandlerTest.addDeviceTest" />
+        <item itemvalue="JUnit.DeviceSessionHandlerTest.getDevicesTest" />
         <item itemvalue="JUnit.DeviceWebsocketServerTest" />
-        <item itemvalue="JUnit.DeviceWebsocketServerTest.onErrorTest" />
-        <item itemvalue="JUnit.DeviceWebsocketServerTest.handleMessageActionWithActions" />
-        <item itemvalue="Cucumber java.All Features in: hbe.example.websocketv1.websocket" />
       </list>
     </recent_temporary>
   </component>
@@ -628,47 +617,47 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1538163472581</updated>
-      <workItem from="1538163473725" duration="18397000" />
+      <workItem from="1538163473725" duration="24000000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="DeviceWebsocketServerTest_handleMessageActionWithActions - 2018.09.30 at 19h 44m 57s.xml">
-      <configuration name="DeviceWebsocketServerTest.handleMessageActionWithActions" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 46m 36s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest - 2018.09.30 at 19h 45m 05s.xml">
-      <configuration name="DeviceWebsocketServerTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 46m 40s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_handleMessageActionWithActions - 2018.09.30 at 19h 45m 44s.xml">
-      <configuration name="DeviceWebsocketServerTest.handleMessageActionWithActions" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 47m 49s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_handleMessageActionWithActions - 2018.09.30 at 19h 46m 09s.xml">
-      <configuration name="DeviceWebsocketServerTest.handleMessageActionWithActions" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 48m 01s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_onErrorTest - 2018.09.30 at 19h 47m 01s.xml">
-      <configuration name="DeviceWebsocketServerTest.onErrorTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 48m 07s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_onErrorTest - 2018.09.30 at 19h 47m 14s.xml">
-      <configuration name="DeviceWebsocketServerTest.onErrorTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 49m 03s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_onErrorTest - 2018.09.30 at 19h 47m 59s.xml">
-      <configuration name="DeviceWebsocketServerTest.onErrorTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 49m 18s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest_onErrorTest - 2018.09.30 at 19h 48m 14s.xml">
-      <configuration name="DeviceWebsocketServerTest.onErrorTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 49m 35s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceWebsocketServerTest - 2018.09.30 at 19h 48m 30s.xml">
-      <configuration name="DeviceWebsocketServerTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 50m 31s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="DeviceSessionHandlerTest - 2018.09.30 at 19h 48m 37s.xml">
-      <configuration name="DeviceSessionHandlerTest" configurationId="JUnit" />
+    <history-entry file="DeviceSessionHandlerTest_sendToSessionExceptionTest - 2018.10.01 at 21h 50m 49s.xml">
+      <configuration name="DeviceSessionHandlerTest.sendToSessionExceptionTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18397000" />
+    <option name="totallyTimeSpent" value="24000000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Designer" />
@@ -677,7 +666,7 @@
       <window_info id="Favorites" side_tool="true" />
       <window_info id="Capture Tool" />
       <window_info id="Web" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21750806" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.21750806" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Application Servers" weight="0.32960895" />
       <window_info anchor="bottom" id="Terminal" weight="0.32960895" />
@@ -688,8 +677,8 @@
       <window_info anchor="bottom" id="Messages" weight="0.32960895" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946293" visible="true" weight="0.4435754" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49946293" weight="0.3810056" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -701,7 +690,7 @@
       <window_info anchor="right" id="Maven Projects" weight="0.32975295" />
       <window_info anchor="right" id="Palette&#9;" />
       <window_info anchor="right" id="Theme Preview" />
-      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.21643394" />
+      <window_info anchor="right" id="Coverage" side_tool="true" visible="true" weight="0.19280344" />
       <window_info anchor="right" id="Bean Validation" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -713,6 +702,30 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java</url>
+          <line>110</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java</url>
+          <line>40</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java</url>
+          <line>24</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
     <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/json/Json.class">
@@ -770,26 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="45" selection-start-line="45" selection-end-line="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/runners/ParentRunner.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="125" selection-start-line="125" selection-end-line="125" />
-          <folding>
-            <element signature="e#1904#1905#0" expanded="true" />
-            <element signature="e#1956#1957#0" expanded="true" />
-            <element signature="e#5134#5282#0" expanded="true" />
-            <element signature="e#5281#5282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/internal/runners/statements/InvokeMethod.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
@@ -805,13 +798,6 @@
             <element signature="e#728#922#0" expanded="true" />
             <element signature="e#921#922#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -861,18 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-719">
-          <caret line="29" selection-start-line="29" selection-end-line="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1679#1680#0" expanded="true" />
-            <element signature="e#1758#1759#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceWebsocketServer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="893">
@@ -885,10 +859,52 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="57">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/runners/BlockJUnit4ClassRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/runners/ParentRunner.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="149">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/websocket/Session.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/javax/javaee-api/7.0/javaee-api-7.0.jar!/javax/websocket/RemoteEndpoint.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/junit/junit/4.11/junit-4.11.jar!/org/junit/internal/runners/model/ReflectiveCallable.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hbe/example/websocketv1/websocket/DeviceSessionHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-774">
-          <caret line="59" column="20" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+        <state relative-caret-position="269">
+          <caret line="114" selection-start-line="114" selection-end-line="114" />
           <folding>
             <element signature="e#526#527#0" expanded="true" />
             <element signature="e#566#567#0" expanded="true" />
@@ -898,10 +914,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
+    <entry file="file://$PROJECT_DIR$/src/test/java/hbe.example.websocketv1.websocket/DeviceSessionHandlerTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="1" selection-start-column="1" selection-end-column="1" />
+        <state relative-caret-position="255">
+          <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1679#1680#0" expanded="true" />
+            <element signature="e#1758#1759#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
