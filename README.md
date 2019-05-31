@@ -1,6 +1,6 @@
 <h2>Trafiklab API test</h2>
-**Instructions**
 
+**Instructions**
 
 _Installation_
 <ul>
@@ -31,15 +31,15 @@ _Installation_
     the stop names of that line.
     </li>
     <li>
-    There is also @Cacheable available for the backend function so we can cache the
-    list of the top ten list and the stop names of the line that has the most stops.
+    There is also Cache available for the backend functions so we can cache the
+    top ten list and the stop names of the line that has the most stops.
     </li>
 </ul>
 
 **Extra**
 
 <ul>
-<li>Those two functions (retrieve the top ten lines who has the most stops) and 
+<li>Those two functions (retrieve the top ten lines who have the most stops) and 
  (search the bus stop names by given line number) have available endpoints where
  you can make a request and get as JSON response</li>
  <li>/getMostStops</li>
