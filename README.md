@@ -4,6 +4,7 @@
 
 _Installation_
 <ul>
+    <li>Install maven and edit the PATH and MAVEN_HOME</li>
     <li>Run: `mvn install && mvn spring-boot:run`</li>
     <li>Browse localhost:7777/h2-console</li>
     <li>Make sure you choose Generic H2 (Embedded) in both Saved Settings and Setting Name</li>

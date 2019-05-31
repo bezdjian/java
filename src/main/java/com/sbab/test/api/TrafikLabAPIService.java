@@ -28,7 +28,7 @@ public class TrafikLabAPIService {
     @Autowired
     private StopPointRepository stopPointRepository;
 
-    //Injection of @Value on field works after construction, having it inside construction parameter works in @Service
+    //Injection of @Value on field works after construction, having it inside construction parameter works in this service
     private String key;
     private String url;
 
@@ -41,6 +41,10 @@ public class TrafikLabAPIService {
         this.url = url;
     }
 
+    /**
+     * Method to call Journey pattern points from TrafikLab's API and save into DB
+     * @throws Exception when there is nothing to save.
+     */
     public void saveJourneyPointNumbers() throws Exception {
         String fullUrl = url + "model=jour&key=" + key;
         logger.info("***** Calling " + fullUrl + " to get journeyPoints");
@@ -53,6 +57,10 @@ public class TrafikLabAPIService {
         }
     }
 
+    /**
+     * Method to call Stop points from TrafikLab's API and save into DB
+     * @throws Exception when there is nothing to save.
+     */
     public void saveStopPoints() throws Exception {
         String fullUrl = url + "model=stop&key=" + key;
         logger.info("***** Calling " + fullUrl + " to get stopPoints");
@@ -66,12 +74,20 @@ public class TrafikLabAPIService {
         }
     }
 
+    /**
+     * Private method to save in JourneyPointEntity
+     * @param responseData {@code JourneyResponseData}
+     */
     private void saveJourneyPoints(JourneyResponseData responseData) {
         responseData.getResult()
                 .forEach(e -> journeyPointRepository.save(new JourneyPointEntity(e)));
         logger.info("***** JourneyPoints are saved!");
     }
 
+    /**
+     * Private method to save in StopPointEntity
+     * @param responseData {@code StopPointResponseData}
+     */
     private void saveStopPoints(StopPointResponseData responseData) {
         responseData.getResult()
                 .forEach(r -> stopPointRepository.save(new StopPointEntity(r)));

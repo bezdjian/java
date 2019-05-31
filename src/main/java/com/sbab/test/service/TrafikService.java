@@ -19,21 +19,39 @@ import java.util.*;
 public class TrafikService {
 
     private static final Logger logger = LoggerFactory.getLogger(TrafikService.class);
+
     private final JourneyPointRepository journeyPointRepository;
     private final TrafikLabAPIService service;
 
     public TrafikService(JourneyPointRepository journeyPointRepository, TrafikLabAPIService service) throws Exception {
         this.journeyPointRepository = journeyPointRepository;
         this.service = service;
+
+        logger.info("***** Initializing TrafikService and saving stop points *****");
         saveAllPoints();
+        //TODO: If we invoke findLineWithMostStops() so it will find and loop but it will not cache
+        //and if we call the functions via endpoint so it will loop all over again
+        //We might save the result of the findLineWithMostStops() into another table in the DB and the endpoint
+        //can get it results from DB..
     }
 
+    /**
+     * Private method to call during construction that saves the data from TrafikLab's API.
+     *
+     * @throws Exception when nothing to save.
+     */
     private void saveAllPoints() throws Exception {
         service.saveJourneyPointNumbers();
         service.saveStopPoints();
     }
 
-    //We do not want this to be invoked every time we refresh the page, so cache it!.
+    /**
+     * Method that finds all the stops by given bus line number
+     * We do not want this to be invoked every time we refresh the page, so we cache it.
+     *
+     * @param lineNumber {@code Integer}
+     * @return {@code List} of {@code BussStopPointsDTO}
+     */
     @Cacheable
     public List<BussStopPointsDTO> findStopsByLineNumber(int lineNumber) {
         //Here we can for example do some logic before invoking repository methods.
@@ -42,7 +60,12 @@ public class TrafikService {
         return dtos;
     }
 
-    //We do not want this to be invoked every time we refresh the page, so cache it!.
+    /**
+     * Method that finds bus lines that have the most stops.
+     * We do not want this to be invoked every time we refresh the page, so we cache it.
+     *
+     * @return {@code Map} of String and Object
+     */
     @Cacheable
     public Map<String, Object> findLineWithMostStops() {
         Map<String, Object> topTenAndStopNames = new HashMap<>();
@@ -71,6 +94,12 @@ public class TrafikService {
 
     }
 
+    /**
+     * Private method that sorts and retrieves the top then lines that have the most stops
+     *
+     * @param map {@code Map}
+     * @return {@code List} of Entries
+     */
     private List<Map.Entry<Integer, Integer>> getTopTenMostStops(HashMap<Integer, Integer> map) {
         Set<Map.Entry<Integer, Integer>> set = map.entrySet();
         List<Map.Entry<Integer, Integer>> list = new ArrayList<>(set);
@@ -82,6 +111,11 @@ public class TrafikService {
             return list;
     }
 
+    /**
+     * Private method that queries JourneyPoints and returns IDs.
+     *
+     * @return {@code List} of JourneyPoint IDs.
+     */
     private List<Integer> getAllLineNumbers() {
         return journeyPointRepository.getAllLineNumbers();
     }

@@ -27,6 +27,9 @@ $(document).ready(function () {
                             top_ten_results.append(li);
                         }
                         if (mainKey === "stopNames") {
+                            if (k === "lineNumber") {
+                                $("#linenumber").text("Line " + v + " stop names");
+                            }
                             if (k === "stopName") {
                                 var p1 = document.createElement("p");
                                 p1.innerText = ++innerKey + ": " + v;
@@ -54,7 +57,7 @@ $(document).ready(function () {
             viewError("There was an empty line number");
             return;
         }
-        if(isNaN(search)){
+        if (isNaN(search)) {
             viewError("The value should be a valid number");
             return;
         }
@@ -70,7 +73,7 @@ $(document).ready(function () {
                 stopNamesUL.innerHTML = "";
             },
             success: function (response) {
-                if(response.length === 0){
+                if (response.length === 0) {
                     viewError("There is no bus line with number " + search);
                 }
                 $.each(response, function (mainKey, mainValue) {
