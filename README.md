@@ -4,6 +4,8 @@
 
 _Installation_
 <ul>
+    <li>Clone or download the project</li>
+    <li>Cd into project root where there is pom.xml file</li>
     <li>Install maven and edit the PATH and MAVEN_HOME</li>
     <li>Run: `mvn install && mvn spring-boot:run`</li>
     <li>Browse localhost:7777/h2-console</li>
