@@ -1,0 +1,32 @@
+h3{
+    line-height: 1.35;
+}
+
+.ui-dialog-titlebar-close{
+    display: none;
+}
+.ui-dialog, .ui-dialog-buttonpane{
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #ebccd1;
+}
+.ui-button, .ui-button:focus, .ui-dialog-titlebar{
+    color: #f2dede;
+    background-color: #a94442;
+    border-color: #ebccd1;
+}
+#errorMessage{
+    color: #a94442;
+}
+
+#cover {
+    background: url("../images/loading.gif") no-repeat scroll center center #efefef;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-size: 10%;
+    z-index: 999;
+}
+.col-sm-12{
+    margin: 1em 0;
+}

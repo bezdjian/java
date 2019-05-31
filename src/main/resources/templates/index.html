@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Buss linjer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+    <meta content="width=device-width, initial-scale=0" name="viewport"/>
+
+    <link media="screen" rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+    <link media="screen" rel="stylesheet" th:href="@{/css/jquery-ui.css}"/>
+    <link media="screen" rel="stylesheet" th:href="@{/css/index.css}"/>
+</head>
+<body>
+
+<div class="container-fluid p-3">
+    <div id="cover" style="display: none;"></div>
+    <div class="row content">
+
+        <div class="col-sm-4 text-left" id="left-pane">
+            <h4>Top 10 lines have most bus stops</h4>
+            <hr>
+            <div id="top-ten">
+                <ul id="top-ten-results" class="list-group"></ul>
+            </div>
+        </div>
+
+        <div class="col-sm-4 text-left">
+            <h4>Stop names of the line who has the most stops</h4>
+            <hr>
+            <div id="top-ten-stopnames">
+                <ul id="top-ten-stopNamesUL" class="list-group"></ul>
+            </div>
+        </div>
+
+        <div class="col-sm-4 text-left">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" id="searchField" placeholder="Search stops by line number">
+                <div class="input-group-append">
+                    <button class="btn btn-primary" type="button" id="search-btn">Go</button>
+                </div>
+                <div style="display: none;" id="errorMessageDialog" class="alert alert-danger">
+                    <p id="errorMessage"></p>
+                </div>
+            </div>
+            <div id="search-results">
+                <ul id="stopNamesUL" class="list-group"></ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script th:src="@{/js/jquery.js}"></script>
+<script th:src="@{/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/jquery-ui.js}"></script>
+<script th:src="@{/js/index.js}"></script>
+</html>
