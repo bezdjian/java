@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.sbab</groupId>
-	<artifactId>test</artifactId>
+	<artifactId>trafiklab</artifactId>
 	<version>0.0.1</version>
-	<name>test</name>
-	<description>Demo project for Spring Boot</description>
+	<name>trafiklab</name>
+	<description>Demo project for SBAB's trafiklab</description>
     <packaging>war</packaging>
 
 	<properties>
