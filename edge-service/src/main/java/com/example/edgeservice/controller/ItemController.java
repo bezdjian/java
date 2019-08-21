@@ -22,19 +22,13 @@ public class ItemController {
     }
 
     @GetMapping("/top-brands")
-    //@HystrixCommand(fallbackMethod = "fallback")
+    @HystrixCommand(fallbackMethod = "fallback")
     public Collection<ItemDTO> topItems(){
         return itemClient.readItems()
-                .getContent()
-                .stream()
-                .filter(this::isGreat)
-                .collect(Collectors.toList());
-    }
-
-    private boolean isGreat(ItemDTO item) {
-        return !item.getName().equals("Nike") &&
-                !item.getName().equals("Adidas") &&
-                !item.getName().equals("Reebok");
+                .getContent();
+                //.stream()
+                //.filter(this::isGreat)
+                //.collect(Collectors.toList());
     }
 
     public Collection<ItemDTO> fallback(){
