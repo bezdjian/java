@@ -2,16 +2,33 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e008d241-e786-4003-ba91-6f23ce7894ea" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/microservices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/microservices.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ProductDTO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/edge-service/src/test/java/com/example/edgeservice/controller/ItemControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/entity/Product.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/repository/ProductRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/client/ItemClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/client/ItemClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/component/ItemInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/component/ItemInitializer.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="microservices" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -24,23 +41,43 @@
     </option>
   </component>
   <component name="ProjectId" id="1PiuluT4pVmdfeW7ZfVDoO8OmlI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.example.edgeservice.controller" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.edgeservice.dto" />
+      <recent name="com.example.itemcatalog.repository" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
     <option name="ruleStates">
       <list>
         <RuleState>
@@ -52,7 +89,31 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.ItemControllerTest">
+    <configuration name="ItemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="edge-service" />
+      <extension name="coverage" runner="jacoco">
+        <pattern>
+          <option name="PATTERN" value="com.example.edgeservice.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.edgeservice.controller" />
+      <option name="MAIN_CLASS_NAME" value="com.example.edgeservice.controller.ItemControllerTest" />
+      <option name="METHOD_NAME" value="" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EdgeServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="edge-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.edgeservice.EdgeServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="ItemcatalogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="itemcatalog" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.itemcatalog.ItemcatalogApplication" />
@@ -60,6 +121,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <list>
+      <item itemvalue="JUnit.ItemControllerTest" />
+      <item itemvalue="Spring Boot.EdgeServiceApplication" />
+      <item itemvalue="Spring Boot.ItemcatalogApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ItemControllerTest" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5d2f1553" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+            <path>
+              <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5d2f1553" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b4803081" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+            </path>
+          </expand>
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -73,7 +164,10 @@
       <updated>1566369392727</updated>
       <workItem from="1566369395502" duration="3293000" />
       <workItem from="1566383736881" duration="1048000" />
-      <workItem from="1566384895641" duration="164000" />
+      <workItem from="1566384895641" duration="3545000" />
+      <workItem from="1566394978535" duration="434000" />
+      <workItem from="1566395465184" duration="159000" />
+      <workItem from="1566395636110" duration="1277000" />
     </task>
     <servers />
   </component>
@@ -92,5 +186,10 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/microservices$ItemControllerTest.ic" NAME="ItemControllerTest Coverage Results" MODIFIED="1566393962246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.example.edgeservice.controller.*</FILTER>
+    </SUITE>
   </component>
 </project>

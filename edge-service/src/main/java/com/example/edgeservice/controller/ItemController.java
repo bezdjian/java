@@ -2,6 +2,7 @@ package com.example.edgeservice.controller;
 
 import com.example.edgeservice.client.ItemClient;
 import com.example.edgeservice.dto.ItemDTO;
+import com.example.edgeservice.dto.ProductDTO;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.ribbon.proxy.annotation.Hystrix;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,7 +23,7 @@ public class ItemController {
     }
 
     @GetMapping("/top-brands")
-    @HystrixCommand(fallbackMethod = "fallback")
+    @HystrixCommand(fallbackMethod = "fallbackItemDTO")
     public Collection<ItemDTO> topItems(){
         return itemClient.readItems()
                 .getContent();
@@ -31,7 +32,17 @@ public class ItemController {
                 //.collect(Collectors.toList());
     }
 
-    public Collection<ItemDTO> fallback(){
+    @GetMapping("/top-products")
+    @HystrixCommand(fallbackMethod = "fallbackProductDTO")
+    public Collection<ProductDTO> topProducts(){
+        return itemClient.readProducts()
+                .getContent();
+    }
+
+    public Collection<ItemDTO> fallbackItemDTO(){
+        return new ArrayList<>();
+    }
+    public Collection<ProductDTO> fallbackProductDTO(){
         return new ArrayList<>();
     }
 }
