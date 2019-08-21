@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e008d241-e786-4003-ba91-6f23ce7894ea" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/microservices.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/microservices.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/repository/ItemRepository.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,7 +72,8 @@
       <option name="presentableId" value="Default" />
       <updated>1566369392727</updated>
       <workItem from="1566369395502" duration="3293000" />
-      <workItem from="1566383736881" duration="530000" />
+      <workItem from="1566383736881" duration="1048000" />
+      <workItem from="1566384895641" duration="164000" />
     </task>
     <servers />
   </component>
