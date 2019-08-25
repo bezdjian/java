@@ -4,7 +4,7 @@ import java.net.UnknownHostException;
 
 public class MongoDB {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         try {
             MongoClient mongoClient = new MongoClient(new MongoClientURI("mongodb://localhost:27017"));
             DB database = mongoClient.getDB("mongodb");
@@ -21,8 +21,8 @@ public class MongoDB {
                     .append("name", "Harout Bezdjian")
                     .append("job", "Developer")
                     .append("address", new BasicDBObject("street", "Terapivägen")
-                                            .append("town", "Huddinge")
-                                            .append("phone", "7979879"));
+                            .append("town", "Huddinge")
+                            .append("phone", "7979879"));
             //collection.insert(person);
 
             //Insert as Person object
@@ -58,7 +58,7 @@ public class MongoDB {
             //Query list
             DBCursor all = collection.find();
             System.out.println("\n\nALL Size: " + all.size());
-            for(DBObject res : all){
+            for (DBObject res : all) {
                 System.out.println("Loop-RES: " + res.toString());
             }
 
