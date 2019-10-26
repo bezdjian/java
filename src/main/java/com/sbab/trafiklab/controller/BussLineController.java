@@ -2,6 +2,7 @@ package com.sbab.trafiklab.controller;
 
 import com.sbab.trafiklab.dto.BussStopPointsDTO;
 import com.sbab.trafiklab.service.TrafikService;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,22 +17,24 @@ import java.util.Map;
 
 @RestController
 @RequestMapping(value = "/", produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+@Slf4j
 public class BussLineController {
 
-    private final static Logger logger = LoggerFactory.getLogger(BussLineController.class);
+    private final TrafikService service;
 
-    @Autowired
-    private TrafikService service;
+    public BussLineController(TrafikService service) {
+        this.service = service;
+    }
 
     @GetMapping(value = "/getStops/{lineNumber}")
     public List<BussStopPointsDTO> findStopsByLineNumber(@PathVariable(name = "lineNumber") int lineNumber) {
-        logger.info("***** Gathering stop names for buss line {} *****", lineNumber);
+        log.info("***** Gathering stop names for buss line {} *****", lineNumber);
         return service.findStopsByLineNumber(lineNumber);
     }
 
     @GetMapping("/getMostStops")
     public Map<String, Object> findLineWithMostStops(){
-        logger.info("***** Finding bus lines with the most stops *****");
+        log.info("***** Finding bus lines with the most stops *****");
         return service.findLineWithMostStops();
     }
 }

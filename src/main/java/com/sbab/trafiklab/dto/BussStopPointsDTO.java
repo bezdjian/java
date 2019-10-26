@@ -2,7 +2,11 @@ package com.sbab.trafiklab.dto;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class BussStopPointsDTO {
 
     private int lineNumber;
@@ -10,22 +14,6 @@ public class BussStopPointsDTO {
 
     public BussStopPointsDTO(int lineNumber, String stopName) {
         this.lineNumber = lineNumber;
-        this.stopName = stopName;
-    }
-
-    public int getLineNumber() {
-        return lineNumber;
-    }
-
-    public void setLineNumber(int lineNumber) {
-        this.lineNumber = lineNumber;
-    }
-
-    public String getStopName() {
-        return stopName;
-    }
-
-    public void setStopName(String stopName) {
         this.stopName = stopName;
     }
 
