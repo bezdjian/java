@@ -14,7 +14,6 @@ public class BussLinesApplication {
 		SpringApplication.run(BussLinesApplication.class, args);
 	}
 
-
     @Bean
     public RestTemplate restTemplate() {
         // Do any additional configuration here

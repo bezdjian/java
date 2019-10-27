@@ -15,7 +15,7 @@ public class VersionService {
     this.version = version;
   }
 
-  public String version() {
+  public String getVersion() {
     log.info("***** Getting version: " + version);
     return this.version;
   }

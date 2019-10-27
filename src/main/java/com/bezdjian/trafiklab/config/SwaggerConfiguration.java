@@ -37,7 +37,7 @@ public class SwaggerConfiguration {
     return new ApiInfo(
         "Trafik lab",
         "Spring boot microservice for Trafiklab",
-        version.version(),
+        version.getVersion(),
         "TERMS OF SERVICE URL",
         new Contact("Harout Bezdjian", "https://linkedin.se", "bezdjian@consulting.se"),
         "LICENSE",

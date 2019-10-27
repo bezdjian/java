@@ -19,7 +19,7 @@ import static org.mockito.Mockito.*;
 import static org.mockito.MockitoAnnotations.initMocks;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TrafikLabAPIServiceTest extends BaseTest {
+public class TrafikLabAPIClientTest extends BaseTest {
 
   @InjectMocks
   private TrafikLabAPIClient apiClient;
