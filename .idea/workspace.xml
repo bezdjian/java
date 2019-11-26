@@ -2,16 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e008d241-e786-4003-ba91-6f23ce7894ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ProductDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/edge-service/src/test/java/com/example/edgeservice/controller/ItemControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/entity/Product.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/repository/ProductRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itemcatalog-client/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/controller/ItemController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/resources/application.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/itemcatalog-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edge-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/client/ItemClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/client/ItemClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/component/ItemInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/component/ItemInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/EdgeServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/ItemCatalogClientApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/client/ItemClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/client/ItemClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/controller/ItemController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/dto/ItemDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/java/com/example/edgeservice/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/dto/ProductDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/resources/eureka-client.properties" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/resources/eureka-client.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/resources/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/test/java/com/example/edgeservice/EdgeServiceApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/test/java/com/example/edgeservice/EdgeServiceApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/edge-service/src/test/java/com/example/edgeservice/controller/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/test/java/com/example/edgeservice/controller/ItemControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eurekaserver/src/main/java/com/example/eurekaserver/EurekaserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/main/java/com/example/eurekaserver/EurekaserverApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/ItemcatalogApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/ItemCatalogServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/component/ItemInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/component/ItemInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/repository/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/java/com/example/itemcatalog/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/main/resources/eureka-client.properties" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-client/src/main/resources/eureka-client.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/itemcatalog/src/test/java/com/example/itemcatalog/ItemcatalogApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/itemcatalog-service/src/test/java/com/example/itemcatalogservice/ItemCatalogServiceApplicationTest.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -46,6 +70,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -55,7 +83,7 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -89,9 +117,9 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.ItemControllerTest">
+  <component name="RunManager" selected="Spring Boot.ItemCatalogClientApplication">
     <configuration name="ItemControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="edge-service" />
+      <module name="itemcatalog-client" />
       <extension name="coverage" runner="jacoco">
         <pattern>
           <option name="PATTERN" value="com.example.edgeservice.controller.*" />
@@ -107,27 +135,67 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EdgeServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="edge-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.edgeservice.EdgeServiceApplication" />
+    <configuration name="EurekaserverApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="eurekaserver" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.eurekaserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.eurekaserver.EurekaserverApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemcatalogApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="itemcatalog" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.itemcatalog.ItemcatalogApplication" />
+    <configuration name="ItemCatalogClientApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="itemcatalog-client" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.edgeservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.edgeservice.ItemCatalogClientApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ItemCatalogServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="itemcatalog-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.itemcatalogservice.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.itemcatalogservice.ItemCatalogServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="JUnit.ItemControllerTest" />
-      <item itemvalue="Spring Boot.EdgeServiceApplication" />
-      <item itemvalue="Spring Boot.ItemcatalogApplication" />
+      <item itemvalue="Spring Boot.EurekaserverApplication" />
+      <item itemvalue="Spring Boot.ItemCatalogServiceApplication" />
+      <item itemvalue="Spring Boot.ItemCatalogClientApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.ItemCatalogClientApplication" />
+        <item itemvalue="Spring Boot.ItemCatalogServiceApplication" />
+        <item itemvalue="Spring Boot.EurekaserverApplication" />
         <item itemvalue="JUnit.ItemControllerTest" />
       </list>
     </recent_temporary>
@@ -139,12 +207,12 @@
           <expand>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5d2f1553" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d1dee3bf" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
             <path>
               <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@5d2f1553" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@b4803081" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@d1dee3bf" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              <item name="com.intellij.execution.services.ServiceModel$ServiceGroupNode@8e279f73" type="7427dc5b:ServiceModel$ServiceGroupNode" />
             </path>
           </expand>
           <select />
@@ -167,7 +235,9 @@
       <workItem from="1566384895641" duration="3545000" />
       <workItem from="1566394978535" duration="434000" />
       <workItem from="1566395465184" duration="159000" />
-      <workItem from="1566395636110" duration="1277000" />
+      <workItem from="1566395636110" duration="1584000" />
+      <workItem from="1567679473152" duration="4450000" />
+      <workItem from="1574780174622" duration="2421000" />
     </task>
     <servers />
   </component>

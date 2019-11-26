@@ -14,4 +14,4 @@ This branch is for learning how microservices work with Eureka Server & Client.
     
     and http://localhost:8088/items (To see the items from 'itemcatalog' service
     
-    and http://localhost:8089/top-brands (To see results from edge-service)
+    and http://localhost:8089/top-brands (To see results from itemcatalog client)
