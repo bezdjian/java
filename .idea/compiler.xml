@@ -7,14 +7,16 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="eurekaserver" />
-        <module name="itemcatalog-service" />
-        <module name="itemcatalog-client" />
+        <module name="itemcatalogservice" />
+        <module name="itemcatalogclient" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="eurekaserver" target="1.8" />
       <module name="itemcatalog-client" target="1.8" />
       <module name="itemcatalog-service" target="1.8" />
+      <module name="itemcatalogclient" target="1.8" />
+      <module name="itemcatalogservice" target="1.8" />
       <module name="microservices" target="1.8" />
     </bytecodeTargetLevel>
   </component>
@@ -23,6 +25,8 @@
       <module name="eurekaserver" options="-parameters" />
       <module name="itemcatalog-client" options="-parameters" />
       <module name="itemcatalog-service" options="-parameters" />
+      <module name="itemcatalogclient" options="-parameters" />
+      <module name="itemcatalogservice" options="-parameters" />
       <module name="microservices" options="-parameters" />
     </option>
   </component>

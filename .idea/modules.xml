@@ -3,8 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/eurekaserver/eurekaserver.iml" filepath="$PROJECT_DIR$/eurekaserver/eurekaserver.iml" />
-      <module fileurl="file://$PROJECT_DIR$/itemcatalog-client/itemcatalog-client.iml" filepath="$PROJECT_DIR$/itemcatalog-client/itemcatalog-client.iml" />
-      <module fileurl="file://$PROJECT_DIR$/itemcatalog-service/itemcatalog-service.iml" filepath="$PROJECT_DIR$/itemcatalog-service/itemcatalog-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itemcatalog-client/itemcatalogclient.iml" filepath="$PROJECT_DIR$/itemcatalog-client/itemcatalogclient.iml" />
+      <module fileurl="file://$PROJECT_DIR$/itemcatalog-service/itemcatalogservice.iml" filepath="$PROJECT_DIR$/itemcatalog-service/itemcatalogservice.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/microservices.iml" filepath="$PROJECT_DIR$/.idea/microservices.iml" />
     </modules>
   </component>

@@ -10,6 +10,8 @@
         <option value="$PROJECT_DIR$/edge-service/pom.xml" />
         <option value="$PROJECT_DIR$/eurekaserver/pom.xml" />
         <option value="$PROJECT_DIR$/itemcatalog/pom.xml" />
+        <option value="$PROJECT_DIR$/itemcatalog-client/pom.xml" />
+        <option value="$PROJECT_DIR$/itemcatalog-service/pom.xml" />
       </list>
     </option>
   </component>
