@@ -3,6 +3,7 @@ package com.example.edgeservice.controller;
 import com.example.edgeservice.client.ItemClient;
 import com.example.edgeservice.dto.ItemDTO;
 import com.example.edgeservice.dto.ProductDTO;
+import lombok.extern.slf4j.Slf4j;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -23,6 +24,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @WebMvcTest
+@Slf4j
 public class ItemControllerTest {
 
     @InjectMocks
@@ -47,7 +49,7 @@ public class ItemControllerTest {
         MockHttpServletResponse response = mockMvc.perform(get("/top-brands"))
                 .andReturn().getResponse();
 
-        System.out.println("topItems: " + response.getContentAsString());
+        log.info("topItems: " + response.getContentAsString());
 
         //Verify
         verify(itemClient, times(1)).readItems();
@@ -61,7 +63,7 @@ public class ItemControllerTest {
         MockHttpServletResponse response = mockMvc.perform(get("/top-products"))
                 .andReturn().getResponse();
 
-        System.out.println("topProducts: " + response.getContentAsString());
+        log.info("topProducts: " + response.getContentAsString());
 
         //Verify
         verify(itemClient, times(1)).readProducts();
@@ -76,7 +78,7 @@ public class ItemControllerTest {
                 .andExpect(status().isNotFound())
                 .andReturn().getResponse();
         //Verify
-        System.out.println("topProducts_fallback: " + response.getContentAsString());
+        log.info("topProducts_fallback: " + response.getContentAsString());
         verify(itemClient, times(0)).readProducts();
     }
 

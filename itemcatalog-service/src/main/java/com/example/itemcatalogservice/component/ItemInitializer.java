@@ -4,12 +4,14 @@ import com.example.itemcatalogservice.entity.Item;
 import com.example.itemcatalogservice.entity.Product;
 import com.example.itemcatalogservice.repository.ItemRepository;
 import com.example.itemcatalogservice.repository.ProductRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.util.stream.Stream;
 
 @Component
+@Slf4j
 public class ItemInitializer implements CommandLineRunner {
 
     private final ItemRepository itemRepository;
@@ -31,13 +33,13 @@ public class ItemInitializer implements CommandLineRunner {
                 .forEach(product -> productRepository.save(new Product(product)));
 
         //Find all Items
-        System.out.println("***** Displaying items:");
+        log.info("***** Displaying items:");
         itemRepository.findAll().forEach(System.out::println);
-        System.out.println("***** EO: Displaying items:");
+        log.info("***** EO: Displaying items:");
 
         // Find all Products
-        System.out.println("***** Displaying products");
+        log.info("***** Displaying products");
         productRepository.findAll().forEach(System.out::println);
-        System.out.println("***** EO: Displaying products");
+        log.info("***** EO: Displaying products");
     }
 }
