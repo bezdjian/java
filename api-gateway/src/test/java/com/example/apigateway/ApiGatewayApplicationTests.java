@@ -1,9 +1,9 @@
-package com.example.eurekaserver;
+package com.example.apigateway;
 
 import org.junit.Ignore;
 import org.junit.Test;
 
-public class EurekaserverApplicationTests {
+public class ApiGatewayApplicationTests {
 
   @Ignore
   @Test

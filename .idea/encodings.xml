@@ -2,11 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/api-gateway/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eurekaserver" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/eurekaserver/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/itemcatalog-client" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/itemcatalog-client/src/main/java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/itemcatalog-service" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/itemcatalog-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/item-service" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/item-service/src/main/java" charset="UTF-8" />
   </component>
 </project>

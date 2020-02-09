@@ -11,11 +11,11 @@ target/
 
 ### IntelliJ IDEA ###
 .idea
-.idea/
+*.idea/
+*/.idea/
 *.iws
 *.iml
 *.ipr
 
 ### VS Code ###
 .vscode/
-itemcatalog-client/src/main/resources/static/
