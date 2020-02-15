@@ -1,6 +1,8 @@
 package com.example.apigateway.controller;
 
+import com.example.apigateway.client.CourseServiceClient;
 import com.example.apigateway.client.ItemServiceClient;
+import com.example.apigateway.dto.CourseDTO;
 import com.example.apigateway.dto.ItemDTO;
 import com.example.apigateway.dto.ProductDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +17,12 @@ import java.util.Collection;
 public class ItemController {
 
   private final ItemServiceClient itemClient;
+  private final CourseServiceClient courseClient;
 
   @Autowired
-  public ItemController(ItemServiceClient itemClient) {
+  public ItemController(ItemServiceClient itemClient, CourseServiceClient courseClient) {
     this.itemClient = itemClient;
+    this.courseClient = courseClient;
   }
 
   @GetMapping("/top-brands")
@@ -42,6 +46,17 @@ public class ItemController {
     try {
       Collection<ProductDTO> products = itemClient.readProducts().getContent();
       return new ResponseEntity<>(products, HttpStatus.OK);
+    } catch (Exception e) {
+      return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+  }
+
+  @GetMapping("/top-courses")
+  //@HystrixCommand(fallbackMethod = "fallbackProductDTO")
+  public ResponseEntity<Object> topCourses() {
+    try {
+      Collection<CourseDTO> courses = courseClient.readCourses().getContent();
+      return new ResponseEntity<>(courses, HttpStatus.OK);
     } catch (Exception e) {
       return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
     }

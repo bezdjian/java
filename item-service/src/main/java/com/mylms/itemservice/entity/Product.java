@@ -1,4 +1,4 @@
-package com.example.itemservice.entity;
+package com.mylms.itemservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,6 +1,6 @@
-package com.example.itemservice.repository;
+package com.mylms.itemservice.repository;
 
-import com.example.itemservice.entity.Item;
+import com.mylms.itemservice.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

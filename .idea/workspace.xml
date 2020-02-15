@@ -2,71 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e008d241-e786-4003-ba91-6f23ce7894ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/eureka-client.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/apigateway/ApiGatewayApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/item-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/item-service/src/main/resources/eureka-client.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/item-service/src/test/java/com/example/itemservice/ItemServiceApplicationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/client/CourseServiceClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/dto/CourseDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_core_jackson_databind_2_9_9.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_micrometer_micrometer_core_1_1_5.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_4_11.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_core_9_0_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_el_9_0_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_tomcat_embed_tomcat_embed_websocket_9_0_22.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_freemarker_freemarker_2_3_28.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_logging_jboss_logging_3_3_2_Final.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_jul_to_slf4j_1_7_26.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_26.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_actuator_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_actuator_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_aop_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_freemarker_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_logging_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_test_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_tomcat_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_2_1_7_RELEASE.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_test_autoconfigure_2_1_7_RELEASE.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/controller/ItemController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eurekaserver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaserver/src/main/java/com/example/eurekaserver/EurekaserverApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/main/java/com/example/eurekaserver/EurekaServerApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eurekaserver/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eurekaserver/src/test/java/com/example/eurekaserver/EurekaserverApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/eurekaserver/src/test/java/com/example/eurekaserver/EurekaserverApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/ItemCatalogClientApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/ApiGatewayApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/client/ItemClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/client/ItemServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/controller/ItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/dto/ItemDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/dto/ItemDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/java/com/example/edgeservice/dto/ProductDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/dto/ProductDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/resources/eureka-client.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/main/resources/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/resources/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/test/java/com/example/edgeservice/EdgeServiceApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-client/src/test/java/com/example/edgeservice/controller/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/apigateway/controller/ItemControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/ItemCatalogServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/ItemServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/component/ItemInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/component/ItemInitializer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/entity/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/entity/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/repository/ItemRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/java/com/example/itemcatalogservice/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/repository/ProductRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/main/resources/eureka-client.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/itemcatalog-service/src/test/java/com/example/itemcatalogservice/ItemCatalogServiceApplicationTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/ItemServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/mylms/itemservice/ItemServiceApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/component/ItemInitializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/mylms/itemservice/component/ItemInitializer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/entity/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/mylms/itemservice/entity/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/entity/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/mylms/itemservice/entity/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/repository/ItemRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/mylms/itemservice/repository/ItemRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/java/com/example/itemservice/repository/ProductRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/java/com/mylms/itemservice/repository/ProductRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/item-service/src/test/java/com/example/itemservice/ItemServiceApplicationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/test/java/com/mylms/courseservice/ItemServiceApplicationTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,12 +90,14 @@
     <key name="CreateTestDialog.RecentsKey">
       <recent name="com.example.edgeservice.controller" />
     </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.example.apigateway.dto" />
+      <recent name="com.example.apigateway.client" />
       <recent name="com.example.edgeservice.dto" />
       <recent name="com.example.itemcatalog.repository" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -214,11 +173,11 @@
       <module name="item-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.itemservice.*" />
+          <option name="PATTERN" value="com.example.courseservice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.itemservice.ItemServiceApplication" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.courseservice.ItemServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -287,7 +246,8 @@
       <workItem from="1581179763421" duration="99000" />
       <workItem from="1581180052903" duration="7109000" />
       <workItem from="1581259218243" duration="413000" />
-      <workItem from="1581259656906" duration="3078000" />
+      <workItem from="1581259656906" duration="5744000" />
+      <workItem from="1581774650904" duration="3592000" />
     </task>
     <servers />
   </component>
@@ -333,6 +293,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1581776110582">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581776110582" />
     <state x="640" y="245" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1581179860903">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -345,54 +309,54 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581258581712" />
-    <state width="1418" height="274" key="GridCell.Tab.0.bottom" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.0.bottom" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.0.center" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.0.center" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.0.left" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.0.left" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.0.right" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474267" />
+    <state width="1418" height="274" key="GridCell.Tab.0.right" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.1.bottom" timestamp="1581262396534">
+    <state width="1418" height="274" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.1.bottom" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396534" />
-    <state width="1418" height="274" key="GridCell.Tab.1.center" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.1.center" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.1.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.1.left" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.1.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.1.left" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.1.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.1.right" timestamp="1581262396533">
+    <state width="1418" height="274" key="GridCell.Tab.1.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.1.right" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.1.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396533" />
-    <state width="1418" height="274" key="GridCell.Tab.2.bottom" timestamp="1581262396534">
+    <state width="1418" height="274" key="GridCell.Tab.1.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.2.bottom" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396534" />
-    <state width="1418" height="274" key="GridCell.Tab.2.center" timestamp="1581262396534">
+    <state width="1418" height="274" key="GridCell.Tab.2.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.2.center" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.2.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396534" />
-    <state width="1418" height="274" key="GridCell.Tab.2.left" timestamp="1581262396534">
+    <state width="1418" height="274" key="GridCell.Tab.2.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.2.left" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.2.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396534" />
-    <state width="1418" height="274" key="GridCell.Tab.2.right" timestamp="1581262396534">
+    <state width="1418" height="274" key="GridCell.Tab.2.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
+    <state width="1418" height="274" key="GridCell.Tab.2.right" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="274" key="GridCell.Tab.2.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581262396534" />
+    <state width="1418" height="274" key="GridCell.Tab.2.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581267474268" />
     <state x="440" y="95" key="SettingsEditor" timestamp="1581259913742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -413,17 +377,6 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="532" y="237" key="run.anything.popup/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581180845971" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/controller/ItemController.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/microservices$ItemControllerTest.ic" NAME="ItemControllerTest Coverage Results" MODIFIED="1566393962246" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

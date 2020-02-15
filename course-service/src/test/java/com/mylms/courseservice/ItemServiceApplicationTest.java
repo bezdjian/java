@@ -1,4 +1,4 @@
-package com.example.itemservice;
+package com.mylms.courseservice;
 
 import org.junit.Test;
 
