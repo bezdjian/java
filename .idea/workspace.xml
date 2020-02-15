@@ -2,18 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e008d241-e786-4003-ba91-6f23ce7894ea" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/config/SwaggerConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/resource/ItemResource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/apigateway/resource/CourseResourceITest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/resource/CourseItemsResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/client/CourseServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/client/CourseServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/client/ItemServiceClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/client/ItemServiceClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/controller/ItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/resource/CourseResource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/apigateway/ApiGatewayApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/apigateway/controller/ItemControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/test/java/com/example/apigateway/resource/ItemResourceITest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/course-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/course-service/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/item-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/item-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/config/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/api-gateway/src/main/java/com/example/apigateway/config/SwaggerConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +58,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit5" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5" value="" />
@@ -122,57 +115,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="HTTP Request.ApiGatewayApplication#1">
-    <configuration name="ApiGatewayApplication#1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" path="$APPLICATION_CONFIG_DIR$/scratches/ApiGatewayApplication.http" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration name="CourseResourceITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="api-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.apigateway.resource.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.apigateway.resource" />
-      <option name="MAIN_CLASS_NAME" value="com.example.apigateway.resource.CourseResourceITest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseResourceITest.allCourses" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="api-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.apigateway.resource.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.apigateway.resource" />
-      <option name="MAIN_CLASS_NAME" value="com.example.apigateway.resource.CourseResourceITest" />
-      <option name="METHOD_NAME" value="allCourses" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="CourseResourceITest.testCourseFallback" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="api-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.apigateway.resource.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.apigateway.resource" />
-      <option name="MAIN_CLASS_NAME" value="com.example.apigateway.resource.CourseResourceITest" />
-      <option name="METHOD_NAME" value="testCourseFallback" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="ItemControllerTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="api-gateway" />
       <extension name="coverage">
@@ -188,53 +131,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemResourceITest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="api-gateway" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.apigateway.resource.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.apigateway.resource" />
-      <option name="MAIN_CLASS_NAME" value="com.example.apigateway.resource.ItemResourceITest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="ApiGatewayApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="api-gateway" />
+      <extension name="net.ashald.envfile">
+        <option name="IS_ENABLED" value="false" />
+        <option name="IS_SUBST" value="false" />
+        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
+        <option name="IS_IGNORE_MISSING_FILES" value="false" />
+        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
+        <ENTRIES>
+          <ENTRY IS_ENABLED="true" PARSER="runconfig" />
+        </ENTRIES>
+      </extension>
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.apigateway.ApiGatewayApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="ItemServiceApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="item-service" />
-      <option name="SPRING_BOOT_MAIN_CLASS" value="com.mylms.itemservice.ItemServiceApplication" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Spring Boot.ItemServiceApplication (1)" />
-      <item itemvalue="JUnit.CourseResourceITest.testCourseFallback" />
-      <item itemvalue="JUnit.CourseResourceITest.allCourses" />
-      <item itemvalue="JUnit.CourseResourceITest" />
-      <item itemvalue="JUnit.ItemResourceITest" />
-      <item itemvalue="Spring Boot.ApiGatewayApplication" />
-      <item itemvalue="HTTP Request.ApiGatewayApplication#1" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="HTTP Request.ApiGatewayApplication#1" />
-        <item itemvalue="JUnit.ItemResourceITest" />
-        <item itemvalue="JUnit.CourseResourceITest" />
-        <item itemvalue="JUnit.CourseResourceITest.testCourseFallback" />
-        <item itemvalue="JUnit.CourseResourceITest.allCourses" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -250,7 +164,7 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Finished" type="7427dc5b:ServiceModel$ServiceGroupNode" />
               </path>
             </expand>
             <select />
@@ -285,7 +199,7 @@
       <workItem from="1581259218243" duration="413000" />
       <workItem from="1581259656906" duration="5744000" />
       <workItem from="1581774650904" duration="4847000" />
-      <workItem from="1581792309204" duration="7999000" />
+      <workItem from="1581792309204" duration="9215000" />
     </task>
     <servers />
   </component>
@@ -331,10 +245,10 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" width="1144" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581800182020">
+    <state x="414" y="175" width="1144" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581800809012">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" width="1144" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800182020" />
+    <state x="414" y="175" width="1144" height="690" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800809012" />
     <state x="765" y="230" key="#com.intellij.ide.util.MemberChooser" timestamp="1581776110582">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -355,38 +269,38 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581258581712" />
-    <state width="1418" height="324" key="GridCell.Tab.0.bottom" timestamp="1581800329055">
+    <state width="1418" height="324" key="GridCell.Tab.0.bottom" timestamp="1581801388694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329055" />
-    <state width="1418" height="324" key="GridCell.Tab.0.center" timestamp="1581800329054">
+    <state width="1418" height="324" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388694" />
+    <state width="1418" height="324" key="GridCell.Tab.0.center" timestamp="1581801388693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329054" />
-    <state width="1418" height="324" key="GridCell.Tab.0.left" timestamp="1581800329054">
+    <state width="1418" height="324" key="GridCell.Tab.0.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388693" />
+    <state width="1418" height="324" key="GridCell.Tab.0.left" timestamp="1581801388693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329054" />
-    <state width="1418" height="324" key="GridCell.Tab.0.right" timestamp="1581800329055">
+    <state width="1418" height="324" key="GridCell.Tab.0.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388693" />
+    <state width="1418" height="324" key="GridCell.Tab.0.right" timestamp="1581801388693">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329055" />
-    <state width="1418" height="324" key="GridCell.Tab.1.bottom" timestamp="1581800329055">
+    <state width="1418" height="324" key="GridCell.Tab.0.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388693" />
+    <state width="1418" height="324" key="GridCell.Tab.1.bottom" timestamp="1581801388694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329055" />
-    <state width="1418" height="324" key="GridCell.Tab.1.center" timestamp="1581800329055">
+    <state width="1418" height="324" key="GridCell.Tab.1.bottom/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388694" />
+    <state width="1418" height="324" key="GridCell.Tab.1.center" timestamp="1581801388694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.1.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329055" />
-    <state width="1418" height="324" key="GridCell.Tab.1.left" timestamp="1581800329055">
+    <state width="1418" height="324" key="GridCell.Tab.1.center/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388694" />
+    <state width="1418" height="324" key="GridCell.Tab.1.left" timestamp="1581801388694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.1.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329055" />
-    <state width="1418" height="324" key="GridCell.Tab.1.right" timestamp="1581800329055">
+    <state width="1418" height="324" key="GridCell.Tab.1.left/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388694" />
+    <state width="1418" height="324" key="GridCell.Tab.1.right" timestamp="1581801388694">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1418" height="324" key="GridCell.Tab.1.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581800329055" />
+    <state width="1418" height="324" key="GridCell.Tab.1.right/0.0.1920.1040/-1080.-339.1080.1880@0.0.1920.1040" timestamp="1581801388694" />
     <state width="1418" height="274" key="GridCell.Tab.2.bottom" timestamp="1581267474268">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

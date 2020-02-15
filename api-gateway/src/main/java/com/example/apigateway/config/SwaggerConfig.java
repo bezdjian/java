@@ -32,7 +32,7 @@ public class SwaggerConfig {
 
   private ApiInfo apiInfo() {
     return new ApiInfo(
-      "Api Gateway for MyLMS",
+      "Api Gateway",
       "API Gateway for Spring boot myLMS microservices",
       version,
       "Terms of services",
