@@ -5,3 +5,6 @@ target/*
 .classpath
 .project
 .settings
+.sts4-cache
+.vscode
+.factorypath
