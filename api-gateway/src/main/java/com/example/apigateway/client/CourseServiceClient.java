@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("course-service")
 public interface CourseServiceClient {
 
-  @GetMapping("/courses")
+  @GetMapping("/course-service/courses")
     // /items is pre-defined endpoint in item service
   Resources<CourseDTO> readCourses();
 }

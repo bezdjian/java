@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 @FeignClient("item-service")
 public interface ItemServiceClient {
 
-  @GetMapping("/items")
+  @GetMapping("/item-service/items")
     // /items is pre-defined endpoint in item service
   Resources<ItemDTO> readItems();
 
-  @GetMapping("/products")
+  @GetMapping("/item-service/products")
     // /products is pre-defined endpoint in item service
   Resources<ProductDTO> readProducts();
 }

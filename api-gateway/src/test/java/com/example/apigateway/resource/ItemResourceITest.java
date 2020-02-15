@@ -1,19 +1,17 @@
-package com.example.apigateway.controller;
+package com.example.apigateway.resource;
 
 import com.example.apigateway.client.ItemServiceClient;
 import com.example.apigateway.dto.ItemDTO;
 import com.example.apigateway.dto.ProductDTO;
-import lombok.extern.slf4j.Slf4j;
-import org.junit.Before;
 import org.junit.Test;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.hateoas.Resources;
-import org.springframework.mock.web.MockHttpServletResponse;
+import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,37 +19,31 @@ import java.util.List;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest
-@Slf4j
-public class ItemControllerTest {
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+public class ItemResourceITest {
 
-  @InjectMocks
-  private ItemController itemController;
-  @Mock
+  private static final String BASE_PATH = "/api/items";
+
+  @MockBean
   private ItemServiceClient itemClient;
 
   @Autowired
   private MockMvc mockMvc;
-
-  @Before
-  public void setUp() {
-    initMocks(this);
-    mockMvc = MockMvcBuilders.standaloneSetup(itemController).build();
-  }
 
   @Test
   public void topItems() throws Exception {
     //Given
     when(itemClient.readItems()).thenReturn(items());
     //When
-    MockHttpServletResponse response = mockMvc.perform(get("/top-brands"))
-      .andReturn().getResponse();
-
-    log.info("topItems: " + response.getContentAsString());
+    mockMvc.perform(get(BASE_PATH + "/brands"))
+      .andExpect(status().isOk())
+      .andDo(print());
 
     //Verify
     verify(itemClient).readItems();
@@ -62,10 +54,9 @@ public class ItemControllerTest {
     //Given
     when(itemClient.readProducts()).thenReturn(products());
     //When
-    MockHttpServletResponse response = mockMvc.perform(get("/top-products"))
-      .andReturn().getResponse();
-
-    log.info("topProducts: " + response.getContentAsString());
+    mockMvc.perform(get(BASE_PATH + "/products"))
+      .andExpect(status().isOk())
+      .andDo(print());
 
     //Verify
     verify(itemClient).readProducts();
@@ -76,24 +67,23 @@ public class ItemControllerTest {
     //Given
     when(itemClient.readProducts()).thenReturn(products());
     //When
-    MockHttpServletResponse response = mockMvc.perform(get("/top-productsz"))
+    mockMvc.perform(get(BASE_PATH + "/productsz"))
       .andExpect(status().isNotFound())
-      .andReturn().getResponse();
+      .andDo(print());
     //Verify
-    log.info("topProducts_fallback: " + response.getContentAsString());
     verify(itemClient, times(0)).readProducts();
   }
 
   private Resources<ItemDTO> items() {
-    List<ItemDTO> dtos = new ArrayList<ItemDTO>() {{
-      add(new ItemDTO("blabla"));
+    List<ItemDTO> dtos = new ArrayList<>() {{
+      add(new ItemDTO("das item"));
     }};
     return new Resources<>(dtos);
   }
 
   private Resources<ProductDTO> products() {
-    List<ProductDTO> dtos = new ArrayList<ProductDTO>() {{
-      add(new ProductDTO("blabla"));
+    List<ProductDTO> dtos = new ArrayList<>() {{
+      add(new ProductDTO("das produkt"));
     }};
     return new Resources<>(dtos);
   }
