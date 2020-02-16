@@ -9,6 +9,8 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Data
 @AllArgsConstructor
@@ -36,7 +38,13 @@ public class Course {
   @Column(name = "price")
   private Long price;
 
-  public Course(String coursename){
+
+  @ManyToOne
+  @JoinColumn(name = "category_id", referencedColumnName = "id")
+  private CourseCategory courseCategory;
+
+  public Course(String coursename, CourseCategory category) {
     this.coursename = coursename;
+    this.courseCategory = category;
   }
 }

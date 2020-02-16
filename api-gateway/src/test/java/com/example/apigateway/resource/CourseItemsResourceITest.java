@@ -69,7 +69,7 @@ public class CourseItemsResourceITest {
 
   private Resources<CourseDTO> courses() {
     List<CourseDTO> dtos = new ArrayList<>() {{
-      add(new CourseDTO("AWS"));
+      add(new CourseDTO("AWS Developer", "AWS"));
     }};
     return new Resources<>(dtos);
   }

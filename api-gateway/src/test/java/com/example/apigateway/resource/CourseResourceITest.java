@@ -15,6 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import java.util.ArrayList;
 import java.util.List;
 
+import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -50,11 +51,25 @@ public class CourseResourceITest {
   }
 
   @Test
+  public void findCourse() throws Exception {
+    //Given
+    when(courseServiceClient.findCourse(anyLong())).thenReturn(courses());
+    //When
+    mockMvc.perform(get(BASE_PATH + "/1"))
+      .andDo(print())
+      .andExpect(status().isOk())
+      .andReturn().getResponse();
+
+    //Verify
+    verify(courseServiceClient).findCourse(anyLong());
+  }
+
+  @Test
   public void testCourseFallback() throws Exception {
     //Given
     when(courseServiceClient.readCourses()).thenReturn(courses());
     //When
-    mockMvc.perform(get(BASE_PATH + "/courseszz"))
+    mockMvc.perform(get(BASE_PATH + "/courseszz/121"))
       .andExpect(status().isNotFound())
       .andReturn().getResponse();
     //Verify
@@ -63,7 +78,7 @@ public class CourseResourceITest {
 
   private Resources<CourseDTO> courses() {
     List<CourseDTO> dtos = new ArrayList<>() {{
-      add(new CourseDTO("AWS"));
+      add(new CourseDTO("AWS Developer", "AWS"));
     }};
     return new Resources<>(dtos);
   }
