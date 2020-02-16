@@ -41,7 +41,6 @@ public class CourseInitializer implements CommandLineRunner {
     //.entrySet()
     .forEach(
       (course, categoryId) -> {
-        log.info("*** Course {} -- categoryID {}", course, categoryId);
         CourseCategory category = new CourseCategory();
         category.setId(categoryId);
         courseRepository.save(new Course(course, category));
@@ -51,7 +50,7 @@ public class CourseInitializer implements CommandLineRunner {
     //Find all courses
     log.info("***** Displaying courses:");
     courseRepository.findAll().forEach(
-      course -> log.info("Course: {} - Category: {}", course.getCoursename(), course.getCourseCategory().getName())
+      course -> log.info("Course: {} ", course.toString())
     );
     log.info("***** EO: Displaying courses:");
   }

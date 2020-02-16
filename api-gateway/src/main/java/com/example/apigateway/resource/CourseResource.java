@@ -2,6 +2,7 @@ package com.example.apigateway.resource;
 
 import com.example.apigateway.client.CourseServiceClient;
 import com.example.apigateway.dto.CourseDTO;
+import feign.FeignException;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,11 +64,11 @@ public class CourseResource {
   @GetMapping("/{courseId}")
   public ResponseEntity<Object> getCourseById(@PathVariable("courseId") Long courseId) {
     try {
-      Collection<CourseDTO> course = courseClient.findCourse(courseId).getContent();
+      CourseDTO course = courseClient.findCourse(courseId);
       return new ResponseEntity<>(course, HttpStatus.OK);
-    } catch (Exception e) {
+    } catch (FeignException e) {
       log.error("Error occurred  when finding a course with ID {}. Error: {}", courseId, e.getMessage());
-      return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+      return new ResponseEntity<>("Course " + courseId + " not found", HttpStatus.valueOf(e.status()));
     }
   }
 

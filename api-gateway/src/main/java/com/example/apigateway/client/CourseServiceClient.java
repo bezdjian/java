@@ -16,7 +16,7 @@ public interface CourseServiceClient {
 
   @GetMapping("/course-service/courses/{courseId}")
     // /items is pre-defined endpoint in item service
-  Resources<CourseDTO> findCourse(@PathVariable("courseId") Long courseId);
+  CourseDTO findCourse(@PathVariable("courseId") Long courseId);
 
   @DeleteMapping("/course-service/courses/{courseId}")
     // /items is pre-defined endpoint in item service

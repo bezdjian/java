@@ -3,7 +3,6 @@ package com.mylms.courseservice.entity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +10,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Transient;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Entity
 public class Course {
 
@@ -38,13 +37,32 @@ public class Course {
   @Column(name = "price")
   private Long price;
 
-
   @ManyToOne
   @JoinColumn(name = "category_id", referencedColumnName = "id")
-  private CourseCategory courseCategory;
+  private CourseCategory category;
+
+  @Transient
+  private String categoryName;
 
   public Course(String coursename, CourseCategory category) {
     this.coursename = coursename;
-    this.courseCategory = category;
+    this.category = category;
+  }
+
+  public String getCategoryName(){
+    return this.category.getName();
+  }
+
+  @Override
+  public String toString() {
+    return "{" +
+      "id=" + id +
+      ", coursename='" + coursename + '\'' +
+      ", description='" + description + '\'' +
+      ", idnumber='" + idnumber + '\'' +
+      ", image='" + image + '\'' +
+      ", price=" + price +
+      ", category=" + category.getName() +
+      '}';
   }
 }

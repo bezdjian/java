@@ -53,7 +53,7 @@ public class CourseResourceITest {
   @Test
   public void findCourse() throws Exception {
     //Given
-    when(courseServiceClient.findCourse(anyLong())).thenReturn(courses());
+    when(courseServiceClient.findCourse(anyLong())).thenReturn(courses().getContent().iterator().next());
     //When
     mockMvc.perform(get(BASE_PATH + "/1"))
       .andDo(print())

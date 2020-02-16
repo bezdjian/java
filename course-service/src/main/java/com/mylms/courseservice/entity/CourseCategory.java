@@ -26,7 +26,7 @@ public class CourseCategory {
   @Column(name = "description")
   private String description;
 
-  @OneToMany(mappedBy = "courseCategory")
+  @OneToMany(mappedBy = "category")
   private List<Course> course;
 
   public CourseCategory(String name, String description) {

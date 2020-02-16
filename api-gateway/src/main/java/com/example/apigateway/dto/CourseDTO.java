@@ -9,5 +9,5 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class CourseDTO {
   private String coursename;
-  private String courseCategory;
+  private String categoryName;
 }
