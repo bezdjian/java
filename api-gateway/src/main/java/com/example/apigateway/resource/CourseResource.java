@@ -4,6 +4,7 @@ import com.example.apigateway.client.CourseServiceClient;
 import com.example.apigateway.dto.CategoryDTO;
 import com.example.apigateway.dto.CourseDTO;
 import com.example.apigateway.model.Response;
+import com.example.apigateway.model.SaveCourse;
 import feign.FeignException;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -37,7 +38,7 @@ public class CourseResource {
   @GetMapping("all")
   public ResponseEntity<Object> allCourses() {
     try {
-      Collection<CourseDTO> courses = courseClient.readCourses().getContent();
+      Collection<CourseDTO> courses = courseClient.findAllCourses().getContent();
       courses.forEach(course -> {
         CategoryDTO category = courseClient.findCategoryByCourse(course.getId());
         course.setCategory(category);
@@ -69,11 +70,18 @@ public class CourseResource {
   }
 
   @PostMapping("/save")
-  public ResponseEntity<Object> save(@RequestBody CourseDTO course) {
+  public ResponseEntity<Object> save(@RequestBody SaveCourse course) {
     log.info("Request save or update course: " + course.toString());
     try {
+      if (course.getCategory() == null || course.getCategory().getId() == null)
+        return new ResponseEntity<>(response("Category ID must be provided", HttpStatus.BAD_REQUEST.value())
+          , HttpStatus.BAD_REQUEST);
+
+      CategoryDTO category = courseClient.findCategory(course.getCategory().getId());
+      course.setCategory(category);
       CourseDTO saved = courseClient.saveCourse(course);
       return ResponseEntity.ok(saved);
+
     } catch (FeignException e) {
       log.error("***** Error during save: {}", e.getMessage(), e);
       return new ResponseEntity<>(response(

@@ -40,7 +40,7 @@ public class CourseResourceITest {
   @Test
   public void allCourses() throws Exception {
     //Given
-    when(courseServiceClient.readCourses()).thenReturn(courses());
+    when(courseServiceClient.findAllCourses()).thenReturn(courses());
     //When
     mockMvc.perform(get(BASE_PATH + "/all"))
       .andDo(print())
@@ -48,7 +48,7 @@ public class CourseResourceITest {
       .andReturn().getResponse();
 
     //Verify
-    verify(courseServiceClient).readCourses();
+    verify(courseServiceClient).findAllCourses();
   }
 
   @Test
@@ -68,13 +68,13 @@ public class CourseResourceITest {
   @Test
   public void testCourseFallback() throws Exception {
     //Given
-    when(courseServiceClient.readCourses()).thenReturn(courses());
+    when(courseServiceClient.findAllCourses()).thenReturn(courses());
     //When
     mockMvc.perform(get(BASE_PATH + "/courseszz/121"))
       .andExpect(status().isNotFound())
       .andReturn().getResponse();
     //Verify
-    verify(courseServiceClient, times(0)).readCourses();
+    verify(courseServiceClient, times(0)).findAllCourses();
   }
 
   private Resources<CourseDTO> courses() {

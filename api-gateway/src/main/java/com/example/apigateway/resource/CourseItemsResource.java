@@ -36,7 +36,7 @@ public class CourseItemsResource {
   @GetMapping("all")
   public ResponseEntity<Object> allCourseItems() {
     try {
-      Collection<CourseDTO> courses = courseClient.readCourses().getContent();
+      Collection<CourseDTO> courses = courseClient.findAllCourses().getContent();
       Collection<ItemDTO> items = itemServiceClient.readItems().getContent();
       Map<List<String>, List<String>> map = new HashMap<>();
 

@@ -43,7 +43,7 @@ public class CourseItemsResourceITest {
   @Test
   public void allCourseItems() throws Exception {
     //Given
-    when(courseServiceClient.readCourses()).thenReturn(courses());
+    when(courseServiceClient.findAllCourses()).thenReturn(courses());
     when(itemServiceClient.readItems()).thenReturn(items());
     //When
     mockMvc.perform(get(BASE_PATH + "/all"))
@@ -52,19 +52,19 @@ public class CourseItemsResourceITest {
       .andReturn().getResponse();
 
     //Verify
-    verify(courseServiceClient).readCourses();
+    verify(courseServiceClient).findAllCourses();
   }
 
   @Test
   public void testCourseFallback() throws Exception {
     //Given
-    when(courseServiceClient.readCourses()).thenReturn(courses());
+    when(courseServiceClient.findAllCourses()).thenReturn(courses());
     //When
     mockMvc.perform(get(BASE_PATH + "/courseszz"))
       .andExpect(status().isNotFound())
       .andReturn().getResponse();
     //Verify
-    verify(courseServiceClient, times(0)).readCourses();
+    verify(courseServiceClient, times(0)).findAllCourses();
     verify(itemServiceClient, times(0)).readItems();
   }
 
