@@ -43,7 +43,7 @@ public class CourseInitializer implements CommandLineRunner {
       (course, categoryId) -> {
         CourseCategory category = new CourseCategory();
         category.setId(categoryId);
-        courseRepository.save(new Course(course, category));
+        courseRepository.save(new Course(course, "desc", "idnumber", category));
       }
     );
 

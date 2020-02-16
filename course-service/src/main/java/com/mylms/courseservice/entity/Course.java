@@ -41,16 +41,11 @@ public class Course {
   @JoinColumn(name = "category_id", referencedColumnName = "id")
   private CourseCategory category;
 
-  @Transient
-  private String categoryName;
-
-  public Course(String coursename, CourseCategory category) {
+  public Course(String coursename, String description, String idnumber, CourseCategory category) {
     this.coursename = coursename;
+    this.description = description;
+    this.idnumber = idnumber;
     this.category = category;
-  }
-
-  public String getCategoryName(){
-    return this.category.getName();
   }
 
   @Override

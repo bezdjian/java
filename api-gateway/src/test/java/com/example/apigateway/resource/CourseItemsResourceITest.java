@@ -2,6 +2,7 @@ package com.example.apigateway.resource;
 
 import com.example.apigateway.client.CourseServiceClient;
 import com.example.apigateway.client.ItemServiceClient;
+import com.example.apigateway.dto.CategoryDTO;
 import com.example.apigateway.dto.CourseDTO;
 import com.example.apigateway.dto.ItemDTO;
 import org.junit.Test;
@@ -69,7 +70,11 @@ public class CourseItemsResourceITest {
 
   private Resources<CourseDTO> courses() {
     List<CourseDTO> dtos = new ArrayList<>() {{
-      add(new CourseDTO("AWS Developer", "AWS"));
+      add(CourseDTO.builder()
+        .coursename("AWS Developer")
+        .category(
+          CategoryDTO.builder().name("AWS").build()
+        ).build());
     }};
     return new Resources<>(dtos);
   }
