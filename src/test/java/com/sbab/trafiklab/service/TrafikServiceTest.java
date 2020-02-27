@@ -1,8 +1,8 @@
 package com.sbab.trafiklab.service;
 
 import com.sbab.trafiklab.BaseTest;
-import com.sbab.trafiklab.api.TrafikLabAPIService;
-import com.sbab.trafiklab.dto.BussStopPointsDTO;
+import com.sbab.trafiklab.api.TrafikLabClient;
+import com.sbab.trafiklab.model.BussStopPointsModel;
 import com.sbab.trafiklab.repository.JourneyPointRepository;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class TrafikServiceTest extends BaseTest {
     @Mock
     private JourneyPointRepository repository;
     @Mock
-    private TrafikLabAPIService service;
+    private TrafikLabClient client;
 
     @Before
     public void setUp() {
@@ -35,7 +35,7 @@ public class TrafikServiceTest extends BaseTest {
     @Test
     public void findStopsByLineNumber() {
         when(trafikService.findStopsByLineNumber(anyInt())).thenReturn(createBussStopsList(10));
-        List<BussStopPointsDTO> list = trafikService.findStopsByLineNumber(1);
+        List<BussStopPointsModel> list = trafikService.findStopsByLineNumber(1);
         assertEquals("List is empty", createBussStopsList(10).size(), list.size());
     }
 

@@ -2,6 +2,13 @@ package com.sbab.trafiklab.exception;
 
 import java.util.Date;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class ErrorDetails {
 
     private Date timestamp;
@@ -16,42 +23,7 @@ public class ErrorDetails {
         this.details = details;
         this.status = status;
     }
-
-    public ErrorDetails() {
-    }
-
-    public Date getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(Date timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getDetails() {
-        return details;
-    }
-
-    public void setDetails(String details) {
-        this.details = details;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
+    
     @Override
     public String toString() {
         return "ErrorDetails{" +

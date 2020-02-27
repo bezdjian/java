@@ -1,10 +1,17 @@
-package com.sbab.trafiklab.pojo;
+package com.sbab.trafiklab.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class JourneyPatternPointOnLine {
 
     @JsonProperty(value = "StatusCode")
@@ -16,45 +23,10 @@ public class JourneyPatternPointOnLine {
     @JsonProperty(value = "ResponseData")
     private JourneyResponseData responseData;
 
-    public JourneyPatternPointOnLine() {
-    }
-
     public JourneyPatternPointOnLine(int statusCode, String message, String executionTime, JourneyResponseData responseData) {
         this.statusCode = statusCode;
         this.message = message;
         this.responseData = responseData;
-        this.executionTime = executionTime;
-    }
-
-    public int getStatusCode() {
-        return statusCode;
-    }
-
-    public void setStatusCode(int statusCode) {
-        this.statusCode = statusCode;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public JourneyResponseData getResponseData() {
-        return responseData;
-    }
-
-    public void setResponseData(JourneyResponseData responseData) {
-        this.responseData = responseData;
-    }
-
-    public String getExecutionTime() {
-        return executionTime;
-    }
-
-    public void setExecutionTime(String executionTime) {
         this.executionTime = executionTime;
     }
 

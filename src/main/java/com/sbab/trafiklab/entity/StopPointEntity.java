@@ -1,11 +1,18 @@
 package com.sbab.trafiklab.entity;
 
-import com.sbab.trafiklab.pojo.StopPointResults;
+import com.sbab.trafiklab.dto.StopPointResults;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "StopPoint")
+@Getter
+@Setter
+@NoArgsConstructor
 public class StopPointEntity {
 
     @Id
@@ -44,73 +51,5 @@ public class StopPointEntity {
         this.locationEastingCoordinate = results.getLocationEastingCoordinate();
         this.zoneShortName = results.getZoneShortName();
         this.stopAreaTypeCode = results.getStopAreaTypeCode();
-    }
-
-    public StopPointEntity() {
-        //Default no arguments constructor
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getStopPointNumber() {
-        return stopPointNumber;
-    }
-
-    public void setStopPointNumber(String stopPointNumber) {
-        this.stopPointNumber = stopPointNumber;
-    }
-
-    public String getStopPointName() {
-        return stopPointName;
-    }
-
-    public void setStopPointName(String stopPointName) {
-        this.stopPointName = stopPointName;
-    }
-
-    public String getStopAreaNumber() {
-        return stopAreaNumber;
-    }
-
-    public void setStopAreaNumber(String stopAreaNumber) {
-        this.stopAreaNumber = stopAreaNumber;
-    }
-
-    public String getLocationNorthingCoordinate() {
-        return locationNorthingCoordinate;
-    }
-
-    public void setLocationNorthingCoordinate(String locationNorthingCoordinate) {
-        this.locationNorthingCoordinate = locationNorthingCoordinate;
-    }
-
-    public String getLocationEastingCoordinate() {
-        return locationEastingCoordinate;
-    }
-
-    public void setLocationEastingCoordinate(String locationEastingCoordinate) {
-        this.locationEastingCoordinate = locationEastingCoordinate;
-    }
-
-    public String getZoneShortName() {
-        return zoneShortName;
-    }
-
-    public void setZoneShortName(String zoneShortName) {
-        this.zoneShortName = zoneShortName;
-    }
-
-    public String getStopAreaTypeCode() {
-        return stopAreaTypeCode;
-    }
-
-    public void setStopAreaTypeCode(String stopAreaTypeCode) {
-        this.stopAreaTypeCode = stopAreaTypeCode;
     }
 }

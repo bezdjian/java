@@ -1,9 +1,16 @@
-package com.sbab.trafiklab.pojo;
+package com.sbab.trafiklab.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class StopPointResults {
 
     //Stop points atttributes
@@ -22,9 +29,6 @@ public class StopPointResults {
     @JsonProperty(value = "StopAreaTypeCode")
     private String stopAreaTypeCode;
 
-    public StopPointResults() {
-    }
-
     public StopPointResults(String stopPointNumber, String stopPointName, String stopAreaNumber, String locationNorthingCoordinate, String locationEastingCoordinate, String zoneShortName, String stopAreaTypeCode) {
         this.stopPointNumber = stopPointNumber;
         this.stopPointName = stopPointName;
@@ -32,62 +36,6 @@ public class StopPointResults {
         this.locationNorthingCoordinate = locationNorthingCoordinate;
         this.locationEastingCoordinate = locationEastingCoordinate;
         this.zoneShortName = zoneShortName;
-        this.stopAreaTypeCode = stopAreaTypeCode;
-    }
-
-    public String getStopPointNumber() {
-        return stopPointNumber;
-    }
-
-    public void setStopPointNumber(String stopPointNumber) {
-        this.stopPointNumber = stopPointNumber;
-    }
-
-    public String getStopPointName() {
-        return stopPointName;
-    }
-
-    public void setStopPointName(String stopPointName) {
-        this.stopPointName = stopPointName;
-    }
-
-    public String getStopAreaNumber() {
-        return stopAreaNumber;
-    }
-
-    public void setStopAreaNumber(String stopAreaNumber) {
-        this.stopAreaNumber = stopAreaNumber;
-    }
-
-    public String getLocationNorthingCoordinate() {
-        return locationNorthingCoordinate;
-    }
-
-    public void setLocationNorthingCoordinate(String locationNorthingCoordinate) {
-        this.locationNorthingCoordinate = locationNorthingCoordinate;
-    }
-
-    public String getLocationEastingCoordinate() {
-        return locationEastingCoordinate;
-    }
-
-    public void setLocationEastingCoordinate(String locationEastingCoordinate) {
-        this.locationEastingCoordinate = locationEastingCoordinate;
-    }
-
-    public String getZoneShortName() {
-        return zoneShortName;
-    }
-
-    public void setZoneShortName(String zoneShortName) {
-        this.zoneShortName = zoneShortName;
-    }
-
-    public String getStopAreaTypeCode() {
-        return stopAreaTypeCode;
-    }
-
-    public void setStopAreaTypeCode(String stopAreaTypeCode) {
         this.stopAreaTypeCode = stopAreaTypeCode;
     }
 

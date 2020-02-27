@@ -1,11 +1,18 @@
 package com.sbab.trafiklab.entity;
 
-import com.sbab.trafiklab.pojo.JourneyPatternPointOnLineResults;
+import com.sbab.trafiklab.dto.JourneyPatternPointOnLineResults;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import javax.persistence.*;
 
 @Entity
 @Table(name = "JourneyPoint")
+@Getter
+@Setter
+@NoArgsConstructor
 public class JourneyPointEntity {
 
     @Id
@@ -22,7 +29,8 @@ public class JourneyPointEntity {
     @Column(name = "existsFromDate")
     private String existsFromDate;
 
-    public JourneyPointEntity(int lineNumber, String directionCode, String journeyPatternPointNumber, String lastModifiedUtcDateTime, String existsFromDate) {
+    public JourneyPointEntity(int lineNumber, String directionCode, String journeyPatternPointNumber,
+            String lastModifiedUtcDateTime, String existsFromDate) {
         this.lineNumber = lineNumber;
         this.directionCode = directionCode;
         this.journeyPatternPointNumber = journeyPatternPointNumber;
@@ -36,57 +44,5 @@ public class JourneyPointEntity {
         this.journeyPatternPointNumber = results.getJourneyPatternPointNumber();
         this.lastModifiedUtcDateTime = results.getLastModifiedUtcDateTime();
         this.existsFromDate = results.getExistsFromDate();
-    }
-
-    public JourneyPointEntity(){
-        //Default no arguments constructor
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getLineNumber() {
-        return lineNumber;
-    }
-
-    public void setLineNumber(int lineNumber) {
-        this.lineNumber = lineNumber;
-    }
-
-    public String getDirectionCode() {
-        return directionCode;
-    }
-
-    public void setDirectionCode(String directionCode) {
-        this.directionCode = directionCode;
-    }
-
-    public String getJourneyPatternPointNumber() {
-        return journeyPatternPointNumber;
-    }
-
-    public void setJourneyPatternPointNumber(String journeyPatternPointNumber) {
-        this.journeyPatternPointNumber = journeyPatternPointNumber;
-    }
-
-    public String getLastModifiedUtcDateTime() {
-        return lastModifiedUtcDateTime;
-    }
-
-    public void setLastModifiedUtcDateTime(String lastModifiedUtcDateTime) {
-        this.lastModifiedUtcDateTime = lastModifiedUtcDateTime;
-    }
-
-    public String getExistsFromDate() {
-        return existsFromDate;
-    }
-
-    public void setExistsFromDate(String existsFromDate) {
-        this.existsFromDate = existsFromDate;
     }
 }

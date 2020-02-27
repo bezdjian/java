@@ -1,13 +1,20 @@
-package com.sbab.trafiklab.pojo;
+package com.sbab.trafiklab.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.util.List;
 
 @JsonRootName(value = "ResponseData")
+@Getter
+@Setter
+@NoArgsConstructor
 public class JourneyResponseData {
 
     @JsonProperty(value = "Version")
@@ -17,37 +24,9 @@ public class JourneyResponseData {
     @JsonProperty(value = "Result")
     private List<JourneyPatternPointOnLineResults> result;
 
-    public JourneyResponseData() {
-        //Empty constructor for json-jackson
-    }
-
     public JourneyResponseData(List<JourneyPatternPointOnLineResults> result, String version, String type) {
         this.result = result;
         this.version = version;
-        this.type = type;
-    }
-
-    public List<JourneyPatternPointOnLineResults> getResult() {
-        return result;
-    }
-
-    public void setResult(List<JourneyPatternPointOnLineResults> result) {
-        this.result = result;
-    }
-
-    public String getVersion() {
-        return version;
-    }
-
-    public void setVersion(String version) {
-        this.version = version;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
         this.type = type;
     }
 

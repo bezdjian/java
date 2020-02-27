@@ -1,23 +1,23 @@
 package com.sbab.trafiklab;
 
-import com.sbab.trafiklab.dto.BussStopPointsDTO;
+import com.sbab.trafiklab.model.BussStopPointsModel;
 import com.sbab.trafiklab.entity.JourneyPointEntity;
-import com.sbab.trafiklab.pojo.*;
+import com.sbab.trafiklab.dto.*;
 
 import java.util.*;
 
 public class BaseTest {
 
-    protected List<BussStopPointsDTO> createBussStopsList(int size) {
-        List<BussStopPointsDTO> dtos = new ArrayList<>();
+    protected List<BussStopPointsModel> createBussStopsList(int size) {
+        List<BussStopPointsModel> dtos = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             dtos.add(createBStopDTO(size));
         }
         return dtos;
     }
 
-    private BussStopPointsDTO createBStopDTO(int l) {
-        return new BussStopPointsDTO(l, "here");
+    private BussStopPointsModel createBStopDTO(int l) {
+        return new BussStopPointsModel(l, "here");
     }
 
     protected List<JourneyPointEntity> createJourneyPointList(int size) {

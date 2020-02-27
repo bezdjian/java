@@ -1,12 +1,19 @@
-package com.sbab.trafiklab.pojo;
+package com.sbab.trafiklab.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Getter
+@Setter
+@NoArgsConstructor
 public class JourneyPatternPointOnLineResults {
 
-    //JourneyPoints attrivutes
+    //JourneyPoints attributes
     @JsonProperty(value = "LineNumber")
     private int lineNumber;
     @JsonProperty(value = "DirectionCode")
@@ -18,54 +25,11 @@ public class JourneyPatternPointOnLineResults {
     @JsonProperty(value = "ExistsFromDate")
     private String existsFromDate;
 
-    public JourneyPatternPointOnLineResults() {
-    }
-
     public JourneyPatternPointOnLineResults(int lineNumber, String directionCode, String journeyPatternPointNumber, String lastModifiedUtcDateTime, String existsFromDate) {
         this.lineNumber = lineNumber;
         this.directionCode = directionCode;
         this.journeyPatternPointNumber = journeyPatternPointNumber;
         this.lastModifiedUtcDateTime = lastModifiedUtcDateTime;
-        this.existsFromDate = existsFromDate;
-    }
-
-    public int getLineNumber() {
-        return lineNumber;
-    }
-
-    public void setLineNumber(int lineNumber) {
-        this.lineNumber = lineNumber;
-    }
-
-    public String getDirectionCode() {
-        return directionCode;
-    }
-
-    public void setDirectionCode(String directionCode) {
-        this.directionCode = directionCode;
-    }
-
-    public String getJourneyPatternPointNumber() {
-        return journeyPatternPointNumber;
-    }
-
-    public void setJourneyPatternPointNumber(String journeyPatternPointNumber) {
-        this.journeyPatternPointNumber = journeyPatternPointNumber;
-    }
-
-    public String getLastModifiedUtcDateTime() {
-        return lastModifiedUtcDateTime;
-    }
-
-    public void setLastModifiedUtcDateTime(String lastModifiedUtcDateTime) {
-        this.lastModifiedUtcDateTime = lastModifiedUtcDateTime;
-    }
-
-    public String getExistsFromDate() {
-        return existsFromDate;
-    }
-
-    public void setExistsFromDate(String existsFromDate) {
         this.existsFromDate = existsFromDate;
     }
 
