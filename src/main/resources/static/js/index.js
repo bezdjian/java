@@ -5,7 +5,7 @@ $(document).ready(function () {
 
     $.ajax({
         type: "get",
-        url: "/getMostStops",
+        url: "/trafiklab/api/getMostStops",
         dataType: 'json',
         beforeSend: function () {
             top_ten_results.innerHTML = "";
@@ -66,7 +66,7 @@ $(document).ready(function () {
 
         $.ajax({
             type: "get",
-            url: "/getStops/" + search,
+            url: "/trafiklab/api/getStops/" + search,
             dataType: 'json',
             beforeSend: function () {
                 //Clear the stopName list, show the loading gif

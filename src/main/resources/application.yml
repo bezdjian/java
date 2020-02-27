@@ -1,0 +1,36 @@
+# URLS
+#XML: https://api.sl.se/api2/LineData.xml?model=jour&key=5da196d47f8f4e5facdb68d2e25b9eae
+#JSON: https://api.sl.se/api2/LineData.json?model=jour&key=5da196d47f8f4e5facdb68d2e25b9eae
+
+#Journey https://api.sl.se/api2/LineData.json?model=jour&key=7f0ec0b71b164c69b5484c2c8e30b9e8
+#StopPoint https://api.sl.se/api2/LineData.json?model=stop&key=5da196d47f8f4e5facdb68d2e25b9eae
+
+# Run on Tomcat port 7777
+server:
+  port: 7777
+  servlet:
+    context-path: /trafiklab
+
+# Datasource
+spring:
+  datasource:
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+  h2:
+    console:
+      enabled: true
+  # JPA
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    open-in-view: false
+  application:
+    name: trafiklab
+    version: @version@
+
+trafiklab:
+  api:
+    key: 692bcb634e254d23a885c10cd4523fb4
+    url: https://api.sl.se/api2/LineData.json?
+    model: jour

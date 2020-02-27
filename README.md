@@ -24,7 +24,7 @@ _Installation_
     to H2 database with 2 different tables.
     </li>
     <li>
-    Browse http://localhost:7777 and the page will load once and do an Ajax call to 
+    Browse http://localhost:7777 and the page will load once and do an API call to 
     backend webservice that collects the top ten bus stops and the names 
     from the H2 database and it will cache them.
     </li>

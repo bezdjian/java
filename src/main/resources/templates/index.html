@@ -3,7 +3,7 @@
 <head>
     <title>Buss linjer</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
     <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
     <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
     <meta content="width=device-width, initial-scale=0" name="viewport"/>
@@ -22,7 +22,7 @@
             <h4>Top 10 lines have most bus stops</h4>
             <hr>
             <div id="top-ten">
-                <ul id="top-ten-results" class="list-group"></ul>
+                <ul class="list-group" id="top-ten-results"></ul>
             </div>
         </div>
 
@@ -31,22 +31,22 @@
             <hr>
             <div id="top-ten-stopnames">
                 <p id="linenumber"></p>
-                <ul id="top-ten-stopNamesUL" class="list-group"></ul>
+                <ul class="list-group" id="top-ten-stopNamesUL"></ul>
             </div>
         </div>
 
         <div class="col-sm-4 text-left">
             <div class="input-group mb-3">
-                <input type="text" class="form-control" id="searchField" placeholder="Search stops by line number">
+                <input class="form-control" id="searchField" placeholder="Search stops by line number" type="text">
                 <div class="input-group-append">
-                    <button class="btn btn-primary" type="button" id="search-btn">Go</button>
+                    <button class="btn btn-primary" id="search-btn" type="button">Go</button>
                 </div>
-                <div style="display: none;" id="errorMessageDialog" class="alert alert-danger">
+                <div class="alert alert-danger" id="errorMessageDialog" style="display: none;">
                     <p id="errorMessage"></p>
                 </div>
             </div>
             <div id="search-results">
-                <ul id="stopNamesUL" class="list-group"></ul>
+                <ul class="list-group" id="stopNamesUL"></ul>
             </div>
         </div>
     </div>
