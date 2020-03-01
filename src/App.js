@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import TopTen from './TopTen';
 import TopTenStopNames from './TopTenStopNames';
 import SearchBox from "./SearchBox";
+import {trackPromise} from "react-promise-tracker";
 
 import './bootstrap.min.css';
-
-import './App.css';
+import './css/App.css';
 
 class App extends Component {
 
@@ -16,27 +16,21 @@ class App extends Component {
 
   componentDidMount() {
     const API_URL = process.env.REACT_APP_TRAFIKLAB_URL;
-    console.log("API_URL: ", API_URL);
+    const getMostStops_url = API_URL + '/api/getMostStops';
 
-    fetch(API_URL + '/api/getMostStops')
-      .then(res => res.json())
-      .then((data) => {
-        console.log("data:");
-        console.log(data);
-        console.log("stopNames:");
-        console.log(data.stopNames);
-        console.log("topTenList:");
-        console.log(data.topTenList);
-        this.setState({
-          stopNames: data.stopNames,
-          topTenList: data.topTenList
-        });
-      })
-      .catch(console.log)
+    trackPromise(
+      fetch(getMostStops_url)
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({
+            stopNames: data.stopNames,
+            topTenList: data.topTenList
+          });
+        })
+        .catch(console.log)).then(r => console.log("RRRRR: ", r));
   }
 
   render() {
-
     return (
       <div className="App">
         <div className="container-fluid p-3">
@@ -63,9 +57,7 @@ class App extends Component {
             </div>
 
             <div className="col-sm-4 text-left">
-              <div className="input-group mb-3">
-                <SearchBox/>
-              </div>
+              <SearchBox/>
             </div>
           </div>
         </div>

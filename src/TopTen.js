@@ -1,12 +1,14 @@
 import React from 'react';
 
 const TopTen = ({topTenList}) => {
-  console.log("topTenList---; ", topTenList);
   return (
-    <div className="App">
-      {topTenList && topTenList.map((lineNumber,stopCount) => (
-        <ul>{lineNumber}</ul>
-      ))}
+    <div key='top-names-card'>
+      <div key='top-names-card-body' className="card-body">
+        {topTenList.map((topTen) => (
+          <li key={topTen.lineNumber} className="card-title">
+            Line {topTen.lineNumber} has {topTen.stopCount} stops</li>
+        ))}
+      </div>
     </div>
   );
 };
