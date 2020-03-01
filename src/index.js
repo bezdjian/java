@@ -22,7 +22,8 @@ const LoadingIndicator = () => {
         justifyContent: "center",
         alignItems: "center",
         backgroundColor: "#000000",
-        opacity: 0.7
+        opacity: 0.7,
+        zIndex: 1000
       }}
     >
       <Loader type="ThreeDots" color="#2BAD60" width="100" height="100"/>
