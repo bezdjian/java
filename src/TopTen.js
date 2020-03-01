@@ -1,16 +1,14 @@
 import React from 'react';
-import './App.css';
 
-function TopTen() {
+const TopTen = ({topTenList}) => {
+  console.log("topTenList---; ", topTenList);
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          TopTen
-        </p>
-      </header>
+      {topTenList && topTenList.map((lineNumber,stopCount) => (
+        <ul>{lineNumber}</ul>
+      ))}
     </div>
   );
-}
+};
 
 export default TopTen;

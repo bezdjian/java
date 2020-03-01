@@ -1,16 +1,16 @@
 import React from 'react';
-import './App.css';
 
-function TopTenStopNames() {
+const TopTenStopNames = ({stopNames}) => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          TopTen Stop Names
-        </p>
-      </header>
+    <div key='top-names-card' className="card">
+      <div key='top-names-card-body' className="card-body">
+        <h5 key='linenumber' className="card-title">The line number here..</h5>
+        {stopNames.map((stops) => (
+          <li key={stops.toString()} className="card-title">{stops.stopName}</li>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default TopTenStopNames;

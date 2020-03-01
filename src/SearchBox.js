@@ -8,12 +8,12 @@ function SearchBox() {
         <div className="input-group-append">
           <button className="btn btn-primary" id="search-btn" type="button">Go</button>
         </div>
-        <div className="alert alert-danger" id="errorMessageDialog"> &nsbp;
-          /* Error msg here when input is wrong */
+        <div className="alert alert-danger" id="errorMessageDialog">
+          { /* Error msg here when input is wrong */ }
         </div>
       <div id="search-results">
         <ul className="list-group" id="stopNamesUL">
-          /* results here or separate component? */
+          { /* results here or separate component? */ }
         </ul>
       </div>
     </div>
