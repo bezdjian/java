@@ -1,6 +1,7 @@
 package com.bezdjian.trafiklab.service;
 
 import com.bezdjian.trafiklab.model.BussStopPointsModel;
+import com.bezdjian.trafiklab.model.TopTenListModel;
 import com.bezdjian.trafiklab.repository.JourneyPointRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -64,7 +65,9 @@ public class TrafikService {
         });
         //Sort and retrieve top 10 line numbers with most stops.
         List<Map.Entry<Integer, Integer>> topTenList = getTopTenMostStops(mostStops);
-        topTenAndStopNames.put("topTenList", topTenList);
+        List<TopTenListModel> topTenListModels = new ArrayList<>();
+        topTenList.forEach(t -> topTenListModels.add(new TopTenListModel(t.getKey(), t.getValue().toString())));
+        topTenAndStopNames.put("topTenList", topTenListModels);
         //Get the stop names of the line number that has the most stops.
         //getKey() is the line number we want to search.
         if (!topTenList.isEmpty()) {
