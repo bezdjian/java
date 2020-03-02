@@ -27,7 +27,8 @@ class App extends Component {
             topTenList: data.topTenList
           });
         })
-        .catch(console.log)).then(r => console.log("RRRRR: ", r));
+        .catch(console.log))
+      .then(r => console.log("TrackPromise getMostStops: ", r));
   }
 
   render() {
