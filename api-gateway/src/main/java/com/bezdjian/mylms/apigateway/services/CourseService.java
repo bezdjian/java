@@ -49,8 +49,7 @@ public class CourseService {
       .price(course.getPrice())
       .build();
 
-    courseClient.save(courseDTO);
-    return courseDTO;
+    return courseClient.save(courseDTO);
   }
 
   public void delete(Long courseId) {

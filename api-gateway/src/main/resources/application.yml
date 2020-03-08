@@ -5,6 +5,9 @@ server:
 spring:
   application:
     name: api-gateway
+feign:
+  hystrix:
+    enabled: false
 
 #Actuator info
 info:

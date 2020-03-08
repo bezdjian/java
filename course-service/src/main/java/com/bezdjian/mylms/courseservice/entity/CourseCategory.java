@@ -25,7 +25,7 @@ public class CourseCategory {
 
   @Column
   private String name;
-  @Column(name = "category_description")
+  @Column
   private String category_description;
 
   @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)

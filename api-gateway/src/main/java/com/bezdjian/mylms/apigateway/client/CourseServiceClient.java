@@ -20,7 +20,7 @@ public interface CourseServiceClient {
   CategoryDTO findCategoryByCourse(@PathVariable("courseId") Long courseId);
 
   @PostMapping("/course-service/courses")
-  void save(@RequestBody CourseDTO course);
+  CourseDTO save(@RequestBody CourseDTO course);
 
   @GetMapping("/course-service/courses/{courseId}")
   CourseDTO findCourse(@PathVariable("courseId") Long courseId);
