@@ -1,15 +1,23 @@
-package com.mylms.courseservice;
+package com.bezdjian.mylms.courseservice;
 
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import com.bezdjian.mylms.courseservice.repository.CourseCategoryRepository;
+import com.bezdjian.mylms.courseservice.repository.CourseRepository;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.context.ActiveProfiles;
 
-@RunWith(SpringRunner.class)
 @SpringBootTest
-public class CourseServiceApplicationTest {
+@ActiveProfiles("test")
+class CourseServiceApplicationTest {
+
+  private static final String BASE_PATH = "";
+  @Autowired
+  private CourseRepository courseRepository;
+  @Autowired
+  private CourseCategoryRepository courseCategoryRepository;
 
   @Test
-  public void contextLoads() {
+  void saveCourse() {
   }
 }

@@ -1,4 +1,4 @@
-package com.mylms.courseservice;
+package com.bezdjian.mylms.courseservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

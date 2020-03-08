@@ -1,4 +1,4 @@
-package com.mylms.courseservice.entity;
+package com.bezdjian.mylms.courseservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

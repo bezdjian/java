@@ -1,0 +1,3 @@
+-Make DockerFile for all the services and containerize them
+-Make a login page
+-Save course images in S3 and view them by their links

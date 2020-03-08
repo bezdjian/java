@@ -1,6 +1,6 @@
-package com.mylms.courseservice.repository;
+package com.bezdjian.mylms.courseservice.repository;
 
-import com.mylms.courseservice.entity.Course;
+import com.bezdjian.mylms.courseservice.entity.Course;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 

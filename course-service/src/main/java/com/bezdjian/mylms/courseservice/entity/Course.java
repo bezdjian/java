@@ -1,4 +1,4 @@
-package com.mylms.courseservice.entity;
+package com.bezdjian.mylms.courseservice.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.Transient;
 
 @Data
 @AllArgsConstructor

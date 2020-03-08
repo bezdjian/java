@@ -1,10 +1,8 @@
 package com.bezdjian.mylms.apigateway.resource;
 
-import com.bezdjian.mylms.apigateway.client.CourseServiceClient;
-import com.bezdjian.mylms.apigateway.dto.CategoryDTO;
-import com.bezdjian.mylms.apigateway.dto.CourseDTO;
 import com.bezdjian.mylms.apigateway.model.Response;
 import com.bezdjian.mylms.apigateway.model.SaveCourse;
+import com.bezdjian.mylms.apigateway.services.CourseService;
 import feign.FeignException;
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;
@@ -20,52 +18,38 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collection;
-
 @RestController
 @RequestMapping(value = "/api/courses", produces = MediaType.APPLICATION_JSON_VALUE)
 @Api(tags = "Course")
 @Slf4j
 public class CourseResource {
 
-  private final CourseServiceClient courseClient;
+  private final CourseService courseService;
 
   @Autowired
-  public CourseResource(CourseServiceClient courseClient) {
-    this.courseClient = courseClient;
+  public CourseResource(CourseService courseService) {
+    this.courseService = courseService;
   }
 
   @GetMapping("all")
   public ResponseEntity<Object> allCourses() {
     try {
-      Collection<CourseDTO> courses = courseClient.findAllCourses().getContent();
-      courses.forEach(course -> {
-        CategoryDTO category = courseClient.findCategoryByCourse(course.getId());
-        course.setCategory(category);
-      });
-      return new ResponseEntity<>(courses, HttpStatus.OK);
+      return new ResponseEntity<>(courseService.findAllCourses(), HttpStatus.OK);
     } catch (FeignException e) {
       log.error("Error occurred  when finding all courses. Error: {}", e.getMessage());
-      return new ResponseEntity<>(response(
-        "Error while finding all courses. " + e.getMessage(),
-        e.status()
-      ), HttpStatus.valueOf(e.status()));
+      return new ResponseEntity<>(response(e.getMessage(), e.status()),
+        HttpStatus.valueOf(e.status()));
     }
   }
 
   @GetMapping("/{courseId}")
   public ResponseEntity<Object> getCourseById(@PathVariable("courseId") Long courseId) {
     try {
-      CourseDTO course = courseClient.findCourse(courseId);
-      CategoryDTO category = courseClient.findCategoryByCourse(courseId);
-      course.setCategory(category);
-      return new ResponseEntity<>(course, HttpStatus.OK);
+      return new ResponseEntity<>(courseService.findById(courseId), HttpStatus.OK);
     } catch (FeignException e) {
       log.error("Error occurred  when finding a course with ID {}. Error: {}", courseId, e.getMessage());
-      return new ResponseEntity<>(response(
-        "Course " + courseId + " not found",
-        e.status()
-      ), HttpStatus.valueOf(e.status()));
+      return new ResponseEntity<>(response(e.getMessage(), e.status()),
+        HttpStatus.valueOf(e.status()));
     }
   }
 
@@ -77,24 +61,18 @@ public class CourseResource {
         return new ResponseEntity<>(response("Category ID must be provided", HttpStatus.BAD_REQUEST.value())
           , HttpStatus.BAD_REQUEST);
 
-      CategoryDTO category = courseClient.findCategory(course.getCategory().getId());
-      course.setCategory(category);
-      CourseDTO saved = courseClient.saveCourse(course);
-      return ResponseEntity.ok(saved);
-
+      return ResponseEntity.ok(courseService.save(course));
     } catch (FeignException e) {
       log.error("***** Error during save: {}", e.getMessage(), e);
-      return new ResponseEntity<>(response(
-        "Error during save: " + e.getMessage(),
-        e.status()
-      ), HttpStatus.valueOf(e.status()));
+      return new ResponseEntity<>(response(e.getMessage(), e.status()),
+        HttpStatus.valueOf(e.status()));
     }
   }
 
   @DeleteMapping("/delete/{courseId}")
   public ResponseEntity<Response> delete(@PathVariable("courseId") Long courseId) {
     try {
-      courseClient.deleteCourse(courseId);
+      courseService.delete(courseId);
       log.debug("Course with id {} is deleted", courseId);
       return ResponseEntity.ok(Response.builder()
         .message("Course has been deleted")
@@ -103,7 +81,7 @@ public class CourseResource {
     } catch (FeignException e) {
       log.debug("Error while deleting course {}. Error: {}", courseId, e);
       return new ResponseEntity<>(response(
-        "Error while deleting course: " + e.getMessage(),
+        e.getMessage(),
         e.status()
       ), HttpStatus.valueOf(e.status()));
     }

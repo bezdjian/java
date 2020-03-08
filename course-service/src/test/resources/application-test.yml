@@ -1,3 +1,4 @@
+# Needed for SpringBoot test..
 server:
   port: 8083
   servlet:
@@ -20,6 +21,6 @@ spring:
 
 #Actuator info
 info:
-  app: @name@
-  version: @version@
-  description: @description@
+  app: app-test
+  version: 0.1
+  description: description

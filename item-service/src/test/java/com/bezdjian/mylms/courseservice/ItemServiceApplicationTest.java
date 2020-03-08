@@ -1,9 +1,12 @@
-package com.mylms.courseservice;
+package com.bezdjian.mylms.courseservice;
 
-import org.junit.Test;
+import com.bezdjian.mylms.itemservice.ItemServiceApplication;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.ActiveProfiles;
 
-//@RunWith(SpringRunner.class)
-//@SpringBootTest
+@SpringBootTest(classes = ItemServiceApplication.class)
+@ActiveProfiles("test")
 public class ItemServiceApplicationTest {
 
   @Test

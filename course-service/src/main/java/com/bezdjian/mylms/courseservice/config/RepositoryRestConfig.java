@@ -1,7 +1,7 @@
-package com.mylms.courseservice.config;
+package com.bezdjian.mylms.courseservice.config;
 
-import com.mylms.courseservice.entity.Course;
-import com.mylms.courseservice.entity.CourseCategory;
+import com.bezdjian.mylms.courseservice.entity.Course;
+import com.bezdjian.mylms.courseservice.entity.CourseCategory;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
 import org.springframework.stereotype.Component;

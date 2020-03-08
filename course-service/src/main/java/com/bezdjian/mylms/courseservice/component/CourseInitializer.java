@@ -1,9 +1,9 @@
-package com.mylms.courseservice.component;
+package com.bezdjian.mylms.courseservice.component;
 
-import com.mylms.courseservice.entity.Course;
-import com.mylms.courseservice.entity.CourseCategory;
-import com.mylms.courseservice.repository.CourseCategoryRepository;
-import com.mylms.courseservice.repository.CourseRepository;
+import com.bezdjian.mylms.courseservice.entity.Course;
+import com.bezdjian.mylms.courseservice.entity.CourseCategory;
+import com.bezdjian.mylms.courseservice.repository.CourseCategoryRepository;
+import com.bezdjian.mylms.courseservice.repository.CourseRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -38,14 +38,14 @@ public class CourseInitializer implements CommandLineRunner {
       "AWS DevOps", 1L,
       "Java 11", 2L,
       "Spring Boot", 2L)
-    //.entrySet()
-    .forEach(
-      (course, categoryId) -> {
-        CourseCategory category = new CourseCategory();
-        category.setId(categoryId);
-        courseRepository.save(new Course(course, "desc", "idnumber", category));
-      }
-    );
+      //.entrySet()
+      .forEach(
+        (course, categoryId) -> {
+          CourseCategory category = new CourseCategory();
+          category.setId(categoryId);
+          courseRepository.save(new Course(course, "desc", "idnumber", category));
+        }
+      );
 
     //Find all courses
     log.info("***** Displaying courses:");

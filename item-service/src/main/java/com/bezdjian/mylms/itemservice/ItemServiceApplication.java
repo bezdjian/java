@@ -1,4 +1,4 @@
-package com.mylms.itemservice;
+package com.bezdjian.mylms.itemservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

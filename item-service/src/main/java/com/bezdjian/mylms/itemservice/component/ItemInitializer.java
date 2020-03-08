@@ -1,9 +1,9 @@
-package com.mylms.itemservice.component;
+package com.bezdjian.mylms.itemservice.component;
 
-import com.mylms.itemservice.entity.Item;
-import com.mylms.itemservice.entity.Product;
-import com.mylms.itemservice.repository.ItemRepository;
-import com.mylms.itemservice.repository.ProductRepository;
+import com.bezdjian.mylms.itemservice.entity.Item;
+import com.bezdjian.mylms.itemservice.entity.Product;
+import com.bezdjian.mylms.itemservice.repository.ItemRepository;
+import com.bezdjian.mylms.itemservice.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;

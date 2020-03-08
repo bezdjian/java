@@ -1,6 +1,6 @@
-package com.mylms.itemservice.repository;
+package com.bezdjian.mylms.itemservice.repository;
 
-import com.mylms.itemservice.entity.Product;
+import com.bezdjian.mylms.itemservice.entity.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 
