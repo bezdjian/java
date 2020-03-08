@@ -1,7 +1,7 @@
 package com.bezdjian.mylms.apigateway.resource;
 
 import com.bezdjian.mylms.apigateway.model.Response;
-import com.bezdjian.mylms.apigateway.model.SaveCourse;
+import com.bezdjian.mylms.apigateway.model.SaveCourseRequest;
 import com.bezdjian.mylms.apigateway.services.CourseService;
 import feign.FeignException;
 import io.swagger.annotations.Api;
@@ -54,7 +54,7 @@ public class CourseResource {
   }
 
   @PostMapping("/save")
-  public ResponseEntity<Object> save(@RequestBody SaveCourse course) {
+  public ResponseEntity<Object> save(@RequestBody SaveCourseRequest course) {
     log.info("Request save or update course: " + course.toString());
     try {
       if (course.getCategoryId() == null)

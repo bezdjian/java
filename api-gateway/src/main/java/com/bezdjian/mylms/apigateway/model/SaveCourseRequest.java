@@ -10,12 +10,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SaveCourse {
+public class SaveCourseRequest {
 
   private String coursename;
   private String description;
   private String idnumber;
   private String image;
   private Long price;
-  private String category;
+  private Long categoryId;
 }

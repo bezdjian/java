@@ -14,3 +14,8 @@ info:
   app: @name@
   version: @version@
   description: @description@
+
+course:
+  service:
+    url: http://localhost
+    port: 8083
