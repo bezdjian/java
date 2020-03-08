@@ -38,9 +38,19 @@ public class CourseService {
   }
 
   public CourseDTO save(SaveCourse course) {
-    CategoryDTO category = courseClient.findCategory(course.getCategory().getId());
-    course.setCategory(category);
-    return courseClient.saveCourse(course);
+    CategoryDTO category = courseClient.findCategory(course.getCategoryId());
+
+    CourseDTO courseDTO = CourseDTO.builder()
+      .category(category)
+      .coursename(course.getCoursename())
+      .description(course.getDescription())
+      .idnumber(course.getIdnumber())
+      .image(course.getImage())
+      .price(course.getPrice())
+      .build();
+
+    courseClient.save(courseDTO);
+    return courseDTO;
   }
 
   public void delete(Long courseId) {

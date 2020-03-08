@@ -4,8 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -21,16 +23,16 @@ public class CourseCategory {
   @GeneratedValue
   private Long id;
 
-  @Column(name = "name")
+  @Column
   private String name;
-  @Column(name = "description")
-  private String description;
+  @Column(name = "category_description")
+  private String category_description;
 
-  @OneToMany(mappedBy = "category")
+  @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
   private List<Course> course;
 
-  public CourseCategory(String name, String description) {
+  public CourseCategory(String name, String category_description) {
     this.name = name;
-    this.description = description;
+    this.category_description = category_description;
   }
 }

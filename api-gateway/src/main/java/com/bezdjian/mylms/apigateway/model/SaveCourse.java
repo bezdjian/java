@@ -1,7 +1,6 @@
 package com.bezdjian.mylms.apigateway.model;
 
 
-import com.bezdjian.mylms.apigateway.dto.CategoryDTO;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -18,5 +17,5 @@ public class SaveCourse {
   private String idnumber;
   private String image;
   private Long price;
-  private CategoryDTO category;
+  private Long categoryId;
 }

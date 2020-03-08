@@ -2,7 +2,6 @@ package com.bezdjian.mylms.apigateway.client;
 
 import com.bezdjian.mylms.apigateway.dto.CategoryDTO;
 import com.bezdjian.mylms.apigateway.dto.CourseDTO;
-import com.bezdjian.mylms.apigateway.model.SaveCourse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.hateoas.Resources;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -11,17 +10,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
-@FeignClient("course-service")
+@FeignClient(value = "course-service") //url =
 public interface CourseServiceClient {
 
   @GetMapping("/course-service/courses")
   Resources<CourseDTO> findAllCourses();
 
-  @GetMapping(value = "/course-service/courses/{courseId}/category")
+  @GetMapping("/course-service/courses/{courseId}/category")
   CategoryDTO findCategoryByCourse(@PathVariable("courseId") Long courseId);
 
   @PostMapping("/course-service/courses")
-  CourseDTO saveCourse(@RequestBody SaveCourse course);
+  void save(@RequestBody CourseDTO course);
 
   @GetMapping("/course-service/courses/{courseId}")
   CourseDTO findCourse(@PathVariable("courseId") Long courseId);

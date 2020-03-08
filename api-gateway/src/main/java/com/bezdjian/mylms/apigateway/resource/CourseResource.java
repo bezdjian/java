@@ -57,7 +57,7 @@ public class CourseResource {
   public ResponseEntity<Object> save(@RequestBody SaveCourse course) {
     log.info("Request save or update course: " + course.toString());
     try {
-      if (course.getCategory() == null || course.getCategory().getId() == null)
+      if (course.getCategoryId() == null)
         return new ResponseEntity<>(response("Category ID must be provided", HttpStatus.BAD_REQUEST.value())
           , HttpStatus.BAD_REQUEST);
 

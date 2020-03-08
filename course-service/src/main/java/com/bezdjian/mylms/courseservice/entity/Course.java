@@ -24,16 +24,16 @@ public class Course {
   @Column(name = "course_name")
   private String coursename;
 
-  @Column(name = "description")
+  @Column
   private String description;
 
   @Column(name = "id_number")
   private String idnumber;
 
-  @Column(name = "image")
+  @Column
   private String image;
 
-  @Column(name = "price")
+  @Column
   private Long price;
 
   @ManyToOne
