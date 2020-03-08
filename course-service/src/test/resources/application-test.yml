@@ -1,0 +1,25 @@
+server:
+  port: 8083
+  servlet:
+    context-path: /course-service
+spring:
+  application:
+    name: course-service
+
+  # H2 DB
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: jdbc:h2:mem:test
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    jpa:
+      database-platform: org:hibernate:dialect:H2Dialect
+
+#Actuator info
+info:
+  app: @name@
+  version: @version@
+  description: @description@
