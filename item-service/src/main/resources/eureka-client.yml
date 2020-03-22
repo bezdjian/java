@@ -1,7 +1,7 @@
 #Eureka
 eureka:
   instance:
-    hostname: ${vcap.application.uris[0]:localhost}
+    hostname: ${vcap.application.uris[0]:192.168.99.100}
   nonSecurePort: 80
   metadataMap:
     instanceId: ${vcap.application.instance_id:${spring.application.name}:${spring.application.instance_id:${server.port}}}
@@ -11,4 +11,4 @@ eureka:
     region: default
   registryFetchIntervalSeconds: 5
   serviceUrl:
-    defaultZone: ${vcap.services.pwa-eureka-service.credentials.uri}/eureka/
+    defaultZone: 192.168.99.100/8761/eureka/

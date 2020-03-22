@@ -2,21 +2,23 @@ server:
   port: 8082
   servlet:
     context-path: /item-service
+    application-display-name: Mylms Items Service
 spring:
   application:
     name: item-service
-
-  # H2 DB
-  h2:
-    console:
-      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    #show-sql: true
+    properties:
+      hibernate:
+        #format_sql: true
+        dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
-    url: jdbc:h2:mem:test
-    driverClassName: org.h2.Driver
-    username: sa
-    password: password
-    jpa:
-      database-platform: org:hibernate:dialect:H2Dialect
+    url: jdbc:mysql://localhost:3306/mylms2
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
 
 #Actuator info
 info:

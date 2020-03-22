@@ -75,7 +75,7 @@ public class ItemResourceITest {
 
   private Resources<ItemDTO> items() {
     List<ItemDTO> dtos = new ArrayList<>() {{
-      add(new ItemDTO("das item"));
+      add(ItemDTO.builder().name("das item").build());
     }};
     return new Resources<>(dtos);
   }

@@ -5,6 +5,7 @@ import com.bezdjian.mylms.apigateway.dto.ItemDTO;
 import com.bezdjian.mylms.apigateway.dto.ProductDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
@@ -14,6 +15,10 @@ import java.util.Collection;
 public class ItemService {
 
   private final ItemServiceClient itemClient;
+  @Value("${course.service.url}")
+  private String courseServiceUrl;
+  @Value("${course.service.port}")
+  private String courseServicePort;
 
   @Autowired
   public ItemService(ItemServiceClient itemClient) {
@@ -29,5 +34,9 @@ public class ItemService {
 
   public Collection<ProductDTO> topProducts() {
     return itemClient.readProducts().getContent();
+  }
+
+  public ItemDTO save(){
+    return ItemDTO.builder().build();
   }
 }

@@ -1,10 +1,11 @@
 server:
-  port: 8081
+  port: 8082
   servlet:
-    context-path: /api-gateway
+    context-path: /item-service
+    application-display-name: Mylms Items Service
 spring:
   application:
-    name: api-gateway
+    name: item-service
   # H2 DB
   h2:
     console:
@@ -19,6 +20,6 @@ spring:
 
 #Actuator info
 info:
-  app: api-gateway
+  app: item-service
   version: 0.1
-  description: test
+  description: description

@@ -6,11 +6,10 @@ import com.bezdjian.mylms.itemservice.repository.ItemRepository;
 import com.bezdjian.mylms.itemservice.repository.ProductRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
-import org.springframework.stereotype.Component;
 
 import java.util.stream.Stream;
 
-@Component
+//@Component
 @Slf4j
 public class ItemInitializer implements CommandLineRunner {
 
@@ -22,7 +21,7 @@ public class ItemInitializer implements CommandLineRunner {
     this.productRepository = productRepository;
   }
 
-  @Override
+  //@Override
   public void run(String... args) {
     // Create some Strings and save as Item.
     Stream.of("Lining", "PUMA", "Bad boy", "Air Jordan", "Nike", "Adidas")

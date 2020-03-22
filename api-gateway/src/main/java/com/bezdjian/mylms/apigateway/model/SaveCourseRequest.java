@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class SaveCourseRequest {
 
+  private Long id;
   private String coursename;
   private String description;
   private String idnumber;

@@ -78,7 +78,10 @@ class CourseItemsResourceITest {
 
   private Resources<ItemDTO> items() {
     List<ItemDTO> dtos = new ArrayList<>() {{
-      add(new ItemDTO("Amazon"));
+      add(ItemDTO.builder()
+        .name("Amazon")
+        .price(999.00)
+        .build());
     }};
     return new Resources<>(dtos);
   }

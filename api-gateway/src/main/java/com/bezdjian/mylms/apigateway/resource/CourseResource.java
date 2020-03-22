@@ -61,6 +61,9 @@ public class CourseResource {
         return new ResponseEntity<>(response("Category ID must be provided", HttpStatus.BAD_REQUEST.value())
           , HttpStatus.BAD_REQUEST);
 
+      // TODO: Continue the code... update or save...
+      // Find the course to update if exists
+      courseService.findById(course.getId());
       return ResponseEntity.ok(courseService.save(course));
     } catch (FeignException e) {
       log.error("***** Error during save: {}", e.getMessage(), e);

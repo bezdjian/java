@@ -22,7 +22,6 @@ public class CourseCategory {
   @Id
   @GeneratedValue
   private Long id;
-
   @Column
   private String name;
   @Column
