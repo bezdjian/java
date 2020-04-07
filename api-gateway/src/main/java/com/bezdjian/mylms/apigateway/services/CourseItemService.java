@@ -2,7 +2,6 @@ package com.bezdjian.mylms.apigateway.services;
 
 import com.bezdjian.mylms.apigateway.dto.CourseDTO;
 import com.bezdjian.mylms.apigateway.dto.ItemDTO;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +12,6 @@ import java.util.List;
 import java.util.Map;
 
 @Service
-@Slf4j
 public class CourseItemService {
 
   private final CourseService courseService;

@@ -11,4 +11,5 @@ eureka:
     region: default
   registryFetchIntervalSeconds: 5
   serviceUrl:
-    defaultZone: 192.168.99.100/8761/eureka/
+    defaultZone: ${vcap.services.pwa-eureka-service.credentials.uri}/eureka/
+    #defaultZone: http://192.168.99.100:8761/eureka

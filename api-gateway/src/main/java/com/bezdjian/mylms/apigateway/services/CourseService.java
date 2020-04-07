@@ -37,17 +37,16 @@ public class CourseService {
   }
 
   public CourseDTO findById(Long courseId) {
-    CourseDTO course = courseClient.findCourse(courseId);
-    CategoryDTO category = courseClient.findCategoryByCourse(courseId);
-    course.setCategory(category);
-    return course;
+    return courseClient.findCourse(courseId);
   }
 
   public CourseDTO save(SaveCourseRequest course) {
-    // Calling findCategory to make sure the method goes through without error and that means
-    // the category exists.
+    // Calling findCategory to make sure the method goes through without error and
+    // that means the category exists.
     CategoryDTO category = courseClient.findCategory(course.getCategoryId());
-    String categoryUri = courseServiceUrl + ":" + courseServicePort + "/course-service/courseCategories/" + category.getId();
+    String categoryUri = courseServiceUrl + ":" + courseServicePort + "/course-service/courseCategories/"
+      + category.getId();
+    log.info("Getting category from {}", categoryUri);
 
     SaveCourse saveCourse = SaveCourse.builder()
       .coursename(course.getCoursename())

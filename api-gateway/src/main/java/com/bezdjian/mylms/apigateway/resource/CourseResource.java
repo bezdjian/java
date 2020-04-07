@@ -1,5 +1,6 @@
 package com.bezdjian.mylms.apigateway.resource;
 
+import com.bezdjian.mylms.apigateway.dto.CourseDTO;
 import com.bezdjian.mylms.apigateway.model.Response;
 import com.bezdjian.mylms.apigateway.model.SaveCourseRequest;
 import com.bezdjian.mylms.apigateway.services.CourseService;
@@ -54,17 +55,23 @@ public class CourseResource {
   }
 
   @PostMapping("/save")
-  public ResponseEntity<Object> save(@RequestBody SaveCourseRequest course) {
-    log.info("Request save or update course: " + course.toString());
+  public ResponseEntity<Object> save(@RequestBody SaveCourseRequest courseRequest) {
+    log.info("Request save or update course: " + courseRequest.toString());
     try {
-      if (course.getCategoryId() == null)
+      if (courseRequest.getCategoryId() == null)
         return new ResponseEntity<>(response("Category ID must be provided", HttpStatus.BAD_REQUEST.value())
           , HttpStatus.BAD_REQUEST);
 
       // TODO: Continue the code... update or save...
       // Find the course to update if exists
-      courseService.findById(course.getId());
-      return ResponseEntity.ok(courseService.save(course));
+      CourseDTO course = courseService.findById(courseRequest.getId());
+      log.info("********* Updating course with ID {}:", course.getId());
+
+      return ResponseEntity.ok().build();
+
+    } catch (FeignException.NotFound e) {
+      log.error("******** Course with id {} not found. Creating a new one", courseRequest.getId());
+      return ResponseEntity.ok().build();
     } catch (FeignException e) {
       log.error("***** Error during save: {}", e.getMessage(), e);
       return new ResponseEntity<>(response(e.getMessage(), e.status()),

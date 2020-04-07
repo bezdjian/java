@@ -3,7 +3,6 @@ package com.bezdjian.mylms.apigateway.services;
 import com.bezdjian.mylms.apigateway.client.ItemServiceClient;
 import com.bezdjian.mylms.apigateway.dto.ItemDTO;
 import com.bezdjian.mylms.apigateway.dto.ProductDTO;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,6 @@ import org.springframework.stereotype.Service;
 import java.util.Collection;
 
 @Service
-@Slf4j
 public class ItemService {
 
   private final ItemServiceClient itemClient;
