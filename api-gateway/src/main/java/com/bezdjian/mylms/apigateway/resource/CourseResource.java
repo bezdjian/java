@@ -65,17 +65,17 @@ public class CourseResource {
       // TODO: Continue the code... update or save...
       // Find the course to update if exists
       CourseDTO course = courseService.findById(courseRequest.getId());
-      log.info("********* Updating course with ID {}:", course.getId());
+      log.info("********* Course with ID {} found. Updating...", course.getId());
 
       return ResponseEntity.ok().build();
 
     } catch (FeignException.NotFound e) {
       log.error("******** Course with id {} not found. Creating a new one", courseRequest.getId());
       return ResponseEntity.ok().build();
-    } catch (FeignException e) {
+    } catch (Exception e) {
       log.error("***** Error during save: {}", e.getMessage(), e);
-      return new ResponseEntity<>(response(e.getMessage(), e.status()),
-        HttpStatus.valueOf(e.status()));
+      return new ResponseEntity<>(response(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value()),
+        HttpStatus.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
     }
   }
 
