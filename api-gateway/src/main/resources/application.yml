@@ -14,7 +14,7 @@ feign:
 eureka:
   client:
     service-url:
-      default-zone: ${vcap.services.pwa-eureka-service.credentials.uri}/eureka/
+      defaultZone: ${vcap.services.pwa-eureka-service.credentials.uri}/eureka/
 
 #Actuator info
 info:
