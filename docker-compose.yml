@@ -1,3 +1,5 @@
+# Docker compose to compose all microservices at the same time.
+
 version: '3'
 services:
   eureka:

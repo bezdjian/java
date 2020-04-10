@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 import java.util.stream.Stream;
 
-//@Component
+@Component
 @Slf4j
 public class CourseInitializer implements CommandLineRunner {
 
@@ -23,7 +23,7 @@ public class CourseInitializer implements CommandLineRunner {
     this.courseCategoryCourseRepository = courseCategoryCourseRepository;
   }
 
-  //@Override
+  @Override
   public void run(String... args) {
     // Create some Strings and save as course category FIRST.
     Stream.of("AWS", "Java") // AWS ID 1 -- JAVA ID 2

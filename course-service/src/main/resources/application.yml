@@ -14,11 +14,23 @@ spring:
       hibernate:
         #format_sql: true
         dialect: org.hibernate.dialect.MySQL5Dialect
+  #datasource:
+  #  url: jdbc:mysql://localhost:3306/mylms2
+  #  username: root
+  #  password: root
+  #  driver-class-name: com.mysql.jdbc.Driver
+
+  # H2 DB
+  h2:
+    console:
+      enabled: true
   datasource:
-    url: jdbc:mysql://localhost:3306/mylms2
-    username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:h2:mem:test
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+    jpa:
+      database-platform: org:hibernate:dialect:H2Dialect
 
 #Eureka
 eureka:
