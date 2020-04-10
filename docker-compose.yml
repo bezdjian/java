@@ -6,10 +6,12 @@ services:
     build: ./eurekaserver
     ports:
     - "8761:8761"
+    container_name: "eureka-server"
   api-gateway:
     build: ./api-gateway
     ports:
     - "8081:8081"
+    container_name: "api-gateway"
     depends_on:
       - eureka
       - course-service
@@ -18,11 +20,13 @@ services:
     build: ./course-service
     ports:
     - "8083:8083"
+    container_name: "course-service"
     depends_on:
       - eureka
   item-service:
     build: ./item-service
     ports:
     - "8082:8082"
+    container_name: "item-service"
     depends_on:
       - eureka
