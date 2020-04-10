@@ -10,6 +10,12 @@ feign:
   hystrix:
     enabled: false
 
+#Eureka
+eureka:
+  client:
+    service-url:
+      default-zone: ${vcap.services.pwa-eureka-service.credentials.uri}/eureka/
+
 #Actuator info
 info:
   app: @name@
