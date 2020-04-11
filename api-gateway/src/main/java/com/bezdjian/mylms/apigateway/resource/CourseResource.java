@@ -35,6 +35,7 @@ public class CourseResource {
   @GetMapping("all")
   public ResponseEntity<Object> allCourses() {
     try {
+      log.info("Getting all courses");
       return new ResponseEntity<>(courseService.findAllCourses(), HttpStatus.OK);
     } catch (FeignException e) {
       log.error("Error occurred  when finding all courses. Error: {}", e.getMessage());
@@ -48,7 +49,12 @@ public class CourseResource {
     try {
       return new ResponseEntity<>(courseService.findById(courseId), HttpStatus.OK);
     } catch (FeignException e) {
-      log.error("Error occurred  when finding a course with ID {}. Error: {}", courseId, e.getMessage());
+      if (e.status() == HttpStatus.NOT_FOUND.value()) {
+        log.info("Course with ID {} not found", courseId);
+        return new ResponseEntity<>(response(e.getMessage(), e.status()),
+          HttpStatus.valueOf(e.status()));
+      }
+      log.error("***** Error occurred  when finding a course with ID {}. Error: {}", courseId, e.getMessage());
       return new ResponseEntity<>(response(e.getMessage(), e.status()),
         HttpStatus.valueOf(e.status()));
     }
