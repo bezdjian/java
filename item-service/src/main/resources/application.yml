@@ -33,6 +33,9 @@ spring:
       database-platform: org:hibernate:dialect:H2Dialect
 
 #Eureka
+feign:
+  hysterix:
+    enabled: false
 eureka:
   instance:
     health-check-url-path: /actuator/health

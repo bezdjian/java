@@ -61,7 +61,7 @@ public class CourseResource {
       if (courseRequest.getCategoryId() == null) {
         return new ResponseEntity<>(
           response("Category ID must be provided",
-            HttpStatus.BAD_REQUEST.value()) ,HttpStatus.BAD_REQUEST);
+            HttpStatus.BAD_REQUEST.value()), HttpStatus.BAD_REQUEST);
       }
 
       CourseDTO saved = courseService.save(courseRequest);
@@ -79,16 +79,12 @@ public class CourseResource {
     try {
       courseService.delete(courseId);
       log.debug("Course with id {} is deleted", courseId);
-      return ResponseEntity.ok(Response.builder()
-        .message("Course has been deleted")
-        .code(HttpStatus.OK.value())
-        .build());
+      return ResponseEntity.ok(response("Course with ID " + courseId + " has been deleted",
+        HttpStatus.OK.value()));
     } catch (FeignException e) {
       log.debug("Error while deleting course {}. Error: {}", courseId, e);
-      return new ResponseEntity<>(response(
-        e.getMessage(),
-        e.status()
-      ), HttpStatus.valueOf(e.status()));
+      return new ResponseEntity<>(response(e.getMessage(), e.status()),
+        HttpStatus.valueOf(e.status()));
     }
   }
 
