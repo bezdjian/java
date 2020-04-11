@@ -12,9 +12,11 @@ feign:
 
 #Eureka
 eureka:
+  instance:
+    health-check-url-path: /actuator/health
   client:
     service-url:
-      defaultZone: ${vcap.services.pwa-eureka-service.credentials.uri}/eureka/
+      defaultZone: http://localhost:8761/eureka/
 
 #Actuator info
 info:
