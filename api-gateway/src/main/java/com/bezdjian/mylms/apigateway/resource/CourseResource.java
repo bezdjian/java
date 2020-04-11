@@ -58,20 +58,15 @@ public class CourseResource {
   public ResponseEntity<Object> save(@RequestBody SaveCourseRequest courseRequest) {
     log.info("Request save or update course: " + courseRequest.toString());
     try {
-      if (courseRequest.getCategoryId() == null)
-        return new ResponseEntity<>(response("Category ID must be provided", HttpStatus.BAD_REQUEST.value())
-          , HttpStatus.BAD_REQUEST);
+      if (courseRequest.getCategoryId() == null) {
+        return new ResponseEntity<>(
+          response("Category ID must be provided",
+            HttpStatus.BAD_REQUEST.value()) ,HttpStatus.BAD_REQUEST);
+      }
 
-      // TODO: Continue the code... update or save...
-      // Find the course to update if exists
-      CourseDTO course = courseService.findById(courseRequest.getId());
-      log.info("********* Course with ID {} found. Updating...", course.getId());
+      CourseDTO saved = courseService.save(courseRequest);
+      return new ResponseEntity<>(saved, HttpStatus.OK);
 
-      return ResponseEntity.ok().build();
-
-    } catch (FeignException.NotFound e) {
-      log.error("******** Course with id {} not found. Creating a new one", courseRequest.getId());
-      return ResponseEntity.ok().build();
     } catch (Exception e) {
       log.error("***** Error during save: {}", e.getMessage(), e);
       return new ResponseEntity<>(response(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value()),

@@ -55,6 +55,7 @@ public class CourseService {
       .image(course.getImage())
       .price(course.getPrice())
       .category(categoryUri)
+      .id(course.getId())
       .build();
 
     CourseDTO savedCourse = courseClient.save(saveCourse);
