@@ -40,7 +40,7 @@ public class CourseResource {
     } catch (FeignException e) {
       log.error("Error occurred  when finding all courses. Error: {}", e.getMessage());
       return new ResponseEntity<>(response(e.getMessage(), e.status()),
-        HttpStatus.valueOf(e.status()));
+        HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
@@ -56,7 +56,7 @@ public class CourseResource {
       }
       log.error("***** Error occurred  when finding a course with ID {}. Error: {}", courseId, e.getMessage());
       return new ResponseEntity<>(response(e.getMessage(), e.status()),
-        HttpStatus.valueOf(e.status()));
+        HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
@@ -76,7 +76,7 @@ public class CourseResource {
     } catch (Exception e) {
       log.error("***** Error during save: {}", e.getMessage(), e);
       return new ResponseEntity<>(response(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR.value()),
-        HttpStatus.valueOf(HttpStatus.INTERNAL_SERVER_ERROR.value()));
+        HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 
@@ -90,7 +90,7 @@ public class CourseResource {
     } catch (FeignException e) {
       log.debug("Error while deleting course {}. Error: {}", courseId, e);
       return new ResponseEntity<>(response(e.getMessage(), e.status()),
-        HttpStatus.valueOf(e.status()));
+        HttpStatus.INTERNAL_SERVER_ERROR);
     }
   }
 

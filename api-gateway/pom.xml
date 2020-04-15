@@ -18,6 +18,8 @@
     <java.version>11</java.version>
     <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
     <swagger.version>2.9.2</swagger.version>
+    <!-- env.eureka.url is by default localhost, it is being used in Dockerfile to change its value to docker ip -->
+    <!--env.eureka.url>localhost</env.eureka.url-->
   </properties>
 
   <dependencies>
@@ -123,6 +125,11 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <environmentVariables>
+            <env.eureka.url>localhost</env.eureka.url>
+          </environmentVariables>
+        </configuration>
       </plugin>
     </plugins>
   </build>

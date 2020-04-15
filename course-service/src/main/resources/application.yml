@@ -32,16 +32,20 @@ spring:
     jpa:
       database-platform: org:hibernate:dialect:H2Dialect
 
-#Eureka
 feign:
   hysterix:
     enabled: false
+
+#Eureka
 eureka:
   instance:
     health-check-url-path: /actuator/health
+    hostname: 192.168.99.100
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
   client:
     service-url:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://192.168.99.100:8761/eureka/
+      #defaultZone: http://localhost:8761/eureka/
 
 #Actuator info
 info:
