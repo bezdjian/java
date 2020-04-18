@@ -1,6 +1,5 @@
 package com.bezdjian.mylms.apigateway;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
@@ -15,16 +14,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableZuulProxy
 public class ApiGatewayApplication {
 
-  @Value("${eureka.client.serviceUrl.defaultZone}")
-  private static String defaultZone;
-
   public static void main(String[] args) {
-    System.out.println("*************** defaultZone from props: " + defaultZone);
-    for (String url : args) {
-      System.out.println("*************** Eureka Url from args: " + url);
-      System.setProperty("env.eureka.url", url);
-    }
-
     SpringApplication.run(ApiGatewayApplication.class, args);
   }
 }
