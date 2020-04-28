@@ -21,15 +21,15 @@ import org.springframework.web.client.RestTemplate;
 @Slf4j
 public class TrafikLabAPIClient {
 
-    private JourneyPointRepository journeyPointRepository;
-    private StopPointRepository stopPointRepository;
+    private final JourneyPointRepository journeyPointRepository;
+    private final StopPointRepository stopPointRepository;
 
     //Injection of @Value on field works after construction, having it inside construction parameter works in this
     // service
-    private String key;
-    private String url;
+    private final String key;
+    private final String url;
 
-    private RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate = new RestTemplate();
 
     public TrafikLabAPIClient(JourneyPointRepository journeyPointRepository,
             StopPointRepository stopPointRepository,
