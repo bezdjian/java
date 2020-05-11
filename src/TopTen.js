@@ -1,12 +1,13 @@
-import React from 'react';
+import React from "react";
 
-const TopTen = ({topTenList}) => {
+const TopTen = ({ topTenList }) => {
   return (
-    <div key='top-names-card'>
-      <div key='top-names-card-body' className="card-body">
-        {topTenList.map((topTen) => (
-          <li key={topTen.lineNumber} className="card-title">
-            Line {topTen.lineNumber} has {topTen.stopCount} stops</li>
+    <div key="top-names-card">
+      <div key="top-names-card-body" className="card-body">
+        {topTenList.map((topTen, k) => (
+          <li key={k} className="card-title">
+            Line {topTen.lineNumber} has {topTen.stopCount} stops
+          </li>
         ))}
       </div>
     </div>

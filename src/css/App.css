@@ -18,6 +18,10 @@
   color: white;
 }
 
-.form-control{
-  height: 42px;
+.form-control {
+  height: 37px;
+}
+
+.border-radious-0 {
+  border-radius: 0;
 }
