@@ -1,20 +1,18 @@
-import React, { Component } from "react";
-import TopTen from "./TopTen";
-import TopTenStopNames from "./TopTenStopNames";
+import React, {Component} from 'react';
+import TopTen from './TopTen';
+import TopTenStopNames from './TopTenStopNames';
 import SearchBox from "./SearchBox";
-import { trackPromise } from "react-promise-tracker";
+import {trackPromise} from "react-promise-tracker";
 
-import "./bootstrap.min.css";
-import "./css/App.css";
+import './bootstrap.min.css';
+import './css/App.css';
 
 class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      stopNames: [],
-      topTenList: [],
-    };
-  }
+
+  state = {
+    stopNames: [],
+    topTenList: []
+  };
 
   componentDidMount() {
     const API_URL = process.env.REACT_APP_TRAFIKLAB_URL;

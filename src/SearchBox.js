@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { trackPromise } from "react-promise-tracker";
+import Popup from "./Popup";
 
 class SearchBox extends Component {
   constructor(props) {
@@ -8,11 +9,17 @@ class SearchBox extends Component {
       result: [],
       searchField: "",
       error: "",
+      showPopup: false,
     };
 
     this.doSearch = this.doSearch.bind(this);
     this.onSearchChange = this.onSearchChange.bind(this);
+    this.togglePopup = this.togglePopup.bind(this);
   }
+
+  togglePopup = () => {
+    this.setState({ showPopup: !this.state.showPopup });
+  };
 
   onSearchChange = (e) => {
     // Clear error msg
@@ -37,11 +44,15 @@ class SearchBox extends Component {
           console.log("res: ", res);
           if (res.status === 404)
             this.setState({
-              error: res.status + ": Search did not give any result",
+              ...this.state,
+              showPopup: true,
+              popupMsg: res.status + ": Search did not give any result",
             });
           if (res.status !== 200 && res.status !== 404)
             this.setState({
-              error: res.status + ": Error occured while searching",
+              ...this.state,
+              showPopup: true,
+              popupMsg: res.status + ": Error accured while searching",
             });
 
           if (res.ok) return res.json();
@@ -49,7 +60,11 @@ class SearchBox extends Component {
         .then((data) => {
           if (data.length === 0) {
             this.setState({
-              error: "404: Search did not give any result",
+              ...this.state,
+              showPopup: true,
+              popupMsg:
+                "There are no bus stops for bus numer " +
+                this.state.searchField,
             });
           } else {
             this.setState({
@@ -59,7 +74,6 @@ class SearchBox extends Component {
         })
         .catch((r) => {
           console.log("Error while searching: ", r);
-          this.setState({ error: "Error while searching" });
         })
     );
   };
@@ -108,6 +122,12 @@ class SearchBox extends Component {
             )}
           </div>
         </div>
+        {this.state.showPopup ? (
+          <Popup
+            text={this.state.popupMsg}
+            closePopup={this.togglePopup.bind(this)}
+          />
+        ) : null}
       </div>
     );
   }
