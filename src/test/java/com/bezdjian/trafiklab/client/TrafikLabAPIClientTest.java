@@ -8,7 +8,6 @@ import com.bezdjian.trafiklab.repository.StopPointRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.web.client.RestTemplate;
@@ -23,7 +22,6 @@ import static org.mockito.MockitoAnnotations.initMocks;
 @RunWith(MockitoJUnitRunner.class)
 public class TrafikLabAPIClientTest extends BaseTest {
 
-    @InjectMocks
     private TrafikLabAPIClient apiClient;
     @Mock
     private JourneyPointRepository journeyPointRepository;
@@ -35,12 +33,15 @@ public class TrafikLabAPIClientTest extends BaseTest {
     @Before
     public void setup() {
         initMocks(this);
+        apiClient = new TrafikLabAPIClient(journeyPointRepository, stopPointRepository,
+                "key", "http://test", restTemplate);
     }
 
     @Test
     public void saveJourneyPoints() throws Exception {
         JourneyPatternPointOnLine jppo = getJourneyPatternPointOnLine();
-        when(restTemplate.getForObject(anyString(), any())).thenReturn(jppo);
+        when(restTemplate.getForObject(anyString(), any())).thenReturn(
+                jppo);
         apiClient.saveJourneyPointNumbers();
         verify(journeyPointRepository, times(1)).save(any());
     }

@@ -29,17 +29,19 @@ public class TrafikLabAPIClient {
     private final String key;
     private final String url;
 
-    private final RestTemplate restTemplate = new RestTemplate();
+    private final RestTemplate restTemplate;
 
     public TrafikLabAPIClient(JourneyPointRepository journeyPointRepository,
             StopPointRepository stopPointRepository,
             @Value("${trafiklab.api.key}") String key,
-            @Value("${trafiklab.api.url}") String url) {
+            @Value("${trafiklab.api.url}") String url,
+            RestTemplate restTemplate) {
         log.info("***** Initializing JourneyPatternPointOnLineAPI and calling Trafiklab's API *****");
         this.journeyPointRepository = journeyPointRepository;
         this.stopPointRepository = stopPointRepository;
         this.key = key;
         this.url = url;
+        this.restTemplate = restTemplate;
     }
 
     /**
