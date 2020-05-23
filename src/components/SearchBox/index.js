@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { trackPromise } from "react-promise-tracker";
-import Popup from "./Popup";
+import Popup from "../Popup";
 
 class SearchBox extends Component {
   constructor(props) {
@@ -41,7 +41,6 @@ class SearchBox extends Component {
     trackPromise(
       fetch(getStops_url)
         .then((res) => {
-          console.log("res: ", res);
           if (res.status === 404)
             this.setState({
               ...this.state,

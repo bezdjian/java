@@ -1,26 +1,25 @@
-import React, {Component} from 'react';
-import TopTen from './TopTen';
-import TopTenStopNames from './TopTenStopNames';
-import SearchBox from "./SearchBox";
-import {trackPromise} from "react-promise-tracker";
+import React, { Component } from "react";
+import TopTen from "./components/BussStops/TopTen";
+import TopTenStopNames from "./components/BussStops/TopTenStopNames";
+import SearchBox from "./components/SearchBox";
+import { trackPromise } from "react-promise-tracker";
 
-import './bootstrap.min.css';
-import './css/App.css';
+import "./css/bootstrap.min.css";
+import "./css/App.css";
 
 class App extends Component {
-
   state = {
     stopNames: [],
-    topTenList: []
+    topTenList: [],
   };
 
   componentDidMount() {
     const API_URL = process.env.REACT_APP_TRAFIKLAB_URL;
-    const getMostStops_url = API_URL + "/api/getMostStops";
+    const service_url = API_URL + "/api/getMostStops";
 
-    console.log("** Calling: ", getMostStops_url);
+    console.log("** Calling: ", service_url);
     trackPromise(
-      fetch(getMostStops_url)
+      fetch(service_url)
         .then((res) => res.json())
         .then((data) => {
           this.setState({
