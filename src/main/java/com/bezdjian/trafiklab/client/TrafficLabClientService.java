@@ -3,45 +3,38 @@ package com.bezdjian.trafiklab.client;
 import com.bezdjian.trafiklab.entity.JourneyPointEntity;
 import com.bezdjian.trafiklab.entity.StopPointEntity;
 import com.bezdjian.trafiklab.exception.ClientException;
-import com.bezdjian.trafiklab.pojo.JourneyPatternPointOnLine;
-import com.bezdjian.trafiklab.pojo.JourneyResponseData;
-import com.bezdjian.trafiklab.pojo.StopPoint;
-import com.bezdjian.trafiklab.pojo.StopPointResponseData;
+import com.bezdjian.trafiklab.model.JourneyPatternPointOnLine;
+import com.bezdjian.trafiklab.model.JourneyResponseData;
+import com.bezdjian.trafiklab.model.StopPoint;
+import com.bezdjian.trafiklab.model.StopPointResponseData;
 import com.bezdjian.trafiklab.repository.JourneyPointRepository;
 import com.bezdjian.trafiklab.repository.StopPointRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
 
 /**
  * Service to retrieve and save data from trafiklab's API
  */
 @Service
 @Slf4j
-public class TrafikLabAPIClient {
+public class TrafficLabClientService {
+
+    private final TrafficLabClient trafficLabClient;
 
     private final JourneyPointRepository journeyPointRepository;
     private final StopPointRepository stopPointRepository;
-
-    //Injection of @Value on field works after construction, having it inside construction parameter works in this
-    // service
     private final String key;
-    private final String url;
 
-    private final RestTemplate restTemplate;
-
-    public TrafikLabAPIClient(JourneyPointRepository journeyPointRepository,
+    public TrafficLabClientService(TrafficLabClient trafficLabClient,
+            JourneyPointRepository journeyPointRepository,
             StopPointRepository stopPointRepository,
-            @Value("${trafiklab.api.key}") String key,
-            @Value("${trafiklab.api.url}") String url,
-            RestTemplate restTemplate) {
+            @Value("${trafiklab.api.key}") String key) {
+        this.trafficLabClient = trafficLabClient;
         log.info("***** Initializing JourneyPatternPointOnLineAPI and calling Trafiklab's API *****");
         this.journeyPointRepository = journeyPointRepository;
         this.stopPointRepository = stopPointRepository;
         this.key = key;
-        this.url = url;
-        this.restTemplate = restTemplate;
     }
 
     /**
@@ -50,10 +43,7 @@ public class TrafikLabAPIClient {
      * @throws ClientException when there is nothing to save.
      */
     public void saveJourneyPointNumbers() throws ClientException {
-        String fullUrl = url + "model=jour&key=" + key;
-        log.info("***** Calling " + fullUrl + " to get journeyPoints");
-
-        JourneyPatternPointOnLine journeys = restTemplate.getForObject(fullUrl, JourneyPatternPointOnLine.class);
+        JourneyPatternPointOnLine journeys = trafficLabClient.getJourneyPatternPointOnLine(key);
         if (journeys != null && journeys.getResponseData() != null && !journeys.getResponseData()
                 .getResult()
                 .isEmpty()) {
@@ -69,10 +59,7 @@ public class TrafikLabAPIClient {
      * @throws ClientException when there is nothing to save.
      */
     public void saveStopPoints() throws ClientException {
-        String fullUrl = url + "model=stop&key=" + key;
-        log.info("***** Calling " + fullUrl + " to get stopPoints");
-
-        StopPoint stopPoint = restTemplate.getForObject(fullUrl, StopPoint.class);
+        StopPoint stopPoint = trafficLabClient.getStopPoints(key);
         //Save
         if (stopPoint != null && stopPoint.getResponseData() != null && !stopPoint.getResponseData()
                 .getResult()
