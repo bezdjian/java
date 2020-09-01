@@ -1,14 +1,18 @@
-package com.bezdjian.trafiklab.pojo;
+package com.bezdjian.trafiklab.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class StopPoint {
 
     @JsonProperty(value = "StatusCode")
@@ -19,16 +23,6 @@ public class StopPoint {
     private String executionTime;
     @JsonProperty(value = "ResponseData")
     private StopPointResponseData responseData;
-
-    public StopPoint() {
-    }
-
-    public StopPoint(int statusCode, String message, String executionTime, StopPointResponseData responseData) {
-        this.statusCode = statusCode;
-        this.message = message;
-        this.responseData = responseData;
-        this.executionTime = executionTime;
-    }
 
     @Override
     public String toString() {

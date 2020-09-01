@@ -22,12 +22,12 @@ import java.util.Set;
 @Service
 @CacheConfig(cacheNames = {"trafikService"})
 @Slf4j
-public class TrafikService {
+public class TrafficService {
 
-    private com.bezdjian.trafiklab.repository.JourneyPointRepository journeyPointRepository;
+    private final JourneyPointRepository journeyPointRepository;
 
     @Autowired
-    public TrafikService(JourneyPointRepository journeyPointRepository) {
+    public TrafficService(JourneyPointRepository journeyPointRepository) {
         this.journeyPointRepository = journeyPointRepository;
     }
 

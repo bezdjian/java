@@ -1,6 +1,6 @@
 package com.bezdjian.trafiklab.entity;
 
-import com.bezdjian.trafiklab.pojo.JourneyPatternPointOnLineResults;
+import com.bezdjian.trafiklab.model.JourneyPatternPointOnLineResults;
 import lombok.Getter;
 import lombok.Setter;
 

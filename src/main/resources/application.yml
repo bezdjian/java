@@ -32,5 +32,5 @@ spring:
 trafiklab:
   api:
     key: 692bcb634e254d23a885c10cd4523fb4
-    url: https://api.sl.se/api2/LineData.json?
+    url: https://api.sl.se/api2
     model: jour

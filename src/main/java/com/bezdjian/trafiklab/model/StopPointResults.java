@@ -1,16 +1,19 @@
-package com.bezdjian.trafiklab.pojo;
+package com.bezdjian.trafiklab.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class StopPointResults {
 
-    //Stop points atttributes
     @JsonProperty(value = "StopPointNumber")
     private String stopPointNumber;
     @JsonProperty(value = "StopPointName")
@@ -25,21 +28,6 @@ public class StopPointResults {
     private String zoneShortName;
     @JsonProperty(value = "StopAreaTypeCode")
     private String stopAreaTypeCode;
-
-    public StopPointResults() {
-    }
-
-    public StopPointResults(String stopPointNumber, String stopPointName, String stopAreaNumber,
-            String locationNorthingCoordinate, String locationEastingCoordinate, String zoneShortName,
-            String stopAreaTypeCode) {
-        this.stopPointNumber = stopPointNumber;
-        this.stopPointName = stopPointName;
-        this.stopAreaNumber = stopAreaNumber;
-        this.locationNorthingCoordinate = locationNorthingCoordinate;
-        this.locationEastingCoordinate = locationEastingCoordinate;
-        this.zoneShortName = zoneShortName;
-        this.stopAreaTypeCode = stopAreaTypeCode;
-    }
 
     @Override
     public String toString() {

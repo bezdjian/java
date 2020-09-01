@@ -1,6 +1,6 @@
 package com.bezdjian.trafiklab.entity;
 
-import com.bezdjian.trafiklab.pojo.StopPointResults;
+import com.bezdjian.trafiklab.model.StopPointResults;
 import lombok.Getter;
 import lombok.Setter;
 

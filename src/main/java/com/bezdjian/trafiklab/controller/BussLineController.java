@@ -1,7 +1,7 @@
 package com.bezdjian.trafiklab.controller;
 
 import com.bezdjian.trafiklab.model.BussStopPointsModel;
-import com.bezdjian.trafiklab.service.TrafikService;
+import com.bezdjian.trafiklab.service.TrafficService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -18,10 +18,10 @@ import java.util.Map;
 @Slf4j
 public class BussLineController {
 
-    private final TrafikService service;
+    private final TrafficService service;
 
     @Autowired
-    public BussLineController(TrafikService service) {
+    public BussLineController(TrafficService service) {
         this.service = service;
     }
 

@@ -1,16 +1,20 @@
-package com.bezdjian.trafiklab.pojo;
+package com.bezdjian.trafiklab.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class JourneyPatternPointOnLineResults {
 
-    //JourneyPoints attrivutes
+    //JourneyPoints attributes
     @JsonProperty(value = "LineNumber")
     private int lineNumber;
     @JsonProperty(value = "DirectionCode")
@@ -21,18 +25,6 @@ public class JourneyPatternPointOnLineResults {
     private String lastModifiedUtcDateTime;
     @JsonProperty(value = "ExistsFromDate")
     private String existsFromDate;
-
-    public JourneyPatternPointOnLineResults() {
-    }
-
-    public JourneyPatternPointOnLineResults(int lineNumber, String directionCode, String journeyPatternPointNumber,
-            String lastModifiedUtcDateTime, String existsFromDate) {
-        this.lineNumber = lineNumber;
-        this.directionCode = directionCode;
-        this.journeyPatternPointNumber = journeyPatternPointNumber;
-        this.lastModifiedUtcDateTime = lastModifiedUtcDateTime;
-        this.existsFromDate = existsFromDate;
-    }
 
     @Override
     public String toString() {

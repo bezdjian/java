@@ -1,9 +1,9 @@
 package com.bezdjian.trafiklab.controller;
 
-import com.bezdjian.trafiklab.BaseTest;
+import com.bezdjian.trafiklab.TestUtils;
 import com.bezdjian.trafiklab.exception.CustomResponseErrorHandler;
 import com.bezdjian.trafiklab.exception.ErrorDetails;
-import com.bezdjian.trafiklab.service.TrafikService;
+import com.bezdjian.trafiklab.service.TrafficService;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @WebMvcTest
-public class BussLineControllerTest extends BaseTest {
+public class BussLineControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -34,7 +34,7 @@ public class BussLineControllerTest extends BaseTest {
     private BussLineController controller;
 
     @Mock
-    private TrafikService service;
+    private TrafficService service;
 
     @Before
     public void setUp() {
@@ -47,7 +47,7 @@ public class BussLineControllerTest extends BaseTest {
     @Test
     public void getStopNames() throws Exception {
         //Given
-        when(service.findStopsByLineNumber(anyInt())).thenReturn(createBussStopsList(3));
+        when(service.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(3));
         //When & Expect
         MockHttpServletResponse response = mockMvc.perform(get("/api/getStops/1"))
                 //.andDo(print())
@@ -60,7 +60,7 @@ public class BussLineControllerTest extends BaseTest {
     @Test
     public void getMostStops() throws Exception {
         //Given
-        when(service.findLineWithMostStops()).thenReturn(createMap());
+        when(service.findLineWithMostStops()).thenReturn(TestUtils.createMap());
         //When & Expect
         MockHttpServletResponse response = mockMvc.perform(get("/api/getMostStops"))
                 //.andDo(print())
