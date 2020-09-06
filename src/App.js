@@ -3,14 +3,26 @@ import TopTen from "./components/BussStops/TopTen";
 import TopTenStopNames from "./components/BussStops/TopTenStopNames";
 import SearchBox from "./components/SearchBox";
 import { trackPromise } from "react-promise-tracker";
+import Popup from "./components/Popup";
 
 import "./css/bootstrap.min.css";
 import "./css/App.css";
 
 class App extends Component {
-  state = {
-    stopNames: [],
-    topTenList: [],
+  constructor(props) {
+    super(props);
+    this.state = {
+      stopNames: [],
+      topTenList: [],
+      showPopup: false,
+      popupMsg: "",
+    };
+
+    this.togglePopup = this.togglePopup.bind(this);
+  }
+
+  togglePopup = () => {
+    this.setState({ showPopup: !this.state.showPopup });
   };
 
   componentDidMount() {
@@ -29,6 +41,10 @@ class App extends Component {
         })
         .catch((error) => {
           console.log("-Error: ", error);
+          this.setState({ 
+            showPopup: true, 
+            popupMsg: '' + error,
+          });
         })
     );
   }
@@ -67,6 +83,12 @@ class App extends Component {
             </div>
           </div>
         </div>
+        {this.state.showPopup ? (
+          <Popup
+            text={this.state.popupMsg}
+            closePopup={this.togglePopup.bind(this)}
+          />
+        ) : null}
       </div>
     );
   }
