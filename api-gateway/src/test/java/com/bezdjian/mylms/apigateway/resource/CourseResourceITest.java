@@ -1,8 +1,8 @@
 package com.bezdjian.mylms.apigateway.resource;
 
 import com.bezdjian.mylms.apigateway.client.CourseServiceClient;
-import com.bezdjian.mylms.apigateway.dto.CategoryDTO;
-import com.bezdjian.mylms.apigateway.dto.CourseDTO;
+import com.bezdjian.mylms.apigateway.model.Category;
+import com.bezdjian.mylms.apigateway.model.Course;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -76,12 +76,12 @@ class CourseResourceITest {
     verify(courseServiceClient, times(0)).findAllCourses();
   }
 
-  private Resources<CourseDTO> courses() {
-    List<CourseDTO> dtos = new ArrayList<>() {{
-      add(CourseDTO.builder()
-        .coursename("AWS Developer")
+  private Resources<Course> courses() {
+    List<Course> dtos = new ArrayList<>() {{
+      add(Course.builder()
+        .courseName("AWS Developer")
         .category(
-          CategoryDTO.builder().name("AWS").build()
+          Category.builder().name("AWS").build()
         ).build());
     }};
     return new Resources<>(dtos);

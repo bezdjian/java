@@ -1,8 +1,8 @@
 package com.bezdjian.mylms.apigateway.services;
 
 import com.bezdjian.mylms.apigateway.client.ItemServiceClient;
-import com.bezdjian.mylms.apigateway.dto.ItemDTO;
-import com.bezdjian.mylms.apigateway.dto.ProductDTO;
+import com.bezdjian.mylms.apigateway.model.Item;
+import com.bezdjian.mylms.apigateway.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -23,18 +23,18 @@ public class ItemService {
     this.itemClient = itemClient;
   }
 
-  public Collection<ItemDTO> topBrands() {
+  public Collection<Item> topBrands() {
     return itemClient.readItems().getContent();
     //.stream()
     //.filter(this::isGreat)
     //.collect(Collectors.toList());
   }
 
-  public Collection<ProductDTO> topProducts() {
+  public Collection<Product> topProducts() {
     return itemClient.readProducts().getContent();
   }
 
-  public ItemDTO save(){
-    return ItemDTO.builder().build();
+  public Item save(){
+    return Item.builder().build();
   }
 }

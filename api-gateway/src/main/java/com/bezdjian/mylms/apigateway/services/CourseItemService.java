@@ -1,7 +1,7 @@
 package com.bezdjian.mylms.apigateway.services;
 
-import com.bezdjian.mylms.apigateway.dto.CourseDTO;
-import com.bezdjian.mylms.apigateway.dto.ItemDTO;
+import com.bezdjian.mylms.apigateway.model.Course;
+import com.bezdjian.mylms.apigateway.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,14 +25,14 @@ public class CourseItemService {
 
   public Map<List<String>, List<String>> allCourseItems() {
 
-    Collection<CourseDTO> courses = courseService.findAllCourses();
-    Collection<ItemDTO> items = itemService.topBrands();
+    Collection<Course> courses = courseService.findAllCourses();
+    Collection<Item> items = itemService.topBrands();
     Map<List<String>, List<String>> map = new HashMap<>();
 
     List<String> courseNames = new ArrayList<>();
     List<String> itemNames = new ArrayList<>();
 
-    courses.forEach(c -> courseNames.add(c.getCoursename()));
+    courses.forEach(c -> courseNames.add(c.getCourseName()));
     items.forEach(i -> itemNames.add(i.getName()));
 
     map.put(courseNames, itemNames);

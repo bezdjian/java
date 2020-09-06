@@ -1,4 +1,4 @@
-package com.bezdjian.mylms.apigateway.dto;
+package com.bezdjian.mylms.apigateway.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CategoryDTO {
+public class Category {
 
-  private Long id;
-  private String name;
-  private String category_description;
+    private Long id;
+    private String name;
+    private String categoryDescription;
 }

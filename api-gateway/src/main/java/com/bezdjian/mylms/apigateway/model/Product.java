@@ -1,4 +1,4 @@
-package com.bezdjian.mylms.apigateway.dto;
+package com.bezdjian.mylms.apigateway.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,6 +7,6 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class ProductDTO {
+public class Product {
   private String name;
 }

@@ -1,8 +1,8 @@
 package com.bezdjian.mylms.apigateway.resource;
 
 import com.bezdjian.mylms.apigateway.client.ItemServiceClient;
-import com.bezdjian.mylms.apigateway.dto.ItemDTO;
-import com.bezdjian.mylms.apigateway.dto.ProductDTO;
+import com.bezdjian.mylms.apigateway.model.Item;
+import com.bezdjian.mylms.apigateway.model.Product;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -73,16 +73,16 @@ public class ItemResourceITest {
     verify(itemClient, times(0)).readProducts();
   }
 
-  private Resources<ItemDTO> items() {
-    List<ItemDTO> dtos = new ArrayList<>() {{
-      add(ItemDTO.builder().name("das item").build());
+  private Resources<Item> items() {
+    List<Item> dtos = new ArrayList<>() {{
+      add(Item.builder().name("das item").build());
     }};
     return new Resources<>(dtos);
   }
 
-  private Resources<ProductDTO> products() {
-    List<ProductDTO> dtos = new ArrayList<>() {{
-      add(new ProductDTO("das produkt"));
+  private Resources<Product> products() {
+    List<Product> dtos = new ArrayList<>() {{
+      add(new Product("das produkt"));
     }};
     return new Resources<>(dtos);
   }

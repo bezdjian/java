@@ -1,6 +1,6 @@
 package com.bezdjian.mylms.apigateway.resource;
 
-import com.bezdjian.mylms.apigateway.dto.CourseDTO;
+import com.bezdjian.mylms.apigateway.model.Course;
 import com.bezdjian.mylms.apigateway.model.Response;
 import com.bezdjian.mylms.apigateway.model.SaveCourseRequest;
 import com.bezdjian.mylms.apigateway.services.CourseService;
@@ -70,7 +70,7 @@ public class CourseResource {
             HttpStatus.BAD_REQUEST.value()), HttpStatus.BAD_REQUEST);
       }
 
-      CourseDTO saved = courseService.save(courseRequest);
+      Course saved = courseService.save(courseRequest);
       return new ResponseEntity<>(saved, HttpStatus.OK);
 
     } catch (Exception e) {

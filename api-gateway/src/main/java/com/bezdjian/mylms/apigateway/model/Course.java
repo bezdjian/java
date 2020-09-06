@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SaveCourse {
+public class Course {
 
     private Long id;
-    private String coursename;
+    private String courseName;
     private String description;
-    private String idnumber;
+    private String idNumber;
     private String image;
     private Long price;
-    private String category;
+    private Category category;
 }
