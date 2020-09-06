@@ -9,6 +9,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -31,6 +32,9 @@ public class TrafficLabClientServiceTest {
     @Before
     public void setup() {
         initMocks(this);
+        ReflectionTestUtils.setField(trafficLabClientService, "key", "keyzz");
+        /*trafficLabClientService = new TrafficLabClientService(trafficLabClient, journeyPointRepository,
+                stopPointRepository, "keyz");*/
     }
 
     @Test
