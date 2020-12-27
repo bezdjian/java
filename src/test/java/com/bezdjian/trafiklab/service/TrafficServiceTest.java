@@ -6,6 +6,7 @@ import com.bezdjian.trafiklab.model.BussStopPointsModel;
 import com.bezdjian.trafiklab.repository.JourneyPointRepository;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.DisplayName;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
@@ -50,7 +51,8 @@ public class TrafficServiceTest {
     }
 
     @Test
-    public void findLineWithMostStops_lessThanTen() {
+    @DisplayName("Find line with most stops less than ten")
+    public void findWithlessThanTen() {
         int size = 5;
         when(repository.getAllLineNumbers()).thenReturn(TestUtils.createLineNumbers(size));
         when(repository.findAll()).thenReturn(TestUtils.createJourneyPointList(size));
@@ -60,7 +62,8 @@ public class TrafficServiceTest {
     }
 
     @Test
-    public void findLineWithMostStops_emptyMap() {
+    @DisplayName("Finds line with most stops with empty map")
+    public void findWithEmptyMap() {
         int size = 0;
         when(repository.getAllLineNumbers()).thenReturn(TestUtils.createLineNumbers(size));
         when(repository.findAll()).thenReturn(TestUtils.createJourneyPointList(size));
