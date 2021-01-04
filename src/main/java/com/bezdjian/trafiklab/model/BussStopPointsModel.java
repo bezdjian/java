@@ -3,16 +3,16 @@ package com.bezdjian.trafiklab.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
-@Setter
+@Builder
 @AllArgsConstructor
 public class BussStopPointsModel {
 
-    private int lineNumber;
-    private String stopName;
+    private final int lineNumber;
+    private final String stopName;
 
     @Override
     public String toString() {

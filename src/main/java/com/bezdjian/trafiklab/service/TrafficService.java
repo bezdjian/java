@@ -1,12 +1,15 @@
 package com.bezdjian.trafiklab.service;
 
+import com.bezdjian.trafiklab.client.TrafficLabClientService;
+import com.bezdjian.trafiklab.exception.ClientException;
 import com.bezdjian.trafiklab.model.BussStopPointsModel;
+import com.bezdjian.trafiklab.model.JourneyPatternPointOnLine;
+import com.bezdjian.trafiklab.model.JourneyPatternPointOnLineResults;
+import com.bezdjian.trafiklab.model.StopPoint;
 import com.bezdjian.trafiklab.model.TopTenListModel;
-import com.bezdjian.trafiklab.repository.JourneyPointRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -15,20 +18,23 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.groupingBy;
 
 /**
  * Service to find and retrieve JourneyPoints data.
  */
 @Service
-@CacheConfig(cacheNames = {"trafikService"})
+@CacheConfig(cacheNames = {"findStopsByLineNumber", "findLineWithMostStops"})
 @Slf4j
 public class TrafficService {
 
-    private final JourneyPointRepository journeyPointRepository;
+    private final TrafficLabClientService clientService;
 
     @Autowired
-    public TrafficService(JourneyPointRepository journeyPointRepository) {
-        this.journeyPointRepository = journeyPointRepository;
+    public TrafficService(TrafficLabClientService clientService) {
+        this.clientService = clientService;
     }
 
     /**
@@ -38,12 +44,51 @@ public class TrafficService {
      * @param lineNumber {@code Integer}
      * @return {@code List} of {@code BussStopPointsDTO}
      */
-    @Cacheable
-    public List<BussStopPointsModel> findStopsByLineNumber(int lineNumber) {
-        //Here we can for example do some logic before invoking repository methods.
-        List<BussStopPointsModel> dtos = journeyPointRepository.findStopsByLineNumber(lineNumber);
-        log.info("***** {} stops found for buss line {} *****", dtos.size(), lineNumber);
-        return dtos;
+    public List<BussStopPointsModel> findStopsByLineNumber(int lineNumber) throws ClientException {
+
+        JourneyPatternPointOnLine journeyPoint = clientService.getJourneyPoints();
+
+        /* select j.lineNumber, s.stopPointName " +
+                " from JourneyPointEntity AS j " +
+                " join StopPointEntity AS s on s.stopPointNumber = j.journeyPatternPointNumber" +
+                " where j.lineNumber = :lineNumber and j.directionCode = 1" +
+                " group by s.stopAreaNumber"; */
+        try {
+            List<JourneyPatternPointOnLineResults> journeyPointsByLineNumber =
+                    getJourneyPointsByLineNumber(lineNumber, journeyPoint);
+
+            return getStopPoints(journeyPointsByLineNumber);
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new ClientException(e.getMessage());
+        }
+    }
+
+    private List<BussStopPointsModel> getStopPoints(
+            List<JourneyPatternPointOnLineResults> journeyPatternPointOnLineResults) throws
+            ClientException {
+        StopPoint stopPoint = clientService.getStopPoints();
+        List<BussStopPointsModel> stopPointsModels = new ArrayList<>();
+        stopPoint.getResponseData()
+                .getResult()
+                .stream()
+                .filter(s -> journeyPatternPointOnLineResults.stream()
+                        .anyMatch(j -> j.getJourneyPatternPointNumber().equals(s.getStopPointNumber()))
+                )
+                .forEach(s -> stopPointsModels.add(BussStopPointsModel.builder()
+                        .lineNumber(journeyPatternPointOnLineResults.get(0).getLineNumber())
+                        .stopName(s.getStopPointName())
+                        .build()));
+        return stopPointsModels;
+    }
+
+    private List<JourneyPatternPointOnLineResults> getJourneyPointsByLineNumber(int lineNumber,
+            JourneyPatternPointOnLine journeyPoint) {
+        return journeyPoint.getResponseData().getResult()
+                .stream()
+                .filter(s -> s.getLineNumber() == lineNumber)
+                .filter(s -> s.getDirectionCode().equals("1"))
+                .collect(Collectors.toList());
     }
 
     /**
@@ -52,21 +97,17 @@ public class TrafficService {
      *
      * @return {@code Map} of String and Object
      */
-    @Cacheable
-    public Map<String, Object> findLineWithMostStops() {
+    public Map<String, Object> findLineWithMostStops() throws ClientException {
         Map<String, Object> topTenAndStopNames = new HashMap<>();
-        HashMap<Integer, Integer> mostStops = new HashMap<>();
-        List<Integer> pointEntities = getAllLineNumbers();
+        HashMap<Integer, Long> lineNumbers = new HashMap<>(getAllLineNumbers());
 
-        //Loop over all the journeypoints, findstops by their line number to count the stops.
-        pointEntities.forEach(p -> {
-            List<BussStopPointsModel> dtos = findStopsByLineNumber(p);
-            mostStops.put(p, dtos.size());
-        });
         //Sort and retrieve top 10 line numbers with most stops.
-        List<Map.Entry<Integer, Integer>> topTenList = getTopTenMostStops(mostStops);
+        List<Map.Entry<Integer, Long>> topTenList = getTopTenMostStops(lineNumbers);
         List<TopTenListModel> topTenListModels = new ArrayList<>();
-        topTenList.forEach(t -> topTenListModels.add(new TopTenListModel(t.getKey(), t.getValue().toString())));
+        topTenList.forEach(t -> topTenListModels.add(TopTenListModel.builder()
+                .lineNumber(t.getKey())
+                .stopCount(t.getValue().toString())
+                .build()));
         topTenAndStopNames.put("topTenList", topTenListModels);
         //Get the stop names of the line number that has the most stops.
         //getKey() is the line number we want to search.
@@ -79,7 +120,6 @@ public class TrafficService {
             return topTenAndStopNames;
         }
         return Collections.emptyMap();
-
     }
 
     /**
@@ -88,9 +128,9 @@ public class TrafficService {
      * @param map {@code Map}
      * @return {@code List} of Entries
      */
-    private List<Map.Entry<Integer, Integer>> getTopTenMostStops(HashMap<Integer, Integer> map) {
-        Set<Map.Entry<Integer, Integer>> set = map.entrySet();
-        List<Map.Entry<Integer, Integer>> list = new ArrayList<>(set);
+    private List<Map.Entry<Integer, Long>> getTopTenMostStops(HashMap<Integer, Long> map) {
+        Set<Map.Entry<Integer, Long>> set = map.entrySet();
+        List<Map.Entry<Integer, Long>> list = new ArrayList<>(set);
         list.sort((o1, o2) -> o2.getValue().compareTo(o1.getValue()));
         //If more than 10, retrieve top ten.
         if (list.size() > 10)
@@ -100,11 +140,17 @@ public class TrafficService {
     }
 
     /**
-     * Private method that queries JourneyPoints and returns IDs.
+     * Private method that queries JourneyPoints and returns line numbers.
      *
-     * @return {@code List} of JourneyPoint IDs.
+     * @return {@code List} of JourneyPoint line numbers with stop counts.
      */
-    private List<Integer> getAllLineNumbers() {
-        return journeyPointRepository.getAllLineNumbers();
+    private Map<Integer, Long> getAllLineNumbers() throws ClientException {
+        return clientService.getJourneyPoints().getResponseData()
+                .getResult()
+                .stream()
+                .filter(s -> s.getDirectionCode().equals("1"))
+                .map(JourneyPatternPointOnLineResults::getLineNumber)
+                //<lineNumber, number of stops>
+                .collect(groupingBy(Integer::intValue, Collectors.counting()));
     }
 }

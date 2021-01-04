@@ -1,6 +1,5 @@
 package com.bezdjian.trafiklab;
 
-import com.bezdjian.trafiklab.entity.JourneyPointEntity;
 import com.bezdjian.trafiklab.model.BussStopPointsModel;
 import com.bezdjian.trafiklab.model.JourneyPatternPointOnLine;
 import com.bezdjian.trafiklab.model.JourneyPatternPointOnLineResults;
@@ -11,10 +10,10 @@ import com.bezdjian.trafiklab.model.StopPointResults;
 import lombok.experimental.UtilityClass;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @UtilityClass
 public class TestUtils {
@@ -27,45 +26,79 @@ public class TestUtils {
         return dtos;
     }
 
-    private BussStopPointsModel createBStopDTO(int l) {
-        return new BussStopPointsModel(l, "here");
-    }
-
-    public List<JourneyPointEntity> createJourneyPointList(int size) {
-        List<JourneyPointEntity> jpEntity = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            jpEntity.add(
-                    new JourneyPointEntity(i, "1", String.valueOf(i),
-                            "2019", "2005"));
-        }
-        return jpEntity;
-    }
-
-    public List<Integer> createLineNumbers(int size) {
-        List<Integer> integerList = new ArrayList<>();
-        for (int i = 0; i < size; i++) {
-            integerList.add(i);
-        }
-        return integerList;
+    private BussStopPointsModel createBStopDTO(int lineNumber) {
+        return BussStopPointsModel.builder()
+                .lineNumber(lineNumber)
+                .stopName("here")
+                .build();
     }
 
     public JourneyPatternPointOnLine getJourneyPatternPointOnLine() {
-        return new JourneyPatternPointOnLine(0, "msg", "212",
-                new JourneyResponseData("version", "type",
-                        Collections.singletonList(createJourneyPatternPointOnLineResults())));
+        return JourneyPatternPointOnLine.builder()
+                .statusCode(0)
+                .message("msg")
+                .executionTime("21")
+                .responseData(JourneyResponseData.builder()
+                        .result(createJourneyPatternPointOnLineResults())
+                        .type("JourneyPoint")
+                        .version("v1")
+                        .build())
+                .build();
     }
 
-    private JourneyPatternPointOnLineResults createJourneyPatternPointOnLineResults() {
-        return new JourneyPatternPointOnLineResults(172, "1", "22", "2019", "2016");
+    public List<JourneyPatternPointOnLineResults> createJourneyPatternPointOnLineResults() {
+        return List.of(JourneyPatternPointOnLineResults.builder()
+                        .lineNumber(1720)
+                        .directionCode("1")
+                        .journeyPatternPointNumber("1720")
+                        .existsFromDate("2016")
+                        .lastModifiedUtcDateTime("2019")
+                        .build(),
+                JourneyPatternPointOnLineResults.builder()
+                        .lineNumber(172)
+                        .directionCode("1")
+                        .journeyPatternPointNumber("172")
+                        .existsFromDate("2016")
+                        .lastModifiedUtcDateTime("2019")
+                        .build(),
+                JourneyPatternPointOnLineResults.builder()
+                        .lineNumber(172)
+                        .directionCode("1")
+                        .journeyPatternPointNumber("172")
+                        .existsFromDate("2016")
+                        .lastModifiedUtcDateTime("2019")
+                        .build());
     }
 
     public StopPoint createStopPoints() {
-        return new StopPoint(0, "msgs", "214",
-                new StopPointResponseData("v3", "stoppointType", Collections.singletonList(createStopPointResults())));
+        return StopPoint.builder()
+                .statusCode(0)
+                .message("msg")
+                .executionTime("200")
+                .responseData(StopPointResponseData.builder()
+                        .result(createStopPointResults())
+                        .type("StopPoint")
+                        .version("v1")
+                        .build())
+                .build();
     }
 
-    private StopPointResults createStopPointResults() {
-        return new StopPointResults("1", "point name", "2124", "10.1", "54.4", "ZN", "areatype");
+    private Set<StopPointResults> createStopPointResults() {
+        return Set.of(StopPointResults.builder()
+                        .stopPointNumber("172")
+                        .stopPointName("Flemingsberg Station")
+                        .stopAreaNumber("2124")
+                        .build(),
+                StopPointResults.builder()
+                        .stopPointNumber("172")
+                        .stopPointName("Huddinge Station")
+                        .stopAreaNumber("2124")
+                        .build(),
+                StopPointResults.builder()
+                        .stopPointNumber("1720")
+                        .stopPointName("Some other station")
+                        .stopAreaNumber("21240")
+                        .build());
     }
 
     public Map<String, Object> createMap() {

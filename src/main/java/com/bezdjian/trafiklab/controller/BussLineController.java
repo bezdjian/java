@@ -1,10 +1,13 @@
 package com.bezdjian.trafiklab.controller;
 
+import com.bezdjian.trafiklab.exception.ClientException;
 import com.bezdjian.trafiklab.model.BussStopPointsModel;
 import com.bezdjian.trafiklab.service.TrafficService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,15 +29,27 @@ public class BussLineController {
     }
 
     @GetMapping(value = "/getStops/{lineNumber}")
-    public List<BussStopPointsModel> findStopsByLineNumber(
+    public ResponseEntity<Object> findStopsByLineNumber(
             @PathVariable(name = "lineNumber") int lineNumber) {
-        log.info("***** Gathering stop names for buss line {} *****", lineNumber);
-        return service.findStopsByLineNumber(lineNumber);
+        try {
+            List<BussStopPointsModel> stopsByLineNumber = service.findStopsByLineNumber(lineNumber);
+            log.info("***** Buss line {} has {} stops", lineNumber, stopsByLineNumber.size());
+            return ResponseEntity.ok(stopsByLineNumber);
+        } catch (ClientException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 
     @GetMapping("/getMostStops")
-    public Map<String, Object> findLineWithMostStops() {
+    public ResponseEntity<Object> findLineWithMostStops() {
         log.info("***** Finding bus lines with the most stops *****");
-        return service.findLineWithMostStops();
+        try {
+            Map<String, Object> lineWithMostStops = service.findLineWithMostStops();
+            return ResponseEntity.ok(lineWithMostStops);
+        } catch (ClientException e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
+        }
     }
 }

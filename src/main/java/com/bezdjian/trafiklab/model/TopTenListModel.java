@@ -3,16 +3,16 @@ package com.bezdjian.trafiklab.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Builder;
+import lombok.Value;
 
-@Getter
-@Setter
+@Value
+@Builder
 @AllArgsConstructor
 public class TopTenListModel {
 
-    private int lineNumber;
-    private String stopCount;
+    int lineNumber;
+    String stopCount;
 
     @Override
     public String toString() {

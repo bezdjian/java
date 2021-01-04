@@ -8,25 +8,16 @@ _Installation_
     <li>Cd into project root where there is pom.xml file</li>
     <li>Install maven and edit the PATH and MAVEN_HOME</li>
     <li>Run: `mvn install && mvn spring-boot:run`</li>
-    <li>Browse localhost:7777/h2-console</li>
-    <li>Make sure you choose Generic H2 (Embedded) in both Saved Settings and Setting Name</li>
-    <li>Driver Class: org.h2.Driver</li>
-    <li>JDBC URL: jdbc:h2:mem:testdb</li>
-    <li>Username: sa</li>
-    <li>Empty password</li>
 </ul>
 
 **Usage**
 
 <ul>
     <li>
-    During application start, two Trafiklab's APIs is called and the data is saved 
-    to H2 database with 2 different tables.
+    Browse http://localhost:7777/trafiklab/swagger-ui.html for Swagger
     </li>
     <li>
-    Browse http://localhost:7777 and the page will load once and do an API call to 
-    backend webservice that collects the top ten bus stops and the names 
-    from the H2 database and it will cache them.
+    Browse http://localhost:7777/trafiklab/ for frontend with thymeleaf framework with HTML & JS
     </li>
     <li>
     **Extra**  <br>  

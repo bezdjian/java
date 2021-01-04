@@ -5,16 +5,17 @@ import com.fasterxml.jackson.annotation.JsonRootName;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Getter
-@Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @JsonRootName(value = "ResponseData")
 public class StopPointResponseData {
 
@@ -23,7 +24,7 @@ public class StopPointResponseData {
     @JsonProperty(value = "Type")
     private String type;
     @JsonProperty(value = "Result")
-    private List<StopPointResults> result;
+    private Set<StopPointResults> result;
 
     @Override
     public String toString() {

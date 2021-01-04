@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Slf4j
 public class VersionService {
 
-    private String version;
+    private final String version;
 
     public VersionService(@Value("${spring.application.version}")
             String version) {
@@ -20,4 +20,3 @@ public class VersionService {
         return this.version;
     }
 }
-

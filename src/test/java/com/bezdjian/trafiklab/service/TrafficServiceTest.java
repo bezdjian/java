@@ -2,73 +2,44 @@ package com.bezdjian.trafiklab.service;
 
 import com.bezdjian.trafiklab.TestUtils;
 import com.bezdjian.trafiklab.client.TrafficLabClientService;
+import com.bezdjian.trafiklab.exception.ClientException;
 import com.bezdjian.trafiklab.model.BussStopPointsModel;
-import com.bezdjian.trafiklab.repository.JourneyPointRepository;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 
 import java.util.List;
 import java.util.Map;
 
-import static org.junit.Assert.assertEquals;
-import static org.mockito.ArgumentMatchers.anyInt;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
 
-@SuppressWarnings("unused")
-public class TrafficServiceTest {
+class TrafficServiceTest {
 
     @InjectMocks
     private TrafficService trafficService;
     @Mock
-    private JourneyPointRepository repository;
-    @Mock
     private TrafficLabClientService client;
 
-    @Before
-    public void setUp() {
+    @BeforeEach
+    void setUp() throws ClientException {
         initMocks(this);
+        when(client.getJourneyPoints()).thenReturn(TestUtils.getJourneyPatternPointOnLine());
+        when(client.getStopPoints()).thenReturn(TestUtils.createStopPoints());
     }
 
     @Test
-    public void findStopsByLineNumber() {
-        when(trafficService.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(10));
-        List<BussStopPointsModel> list = trafficService.findStopsByLineNumber(1);
-        assertEquals("List is empty", TestUtils.createBussStopsList(10).size(), list.size());
+    void findStopsByLineNumber() throws ClientException {
+        List<BussStopPointsModel> list = trafficService.findStopsByLineNumber(172);
+        System.out.println("List: " + list.toString());
+        assertEquals(2, list.size());
     }
 
     @Test
-    public void findLineWithMostStops_moreThanTen() {
-        int size = 15;
-        when(repository.getAllLineNumbers()).thenReturn(TestUtils.createLineNumbers(size));
-        when(repository.findAll()).thenReturn(TestUtils.createJourneyPointList(size));
-        when(repository.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(size));
+    void findLineWithMostStopsMoreThanTen() throws ClientException {
         Map<String, Object> map = trafficService.findLineWithMostStops();
-        assertEquals("Map is wrong", 2, map.size());
-    }
-
-    @Test
-    @DisplayName("Find line with most stops less than ten")
-    public void findWithlessThanTen() {
-        int size = 5;
-        when(repository.getAllLineNumbers()).thenReturn(TestUtils.createLineNumbers(size));
-        when(repository.findAll()).thenReturn(TestUtils.createJourneyPointList(size));
-        when(repository.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(size));
-        Map<String, Object> map = trafficService.findLineWithMostStops();
-        assertEquals("Map is wrong", 2, map.size());
-    }
-
-    @Test
-    @DisplayName("Finds line with most stops with empty map")
-    public void findWithEmptyMap() {
-        int size = 0;
-        when(repository.getAllLineNumbers()).thenReturn(TestUtils.createLineNumbers(size));
-        when(repository.findAll()).thenReturn(TestUtils.createJourneyPointList(size));
-        when(repository.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(size));
-        Map<String, Object> map = trafficService.findLineWithMostStops();
-        assertEquals("Map is wrong", 0, map.size());
+        assertEquals(2, map.size());
     }
 }

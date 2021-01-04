@@ -1,17 +1,13 @@
 package com.bezdjian.trafiklab.controller;
 
 import com.bezdjian.trafiklab.TestUtils;
-import com.bezdjian.trafiklab.exception.CustomResponseErrorHandler;
-import com.bezdjian.trafiklab.exception.ErrorDetails;
 import com.bezdjian.trafiklab.service.TrafficService;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.http.HttpStatus;
 import org.springframework.mock.web.MockHttpServletResponse;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
@@ -39,9 +35,7 @@ public class BussLineControllerTest {
     @Before
     public void setUp() {
         initMocks(this);
-        mockMvc = MockMvcBuilders.standaloneSetup(controller)
-                .setControllerAdvice(new CustomResponseErrorHandler()) //Make use of our custom error handler
-                .build();
+        mockMvc = MockMvcBuilders.standaloneSetup(controller).build();
     }
 
     @Test
@@ -68,20 +62,5 @@ public class BussLineControllerTest {
                 .andReturn().getResponse();
         //Then
         assertEquals("Response status is wrong", 200, response.getStatus());
-    }
-
-    @Test
-    public void testCustomError() throws Exception {
-        //Given
-        //when(service.findLineWithMostStops()).thenReturn(createMap());
-        //When & Expect
-        MockHttpServletResponse response = mockMvc.perform(get("/api/getStops/oopie"))
-                //.andDo(print())
-                .andExpect(content().string(containsString("Failed to convert"))) //Since stop name is stop 1
-                .andReturn().getResponse();
-        //Then
-        assertEquals("Response status is wrong", 400, response.getStatus());
-        ErrorDetails err = new ObjectMapper().readValue(response.getContentAsString(), ErrorDetails.class);
-        assertEquals("ErrorDetails status is wrong", HttpStatus.BAD_REQUEST.toString(), err.getStatus());
     }
 }
