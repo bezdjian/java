@@ -1,4 +1,4 @@
-package org.acme;
+package org.acme.api.todo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.acme.entity.Todo;
