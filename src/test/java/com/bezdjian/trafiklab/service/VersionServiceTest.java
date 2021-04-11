@@ -1,26 +1,27 @@
 package com.bezdjian.trafiklab.service;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
-import org.mockito.MockitoAnnotations;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.MockitoAnnotations.openMocks;
 
-public class VersionServiceTest {
+class VersionServiceTest {
 
+    private static final String VERSION = "0.1";
     @InjectMocks
     private VersionService service;
 
-    @Before
-    public void setUp() {
-        MockitoAnnotations.initMocks(this);
-        service = new VersionService("0.1");
+    @BeforeEach
+    void setUp() {
+        openMocks(this);
+        service = new VersionService(VERSION);
     }
 
     @Test
-    public void version() {
+    void version() {
         String v = service.getVersion();
-        assertEquals("Version is wrong", "0.1", v);
+        assertEquals(VERSION, v);
     }
 }

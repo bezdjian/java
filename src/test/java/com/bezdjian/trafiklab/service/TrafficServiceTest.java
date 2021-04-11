@@ -15,6 +15,7 @@ import java.util.Map;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 class TrafficServiceTest {
 
@@ -25,7 +26,7 @@ class TrafficServiceTest {
 
     @BeforeEach
     void setUp() throws ClientException {
-        initMocks(this);
+        openMocks(this);
         when(client.getJourneyPoints()).thenReturn(TestUtils.getJourneyPatternPointOnLine());
         when(client.getStopPoints()).thenReturn(TestUtils.createStopPoints());
     }

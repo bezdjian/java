@@ -102,7 +102,7 @@ public class TestUtils {
     }
 
     public Map<String, Object> createMap() {
-        return new HashMap<String, Object>() {{
+        return new HashMap<>() {{
             put("keyz", "valuez");
             put("keyz1", "valuez2");
         }};

@@ -10,7 +10,7 @@ import org.springframework.test.util.ReflectionTestUtils;
 
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.initMocks;
+import static org.mockito.MockitoAnnotations.openMocks;
 
 class TrafficLabClientServiceTest {
 
@@ -22,7 +22,7 @@ class TrafficLabClientServiceTest {
 
     @BeforeEach
     void setup() {
-        initMocks(this);
+        openMocks(this);
         ReflectionTestUtils.setField(trafficLabClientService, "key", API_MOCKED_KEY);
     }
 
