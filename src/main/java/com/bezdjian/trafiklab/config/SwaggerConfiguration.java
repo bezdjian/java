@@ -26,23 +26,23 @@ public class SwaggerConfiguration {
     @Bean
     public Docket apiDocket() {
         return new Docket(DocumentationType.SWAGGER_2)
-                .select()
-                .apis(RequestHandlerSelectors.basePackage("com.bezdjian.trafiklab.controller"))
-                .paths(PathSelectors.any())
-                .build()
-                .apiInfo(getApiInfo());
+            .select()
+            .apis(RequestHandlerSelectors.basePackage("com.bezdjian.trafiklab.controller"))
+            .paths(PathSelectors.any())
+            .build()
+            .apiInfo(getApiInfo());
     }
 
     private ApiInfo getApiInfo() {
         return new ApiInfo(
-                "Trafik lab",
-                "Spring boot microservice for Trafiklab",
-                version.getVersion(),
-                "TERMS OF SERVICE URL",
-                new Contact("Harout Bezdjian", "https://linkedin.se", "bezdjian@consulting.se"),
-                "LICENSE",
-                "https://",
-                Collections.emptyList()
+            "Trafik lab",
+            "Spring boot microservice for Trafiklab",
+            version.getVersion(),
+            "TERMS OF SERVICE URL",
+            new Contact("Harout Bezdjian", "https://linkedin.se", "bezdjian@consulting.se"),
+            "LICENSE",
+            "https://",
+            Collections.emptyList()
         );
     }
 }

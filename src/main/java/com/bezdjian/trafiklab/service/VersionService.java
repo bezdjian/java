@@ -11,7 +11,7 @@ public class VersionService {
     private final String version;
 
     public VersionService(@Value("${spring.application.version}")
-            String version) {
+                              String version) {
         this.version = version;
     }
 

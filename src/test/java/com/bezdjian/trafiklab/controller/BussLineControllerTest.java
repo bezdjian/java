@@ -44,9 +44,9 @@ public class BussLineControllerTest {
         when(service.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(3));
         //When & Expect
         MockHttpServletResponse response = mockMvc.perform(get("/api/getStops/1"))
-                //.andDo(print())
-                .andExpect(content().string(containsString("here"))) //Since stop name is stop 1
-                .andReturn().getResponse();
+            //.andDo(print())
+            .andExpect(content().string(containsString("here"))) //Since stop name is stop 1
+            .andReturn().getResponse();
         //Then
         assertEquals("Response status is wrong", 200, response.getStatus());
     }
@@ -57,9 +57,9 @@ public class BussLineControllerTest {
         when(service.findLineWithMostStops()).thenReturn(TestUtils.createMap());
         //When & Expect
         MockHttpServletResponse response = mockMvc.perform(get("/api/getMostStops"))
-                //.andDo(print())
-                .andExpect(content().string(containsString("valuez2"))) //Since stop name is stop 1
-                .andReturn().getResponse();
+            //.andDo(print())
+            .andExpect(content().string(containsString("valuez2"))) //Since stop name is stop 1
+            .andReturn().getResponse();
         //Then
         assertEquals("Response status is wrong", 200, response.getStatus());
     }

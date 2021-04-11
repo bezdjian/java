@@ -19,7 +19,7 @@ $(document).ready(function () {
         $.each(mainValue, function (innerKey, innerValue) {
           $.each(innerValue, function (k, v) {
             if (mainKey === "topTenList") {
-              if(k === "lineNumber") { // print them once
+              if (k === "lineNumber") { // print them once
                 var p = document.createElement("p");
                 p.innerText = "Line: " + innerValue.lineNumber + " has " + innerValue.stopCount + " stops";
                 var li = document.createElement("li");

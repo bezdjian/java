@@ -29,7 +29,7 @@ class TrafficLabClientServiceTest {
     @Test
     void getJourneyPointNumbers() throws Exception {
         when(trafficLabClient.getJourneyPatternPointOnLine(API_MOCKED_KEY))
-                .thenReturn(TestUtils.getJourneyPatternPointOnLine());
+            .thenReturn(TestUtils.getJourneyPatternPointOnLine());
         trafficLabClientService.getJourneyPoints();
 
         verify(trafficLabClient).getJourneyPatternPointOnLine(API_MOCKED_KEY);
@@ -38,8 +38,8 @@ class TrafficLabClientServiceTest {
     @Test
     void getStopPoints() throws Exception {
         when(trafficLabClient.getStopPoints(API_MOCKED_KEY)).thenReturn(StopPoint.builder()
-                .responseData(TestUtils.createStopPoints().getResponseData())
-                .build());
+            .responseData(TestUtils.createStopPoints().getResponseData())
+            .build());
         trafficLabClientService.getStopPoints();
         verify(trafficLabClient).getStopPoints(API_MOCKED_KEY);
     }

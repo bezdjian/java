@@ -30,7 +30,7 @@ public class BussLineController {
 
     @GetMapping(value = "/getStops/{lineNumber}")
     public ResponseEntity<Object> findStopsByLineNumber(
-            @PathVariable(name = "lineNumber") int lineNumber) {
+        @PathVariable(name = "lineNumber") int lineNumber) {
         try {
             List<BussStopPointsModel> stopsByLineNumber = service.findStopsByLineNumber(lineNumber);
             log.info("***** Buss line {} has {} stops", lineNumber, stopsByLineNumber.size());

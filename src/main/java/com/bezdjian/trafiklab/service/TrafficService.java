@@ -55,7 +55,7 @@ public class TrafficService {
                 " group by s.stopAreaNumber"; */
         try {
             List<JourneyPatternPointOnLineResults> journeyPointsByLineNumber =
-                    getJourneyPointsByLineNumber(lineNumber, journeyPoint);
+                getJourneyPointsByLineNumber(lineNumber, journeyPoint);
 
             return getStopPoints(journeyPointsByLineNumber);
         } catch (Exception e) {
@@ -65,30 +65,30 @@ public class TrafficService {
     }
 
     private List<BussStopPointsModel> getStopPoints(
-            List<JourneyPatternPointOnLineResults> journeyPatternPointOnLineResults) throws
-            ClientException {
+        List<JourneyPatternPointOnLineResults> journeyPatternPointOnLineResults) throws
+        ClientException {
         StopPoint stopPoint = clientService.getStopPoints();
         List<BussStopPointsModel> stopPointsModels = new ArrayList<>();
         stopPoint.getResponseData()
-                .getResult()
-                .stream()
-                .filter(s -> journeyPatternPointOnLineResults.stream()
-                        .anyMatch(j -> j.getJourneyPatternPointNumber().equals(s.getStopPointNumber()))
-                )
-                .forEach(s -> stopPointsModels.add(BussStopPointsModel.builder()
-                        .lineNumber(journeyPatternPointOnLineResults.get(0).getLineNumber())
-                        .stopName(s.getStopPointName())
-                        .build()));
+            .getResult()
+            .stream()
+            .filter(s -> journeyPatternPointOnLineResults.stream()
+                .anyMatch(j -> j.getJourneyPatternPointNumber().equals(s.getStopPointNumber()))
+            )
+            .forEach(s -> stopPointsModels.add(BussStopPointsModel.builder()
+                .lineNumber(journeyPatternPointOnLineResults.get(0).getLineNumber())
+                .stopName(s.getStopPointName())
+                .build()));
         return stopPointsModels;
     }
 
     private List<JourneyPatternPointOnLineResults> getJourneyPointsByLineNumber(int lineNumber,
-            JourneyPatternPointOnLine journeyPoint) {
+                                                                                JourneyPatternPointOnLine journeyPoint) {
         return journeyPoint.getResponseData().getResult()
-                .stream()
-                .filter(s -> s.getLineNumber() == lineNumber)
-                .filter(s -> s.getDirectionCode().equals("1"))
-                .collect(Collectors.toList());
+            .stream()
+            .filter(s -> s.getLineNumber() == lineNumber)
+            .filter(s -> s.getDirectionCode().equals("1"))
+            .collect(Collectors.toList());
     }
 
     /**
@@ -105,9 +105,9 @@ public class TrafficService {
         List<Map.Entry<Integer, Long>> topTenList = getTopTenMostStops(lineNumbers);
         List<TopTenListModel> topTenListModels = new ArrayList<>();
         topTenList.forEach(t -> topTenListModels.add(TopTenListModel.builder()
-                .lineNumber(t.getKey())
-                .stopCount(t.getValue().toString())
-                .build()));
+            .lineNumber(t.getKey())
+            .stopCount(t.getValue().toString())
+            .build()));
         topTenAndStopNames.put("topTenList", topTenListModels);
         //Get the stop names of the line number that has the most stops.
         //getKey() is the line number we want to search.
@@ -146,11 +146,11 @@ public class TrafficService {
      */
     private Map<Integer, Long> getAllLineNumbers() throws ClientException {
         return clientService.getJourneyPoints().getResponseData()
-                .getResult()
-                .stream()
-                .filter(s -> s.getDirectionCode().equals("1"))
-                .map(JourneyPatternPointOnLineResults::getLineNumber)
-                //<lineNumber, number of stops>
-                .collect(groupingBy(Integer::intValue, Collectors.counting()));
+            .getResult()
+            .stream()
+            .filter(s -> s.getDirectionCode().equals("1"))
+            .map(JourneyPatternPointOnLineResults::getLineNumber)
+            //<lineNumber, number of stops>
+            .collect(groupingBy(Integer::intValue, Collectors.counting()));
     }
 }
