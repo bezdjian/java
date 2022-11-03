@@ -15,7 +15,7 @@
     <description>Demo project for SBAB's trafiklab</description>
 
     <properties>
-        <java.version>14</java.version>
+        <java.version>15</java.version>
         <swagger.version>2.9.2</swagger.version>
     </properties>
 
@@ -62,7 +62,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.16</version>
+            <version>1.18.24</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
