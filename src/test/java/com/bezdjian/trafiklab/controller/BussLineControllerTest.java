@@ -5,27 +5,24 @@ import com.bezdjian.trafiklab.service.TrafficService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.http.HttpStatus;
-import org.springframework.mock.web.MockHttpServletResponse;
-import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.reactive.server.WebTestClient;
+import reactor.core.publisher.Mono;
 
-import static org.hamcrest.core.StringContains.containsString;
+import java.util.List;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
-@SpringBootTest
-@AutoConfigureMockMvc
+@WebFluxTest
 class BussLineControllerTest {
 
     @Autowired
-    private MockMvc mockMvc;
+    private WebTestClient webTestClient;
 
     @MockBean
     private TrafficService service;
@@ -36,28 +33,29 @@ class BussLineControllerTest {
     }
 
     @Test
-    void getStopNames() throws Exception {
+    void getStopNames() {
         //Given
-        when(service.findStopsByLineNumber(anyInt())).thenReturn(TestUtils.createBussStopsList(3));
+        when(service.findStopsByLineNumber(anyInt())).thenReturn(Mono.just(TestUtils.createBussStopsList(3)));
         //When & Expect
-        MockHttpServletResponse response = mockMvc.perform(get("/api/getStops/1"))
-            //.andDo(print())
-            .andExpect(content().string(containsString("here"))) //Since stop name is stop 1
-            .andReturn().getResponse();
-        //Then
-        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        webTestClient.get()
+            .uri("/api/getStops/1")
+            .exchange()
+            .expectStatus().isOk()
+            .expectBody(List.class)
+            .value(v -> assertEquals(3, v.size()));
     }
 
     @Test
-    void getMostStops() throws Exception {
+    void getMostStops() {
         //Given
-        when(service.findLineWithMostStops()).thenReturn(TestUtils.createMap());
+        when(service.findLineWithMostStops()).thenReturn(Mono.just(TestUtils.createMap()));
         //When & Expect
-        MockHttpServletResponse response = mockMvc.perform(get("/api/getMostStops"))
-            //.andDo(print())
-            .andExpect(content().string(containsString("valuez2"))) //Since stop name is stop 1
-            .andReturn().getResponse();
-        //Then
-        assertEquals(HttpStatus.OK.value(), response.getStatus());
+        webTestClient.get()
+            .uri("/api/getMostStops")
+            .exchange()
+            .expectStatus().isOk()
+            //.andExpect(content().string(containsString("valuez2"))) //Since stop name is stop 1
+            .expectBody(Map.class)
+            .value(map -> assertEquals(2, map.size()));
     }
 }
