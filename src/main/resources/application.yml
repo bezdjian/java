@@ -8,8 +8,6 @@
 # Run on Tomcat port 7777
 server:
   port: 7777
-  servlet:
-    context-path: /trafiklab
 
 spring:
   application:
@@ -18,6 +16,5 @@ spring:
 
 trafiklab:
   api:
-    key: 5da196d47f8f4e5facdb68d2e25b9eae
+    key: 936b30ea04354d7d8dd1337ee7602760
     url: https://api.sl.se/api2
-    model: jour

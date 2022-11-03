@@ -6,41 +6,50 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.test.util.ReflectionTestUtils;
+import reactor.core.publisher.Mono;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
 class TrafficLabClientServiceTest {
 
-    private static final String API_MOCKED_KEY = "kl123jcslk2";
     @InjectMocks
     private TrafficLabClientService trafficLabClientService;
     @Mock
-    private TrafficLabClient trafficLabClient;
+    private TrafficClient trafficClient;
 
     @BeforeEach
     void setup() {
         openMocks(this);
-        ReflectionTestUtils.setField(trafficLabClientService, "key", API_MOCKED_KEY);
     }
 
     @Test
     void getJourneyPointNumbers() throws Exception {
-        when(trafficLabClient.getJourneyPatternPointOnLine(API_MOCKED_KEY))
-            .thenReturn(TestUtils.getJourneyPatternPointOnLine());
+        when(trafficClient.getJourneyPatternPointOnLine())
+            .thenReturn(Mono.just(TestUtils.getJourneyPatternPointOnLine()));
         trafficLabClientService.getJourneyPoints();
 
-        verify(trafficLabClient).getJourneyPatternPointOnLine(API_MOCKED_KEY);
+        verify(trafficClient).getJourneyPatternPointOnLine();
     }
 
     @Test
-    void getStopPoints() throws Exception {
-        when(trafficLabClient.getStopPoints(API_MOCKED_KEY)).thenReturn(StopPoint.builder()
-            .responseData(TestUtils.createStopPoints().getResponseData())
-            .build());
-        trafficLabClientService.getStopPoints();
-        verify(trafficLabClient).getStopPoints(API_MOCKED_KEY);
+    void getStopPoints() {
+        //Given
+        when(trafficClient.getStopPoints())
+            .thenReturn(Mono.just(StopPoint.builder()
+                .responseData(TestUtils.createStopPoints().getResponseData())
+                .build()));
+
+        //When
+        StopPoint stopPoint = trafficLabClientService.getStopPoints().block();
+
+        //Then
+        assertNotNull(stopPoint);
+        assertNotNull(stopPoint.getResponseData());
+        assertEquals(3, stopPoint.getResponseData().getResult().size());
+        verify(trafficClient).getStopPoints();
     }
 }

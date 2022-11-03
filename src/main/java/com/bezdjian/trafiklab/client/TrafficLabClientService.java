@@ -3,59 +3,51 @@ package com.bezdjian.trafiklab.client;
 import com.bezdjian.trafiklab.exception.ClientException;
 import com.bezdjian.trafiklab.model.JourneyPatternPointOnLine;
 import com.bezdjian.trafiklab.model.StopPoint;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Mono;
 
 /**
  * Service to retrieve and save data from trafiklab's API
  */
-@Service
-@CacheConfig(cacheNames = {"StopPoints", "JourneyPoints"})
 @Slf4j
+@Service
+@RequiredArgsConstructor
+@CacheConfig(cacheNames = {"StopPoints", "JourneyPoints"})
 public class TrafficLabClientService {
 
-    private final TrafficLabClient trafficLabClient;
-    private final String key;
-
-    public TrafficLabClientService(TrafficLabClient trafficLabClient, @Value("${trafiklab.api.key}") String key) {
-        this.trafficLabClient = trafficLabClient;
-        this.key = key;
-    }
+    private final TrafficClient trafficClient;
 
     /**
      * Method to call Journey pattern points from TrafikLab's API and save into DB
      *
      * @return JourneyPatternPointOnLine
-     * @throws ClientException when there is nothing to save.
      */
     @Cacheable(cacheNames = "JourneyPoints")
-    public JourneyPatternPointOnLine getJourneyPoints() throws ClientException {
+    public Mono<JourneyPatternPointOnLine> getJourneyPoints() {
         log.info("Getting journey points...");
-        try {
-            return trafficLabClient.getJourneyPatternPointOnLine(key);
-        } catch (Exception f) {
-            f.printStackTrace();
-            throw new ClientException(f.getMessage());
-        }
+        return trafficClient.getJourneyPatternPointOnLine()
+            .doOnSuccess(jppo -> log.info("Got Journey points {}: {}", jppo.getStatusCode(), jppo.getExecutionTime()))
+            .doOnError(e -> Mono.error(() -> {
+                log.error("Error while getting journey points: {}", e.getMessage(), e);
+                return new ClientException(e.getMessage());
+            }));
     }
 
     /**
      * Method to call Stop points from TrafikLab's API and save into DB
      *
      * @return StopPoint
-     * @throws ClientException when there is nothing to save.
      */
     @Cacheable(cacheNames = "StopPoints")
-    public StopPoint getStopPoints() throws ClientException {
+    public Mono<StopPoint> getStopPoints() {
         log.info("Getting stop points...");
-        try {
-            return trafficLabClient.getStopPoints(key);
-        } catch (Exception f) {
-            f.printStackTrace();
-            throw new ClientException(f.getMessage());
-        }
+        return trafficClient.getStopPoints()
+            .doOnSuccess(stopPoint -> log.info("Got stop points: {}, {}",
+                stopPoint.getStatusCode(), stopPoint.getExecutionTime()))
+            .doOnError(e -> Mono.error(() -> new ClientException("Could not get stop points" + e.getMessage())));
     }
 }
