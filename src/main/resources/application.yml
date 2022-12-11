@@ -10,9 +10,19 @@ server:
   port: 7777
 
 spring:
+  webflux:
+    base-path: /trafiklab
   application:
     name: trafiklab
     version: @version@
+
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: swagger-ui.html
+    operations-sorter: method
+  show-actuator: true
 
 trafiklab:
   api:
