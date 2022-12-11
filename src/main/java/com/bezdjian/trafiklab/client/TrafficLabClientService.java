@@ -10,6 +10,8 @@ import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
+import java.time.Duration;
+
 /**
  * Service to retrieve and save data from trafiklab's API
  */
@@ -34,7 +36,8 @@ public class TrafficLabClientService {
             .doOnError(e -> Mono.error(() -> {
                 log.error("Error while getting journey points: {}", e.getMessage(), e);
                 return new ClientException(e.getMessage());
-            }));
+            }))
+            .cache(Duration.ofDays(1));
     }
 
     /**
@@ -48,6 +51,7 @@ public class TrafficLabClientService {
         return trafficClient.getStopPoints()
             .doOnSuccess(stopPoint -> log.info("Got stop points: {}, {}",
                 stopPoint.getStatusCode(), stopPoint.getExecutionTime()))
-            .doOnError(e -> Mono.error(() -> new ClientException("Could not get stop points" + e.getMessage())));
+            .doOnError(e -> Mono.error(() -> new ClientException("Could not get stop points" + e.getMessage())))
+            .cache(Duration.ofDays(1));
     }
 }
