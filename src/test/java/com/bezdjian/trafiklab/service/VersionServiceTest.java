@@ -21,7 +21,7 @@ class VersionServiceTest {
 
     @Test
     void version() {
-        String v = service.getVersion();
+        String v = service.getVersion().block().getVersion();
         assertEquals(VERSION, v);
     }
 }
