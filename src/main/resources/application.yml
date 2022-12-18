@@ -11,9 +11,9 @@ server:
 
 spring:
   webflux:
-    base-path: /trafiklab
+    base-path: /traffic-lab
   application:
-    name: trafiklab
+    name: traffic-lab
     version: @version@
 
 springdoc:
