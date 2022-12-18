@@ -14,14 +14,14 @@ _Installation_
 
 <ul>
     <li>
-    Browse http://localhost:7777/traffic-lab/swagger-ui.html for Swagger
-        - Add http://localhost:7777/traffic-lab/api-docs to Explore.   
+    Browse http://localhost:7777/trafiklab/swagger-ui.html for Swagger
+        - Add http://localhost:7777/trafiklab/api-docs to Explore.   
     </li>
 <li>
-For YAML version: http://localhost:7777/traffic-lab/api-docs
+For YAML version: http://localhost:7777/trafiklab/api-docs
 </li>
     <li>
-    Browse http://localhost:7777/traffic-lab/ for frontend with thymeleaf framework with HTML & JS
+    Browse http://localhost:7777/trafiklab/ for frontend with thymeleaf framework with HTML & JS
     </li>
     <li>
     **Extra**  <br>  
