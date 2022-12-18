@@ -26,5 +26,6 @@ springdoc:
 
 trafiklab:
   api:
+    # Good idea to keep those in AWS Secrets Manager, and use maven dependency to load the values by startup.
     key: 936b30ea04354d7d8dd1337ee7602760
     url: https://api.sl.se/api2
