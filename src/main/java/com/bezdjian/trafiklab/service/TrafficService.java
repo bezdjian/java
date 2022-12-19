@@ -41,6 +41,8 @@ public class TrafficService {
             getJourneyPointsByLineNumber(lineNumber, clientService.getJourneyPoints());
 
         return getStopPoints(journeyPointsByLineNumber)
+            //distinct(), otherwise it would double the list size with double stop names. (2 directions)
+            .map(bussStops -> bussStops.stream().distinct().toList())
             .doOnError(e -> log.error(e.getMessage()));
     }
 
