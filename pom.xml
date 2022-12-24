@@ -12,7 +12,7 @@
   <artifactId>trafiklab</artifactId>
   <version>0.0.1</version>
   <name>trafiklab</name>
-  <description>Demo project for SBAB's trafiklab</description>
+  <description>Trafiklab API</description>
 
   <properties>
     <java.version>17</java.version>
