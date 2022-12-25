@@ -24,7 +24,8 @@ public class TrafficLabClientService {
     private final TrafficClient trafficClient;
 
     /**
-     * Method to call Journey pattern points from TrafikLab's API and save into DB
+     * Method to call Journey pattern points from TrafikLab's API.
+     * We do not want this to be invoked every time we refresh the page, so we cache it.
      *
      * @return JourneyPatternPointOnLine
      */
@@ -41,7 +42,8 @@ public class TrafficLabClientService {
     }
 
     /**
-     * Method to call Stop points from TrafikLab's API and save into DB
+     * Method to call Stop points from TrafikLab's API.
+     * We do not want this to be invoked every time we refresh the page, so we cache it.
      *
      * @return StopPoint
      */

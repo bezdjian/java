@@ -4,7 +4,6 @@ import com.bezdjian.trafiklab.client.TrafficLabClientService;
 import com.bezdjian.trafiklab.model.*;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Mono;
 
@@ -17,7 +16,7 @@ import static java.util.stream.Collectors.groupingBy;
  * Service to find and retrieve JourneyPoints data.
  */
 @Service
-@CacheConfig(cacheNames = {"findStopsByLineNumber", "findLineWithMostStops"})
+
 @Slf4j
 public class TrafficService {
 
@@ -30,7 +29,6 @@ public class TrafficService {
 
     /**
      * Method that finds all the stops by given bus line number
-     * We do not want this to be invoked every time we refresh the page, so we cache it.
      *
      * @param lineNumber {@code Integer}
      * @return {@code List} of {@code BussStopPointsDTO}
@@ -75,7 +73,6 @@ public class TrafficService {
 
     /**
      * Method that finds bus lines that have the most stops.
-     * We do not want this to be invoked every time we refresh the page, so we cache it.
      *
      * @return {@code Map} of String and Object
      */
