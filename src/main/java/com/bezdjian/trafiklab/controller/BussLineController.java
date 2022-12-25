@@ -9,6 +9,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Mono;
 
+import java.util.concurrent.TimeUnit;
+
 @Slf4j
 @RestController
 @RequiredArgsConstructor
@@ -21,9 +23,14 @@ public class BussLineController {
     @GetMapping(value = "/getStops/{lineNumber}")
     public Mono<ResponseEntity<Object>> findStopsByLineNumber(
         @PathVariable(name = "lineNumber") int lineNumber) {
+        long startTime = System.currentTimeMillis();
         return service.findStopsByLineNumber(lineNumber)
-            .doOnSubscribe(s -> log.info("***** Finding stops by line number *****"))
-            .doOnSuccess(s -> log.info("***** Buss line {} has {} stops", lineNumber, s.size()))
+            .doOnSubscribe(s -> log.info("***** Finding stops by line number {} *****", lineNumber))
+            .doOnSuccess(s -> {
+                long endTime = System.currentTimeMillis();
+                long totalTime = TimeUnit.MILLISECONDS.toSeconds(endTime - startTime);
+                log.info("***** Buss line {} has {} stops. Took {} seconds", lineNumber, s.size(), totalTime);
+            })
             .doOnError(e -> ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                 .body(e.getMessage()))
             .map(ResponseEntity::ok);
@@ -31,9 +38,14 @@ public class BussLineController {
 
     @GetMapping("/getMostStops")
     public Mono<ResponseEntity<Object>> findLineWithMostStops() {
+        long startTime = System.currentTimeMillis();
         return service.findLineWithMostStops()
             .doOnSubscribe(s -> log.info("***** Finding bus lines with the most stops *****"))
-            .doOnSuccess(s -> log.info("*findLineWithMostStops* {}", s.size()))
+            .doOnSuccess(s -> {
+                long endTime = System.currentTimeMillis();
+                long totalTime = TimeUnit.MILLISECONDS.toSeconds(endTime - startTime);
+                log.info("*** findLineWithMostStops took {} seconds", totalTime);
+            })
             .doOnError(e -> {
                 log.error("Error while finding line with most stop: {}", e.getMessage(), e);
                 ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
