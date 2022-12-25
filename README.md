@@ -2,7 +2,7 @@
 
 **Instructions**
 
-_Installation_
+**Installation**
 <ul>
     <li>Clone or download the project</li>
     <li>Cd into project root where there is pom.xml file</li>
@@ -15,7 +15,7 @@ _Installation_
 <ul>
     <li>
     Browse http://localhost:7777/trafiklab/swagger-ui.html for Swagger
-        - Add http://localhost:7777/trafiklab/api-docs to Explore.   
+        - Add /trafiklab/api-docs to Explore.   
     </li>
 <li>
 For YAML version: http://localhost:7777/trafiklab/api-docs
