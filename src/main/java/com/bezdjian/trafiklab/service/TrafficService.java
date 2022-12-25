@@ -100,6 +100,7 @@ public class TrafficService {
                     mapMono = findStopsByLineNumber(topTenList.get(0).getKey())
                         .map(stopNames -> {
                             topTenAndStopNames.put("stopNames", stopNames);
+                            topTenAndStopNames.put("mostStopNamesLineNumber", stopNames.get(0).getLineNumber());
                             log.info("***** Number of stop names of the most buss stop line: " + stopNames.size());
                             return topTenAndStopNames;
                         });
