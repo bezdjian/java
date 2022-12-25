@@ -37,6 +37,7 @@ class App extends Component {
           this.setState({
             stopNames: data.stopNames,
             topTenList: data.topTenList,
+            mostStopNamesLineNumber: data.mostStopNamesLineNumber
           });
         })
         .catch((error) => {
@@ -73,7 +74,7 @@ class App extends Component {
                   id="top-ten-stopNamesUL"
                   key="top-ten-stopNames"
                 >
-                  <TopTenStopNames stopNames={this.state.stopNames} />
+                  <TopTenStopNames stopNames={this.state.stopNames} mostStopNamesLineNumber={this.state.mostStopNamesLineNumber} />
                 </ul>
               </div>
             </div>
