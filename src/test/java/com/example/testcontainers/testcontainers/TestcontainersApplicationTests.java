@@ -9,39 +9,17 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
-import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.images.PullPolicy;
-import org.testcontainers.junit.jupiter.Container;
 
 // Todo: Important! Without ContainersConfig.class this test will target (application.yml) -> "prod".
 @SpringBootTest(classes = {ContainersConfig.class})
 class TestcontainersApplicationTests {
 
   private static final String BASE_URL = "/api/consultants";
-  private static final String PROJECTS_BASE_URL = "/api/projects";
-
-  @Container
-  static final GenericContainer projectsService = new GenericContainer("t2")
-      .withExposedPorts(8080) // The port that is exposed in Dockerfile of that container.
-      //.withReuse(true)
-      .withImagePullPolicy(PullPolicy.defaultPolicy());
-
-  @DynamicPropertySource
-  static void setProperties(DynamicPropertyRegistry registry) {
-    registry.add("projects.url", () ->
-        String.format("http://%s:%d%s", projectsService.getHost(),
-            projectsService.getFirstMappedPort(), PROJECTS_BASE_URL));
-
-    projectsService.start();
-  }
+  private WebTestClient webTestClient;
 
   @Autowired
   private ConsultantRepository repository;
-
-  private WebTestClient webTestClient;
 
   @Autowired
   private ApplicationContext applicationContext;
