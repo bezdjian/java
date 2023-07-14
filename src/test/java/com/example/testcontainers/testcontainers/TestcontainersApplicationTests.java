@@ -5,6 +5,7 @@ import com.example.testcontainers.testcontainers.model.ConsultantResponse;
 import com.example.testcontainers.testcontainers.model.ConsultantsProjectResponse;
 import com.example.testcontainers.testcontainers.repository.ConsultantRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -52,6 +53,7 @@ class TestcontainersApplicationTests {
         .value(v -> v.forEach(System.out::println));
   }
 
+  @Disabled("This test communicates to another service test container which by default is disabled.")
   @Test
   void shouldFindAllConsultantsByProjectTechnology() {
     webTestClient.get().uri("/projects/Java")

@@ -21,12 +21,13 @@ public class ContainersConfig {
     return new MySQLContainer();
   }
 
-  @Bean
+  // This test communicates to another service test container which by default is disabled.
+  //@Bean
   public GenericContainer projectsContainer(DynamicPropertyRegistry registry) {
     final String projectsBaseUrl = "/api/projects";
     GenericContainer projectsService = new GenericContainer("t2")
         .withExposedPorts(8080) // The port that is exposed in Dockerfile of that container.
-        //.withReuse(true)
+        .withReuse(true)
         .withImagePullPolicy(PullPolicy.defaultPolicy());
 
     registry.add("projects.url", () -> {

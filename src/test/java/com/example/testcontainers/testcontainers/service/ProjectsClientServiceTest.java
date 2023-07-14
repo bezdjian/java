@@ -5,6 +5,7 @@ import com.example.testcontainers.testcontainers.model.ConsultantsProjectRespons
 import com.example.testcontainers.testcontainers.model.ProjectResponse;
 import com.example.testcontainers.testcontainers.repository.ConsultantRepository;
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
@@ -24,6 +25,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
+@Disabled("This test communicates to another service test container which by default is disabled.")
 class ProjectsClientServiceTest {
 
   @InjectMocks
