@@ -34,7 +34,7 @@ public class ConsultantService {
   public Mono<ConsultantResponse> save(ConsultantRequest consultant) {
     return Mono.fromCallable(() -> {
       Consultant saved = consultantRepository.save(ConsultantRequest.toEntity(consultant));
-      log.info("Consultant saved {}", saved.getId());
+      log.info("Testing.. Consultant saved {}", saved.getId());
       return ConsultantResponse.toModel(saved);
     });
   }

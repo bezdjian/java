@@ -5,8 +5,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.test.context.DynamicPropertyRegistry;
-import org.springframework.test.context.DynamicPropertySource;
+import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
@@ -29,16 +28,8 @@ class ConsultantRepositoryTest {
   @Container
   //Todo: Since 3.1.0, @ServiceConnection automatically configures the necessary Spring Boot properties
   // for the supporting containers. No need for @DynamicPropertySource.
-  //@ServiceConnection
+  @ServiceConnection
   static MySQLContainer mySQLContainer = new MySQLContainer();
-
-  // Todo: No need for @DynamicPropertySource when @ServiceConnection is used on the Container, yey!
-  @DynamicPropertySource
-  static void setProperties(DynamicPropertyRegistry registry) {
-    registry.add("spring.datasource.url", mySQLContainer::getJdbcUrl);
-    registry.add("spring.datasource.username", mySQLContainer::getUsername);
-    registry.add("spring.datasource.password", mySQLContainer::getPassword);
-  }
 
   @Test
   void shouldSaveNewConsultant() {
