@@ -23,10 +23,7 @@ public class ConsultantService {
   public Flux<ConsultantResponse> findAll() {
     return Flux.defer(() -> Flux.fromIterable(this.consultantRepository.findAll()
         .stream()
-        .map(c -> {
-          log.info("Consultants: {}", c.getId());
-          return ConsultantResponse.toModel(c);
-        })
+        .map(ConsultantResponse::toModel)
         .collect(Collectors.toList())
     ));
   }
@@ -34,23 +31,20 @@ public class ConsultantService {
   public Mono<ConsultantResponse> save(ConsultantRequest consultant) {
     return Mono.fromCallable(() -> {
       Consultant saved = consultantRepository.save(ConsultantRequest.toEntity(consultant));
-      log.info("Testing.. Consultant saved {}", saved.getId());
+      log.info("Successfully saved Consultant with ID: {}", saved.getId());
       return ConsultantResponse.toModel(saved);
     });
   }
 
   public void delete(String uuid) {
     consultantRepository.deleteById(UUID.fromString(uuid));
-    log.info("Successfully deleted {}", uuid);
+    log.info("Successfully deleted Consultant with ID {}", uuid);
   }
 
   public Flux<ConsultantResponse> findConsultantsByTechnology(String technology) {
     return Flux.defer(() -> Flux.fromIterable(consultantRepository.findConsultantsByTechnology(technology)
         .stream()
-        .map(c -> {
-          log.info("Got Consultant {} with {}", c.getName(), c.getTechnology());
-          return ConsultantResponse.toModel(c);
-        })
+        .map(ConsultantResponse::toModel)
         .collect(Collectors.toList())
     ));
   }
