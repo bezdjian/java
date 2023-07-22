@@ -9,16 +9,19 @@ import org.springframework.test.context.DynamicPropertyRegistry;
 import org.testcontainers.containers.GenericContainer;
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.images.PullPolicy;
+import org.testcontainers.utility.DockerImageName;
 
 @Slf4j
 @TestConfiguration(proxyBeanMethods = false)
 public class ContainersConfig {
 
+  public static final String fullImageName = "mysql:8";
+
   @Bean
   @RestartScope // The Bean (container) is to be reused instead of recreating it with DevTools
   @ServiceConnection
-  public MySQLContainer mySQLContainer() {
-    return new MySQLContainer();
+  public MySQLContainer<?> mySQLContainer() {
+    return new MySQLContainer<>(DockerImageName.parse(fullImageName));
   }
 
   // This test communicates to another service test container which by default is disabled.

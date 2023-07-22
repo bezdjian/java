@@ -1,5 +1,6 @@
 package com.example.testcontainers.testcontainers.repository;
 
+import com.example.testcontainers.testcontainers.ContainersConfig;
 import com.example.testcontainers.testcontainers.entity.Consultant;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.testcontainers.containers.MySQLContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
+import org.testcontainers.utility.DockerImageName;
 
 import java.util.List;
 import java.util.Optional;
@@ -26,10 +28,10 @@ class ConsultantRepositoryTest {
   private ConsultantRepository consultantRepository;
 
   @Container
-  //Todo: Since 3.1.0, @ServiceConnection automatically configures the necessary Spring Boot properties
+  // Since 3.1.0, @ServiceConnection automatically configures the necessary Spring Boot properties
   // for the supporting containers. No need for @DynamicPropertySource.
   @ServiceConnection
-  static MySQLContainer mySQLContainer = new MySQLContainer();
+  static MySQLContainer mySQLContainer = new MySQLContainer<>(DockerImageName.parse(ContainersConfig.fullImageName));
 
   @Test
   void shouldSaveNewConsultant() {
