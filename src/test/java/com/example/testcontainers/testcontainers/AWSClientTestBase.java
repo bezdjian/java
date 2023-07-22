@@ -13,7 +13,7 @@ import java.net.URI;
 
 public class AWSClientTestBase {
 
-  static String localstackImageName = "localstack/localstack:latest-amd64";
+  static String localstackImageName = "localstack/localstack:latest-arm64";
 
   @Container
   static LocalStackContainer localStackContainer = new LocalStackContainer(DockerImageName.parse(localstackImageName))
