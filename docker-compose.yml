@@ -7,7 +7,7 @@ services:
     entrypoint: mvn
     #working_dir: /home/app # project is copied to this path in Dockerfile.
     command:
-      - test
+      - test # This will run all the tests including tests with test containers
     environment:
       - TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal
       - TESTCONTAINERS_RYUK_DISABLED=true
