@@ -1,5 +1,6 @@
-package com.example.testcontainers.testcontainers;
+package com.example.testcontainers.testcontainers.integration;
 
+import com.example.testcontainers.testcontainers.ContainersConfig;
 import com.example.testcontainers.testcontainers.entity.Consultant;
 import com.example.testcontainers.testcontainers.model.ConsultantResponse;
 import com.example.testcontainers.testcontainers.model.ConsultantsProjectResponse;

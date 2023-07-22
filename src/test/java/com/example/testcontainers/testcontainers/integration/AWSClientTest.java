@@ -1,4 +1,4 @@
-package com.example.testcontainers.testcontainers;
+package com.example.testcontainers.testcontainers.integration;
 
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;

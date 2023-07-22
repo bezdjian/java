@@ -1,4 +1,4 @@
-package com.example.testcontainers.testcontainers;
+package com.example.testcontainers.testcontainers.integration;
 
 import org.testcontainers.containers.localstack.LocalStackContainer;
 import org.testcontainers.junit.jupiter.Container;
