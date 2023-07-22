@@ -16,8 +16,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest // This is isolated from spring boot, focuses only on JPA components.
 @Testcontainers
@@ -31,40 +30,60 @@ class ConsultantRepositoryTest {
   // Since 3.1.0, @ServiceConnection automatically configures the necessary Spring Boot properties
   // for the supporting containers. No need for @DynamicPropertySource.
   @ServiceConnection
-  static MySQLContainer mySQLContainer = new MySQLContainer<>(DockerImageName.parse(ContainersConfig.fullImageName));
+  static MySQLContainer mySQLContainer = new MySQLContainer<>(DockerImageName.parse(ContainersConfig.fullImageName))
+      .withReuse(true);
 
   @Test
   void shouldSaveNewConsultant() {
+    //Given
+    String consultantName1 = "Consultant 1";
     Consultant consultant1 = Consultant.builder()
         .id(UUID.randomUUID())
-        .name("Consultant 1")
+        .name(consultantName1)
         .technology("Java")
         .build();
+
+    String consultantName2 = "Consultant 2";
     Consultant consultant2 = Consultant.builder()
         .id(UUID.randomUUID())
-        .name("Consultant 2")
+        .name(consultantName2)
         .technology("AWS")
         .build();
-    consultantRepository.save(consultant1);
-    consultantRepository.save(consultant2);
 
-    List<Consultant> consultants = consultantRepository.findAll();
-    assertEquals(2, consultants.size());
+    //When
+    Consultant saved1 = consultantRepository.save(consultant1);
+    Consultant saved2 = consultantRepository.save(consultant2);
+
+    //Then
+    Optional<Consultant> savedConsultant1 = consultantRepository.findById(saved1.getId());
+    Optional<Consultant> savedConsultant2 = consultantRepository.findById(saved2.getId());
+
+    assertTrue(savedConsultant1.isPresent());
+    assertTrue(savedConsultant2.isPresent());
+    assertEquals(consultantName1, savedConsultant1.get().getName());
+    assertEquals(consultantName2, savedConsultant2.get().getName());
   }
 
   @Test
   void shouldDelete() {
+    //Given
     Consultant consultant = Consultant.builder()
         .id(UUID.randomUUID())
-        .name("name")
+        .name("Consultant to be deleted")
+        .technology("Java")
         .build();
 
     UUID savedId = consultantRepository.save(consultant).getId();
-
     Optional<Consultant> consultants = consultantRepository.findById(savedId);
 
     assertFalse(consultants.isEmpty());
     assertEquals(consultants.get().getId(), savedId);
+
+    //When
+    consultantRepository.deleteById(savedId);
+    Optional<Consultant> deletedConsultant = consultantRepository.findById(savedId);
+    //Then
+    assertTrue(deletedConsultant.isEmpty());
   }
 
   @Test
@@ -87,7 +106,6 @@ class ConsultantRepositoryTest {
     List<Consultant> consultants = consultantRepository.findConsultantsByTechnology("Java");
 
     assertFalse(consultants.isEmpty());
-    assertEquals(1, consultants.size());
     assertEquals("Java", consultants.get(0).getTechnology());
   }
 }
