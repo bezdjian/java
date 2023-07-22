@@ -11,4 +11,6 @@ import java.util.UUID;
 public interface ConsultantRepository extends JpaRepository<Consultant, UUID> {
 
   List<Consultant> findConsultantsByTechnology(String technology);
+
+  List<Consultant> findConsultantByName(String name);
 }
