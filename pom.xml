@@ -22,6 +22,7 @@
         <skipTests>false</skipTests>
         <skipUnitTests>${skipTests}</skipUnitTests>
         <skipIntegrationTests>${skipTests}</skipIntegrationTests>
+        <skipCucumberTests>${skipTests}</skipCucumberTests>
     </properties>
 
     <dependencyManagement>
@@ -169,9 +170,25 @@
                             <includes>
                                 <include>**/integration/**.*</include>
                                 <include>**/repository/**.*</include>
-                                <include>**/RunCucumberTest.java</include>
                             </includes>
                             <skipTests>${skipIntegrationTests}</skipTests>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+        <profile>
+            <id>cucumber-test</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <configuration>
+                            <includes>
+                                <include>**/RunCucumberTest.java</include>
+                            </includes>
+                            <skipTests>${skipCucumberTests}</skipTests>
                         </configuration>
                     </plugin>
                 </plugins>
