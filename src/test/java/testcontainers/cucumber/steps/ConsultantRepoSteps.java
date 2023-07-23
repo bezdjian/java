@@ -16,7 +16,7 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ConsultantRepoSteps extends CucumberSpringConfiguration {
+public class ConsultantRepoSteps  {
 
   @Autowired
   private ConsultantRepository consultantRepository;

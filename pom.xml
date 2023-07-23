@@ -169,6 +169,7 @@
                             <includes>
                                 <include>**/integration/**.*</include>
                                 <include>**/repository/**.*</include>
+                                <include>**/RunCucumberTest.java</include>
                             </includes>
                             <skipTests>${skipIntegrationTests}</skipTests>
                         </configuration>
