@@ -8,6 +8,7 @@ import reactor.core.publisher.Mono;
 import testcontainers.model.ConsultantRequest;
 import testcontainers.model.ConsultantResponse;
 import testcontainers.model.ConsultantsProjectResponse;
+import testcontainers.service.AwsService;
 import testcontainers.service.ConsultantService;
 import testcontainers.service.ProjectsClientService;
 
@@ -19,6 +20,8 @@ public class ConsultantsController {
   private ConsultantService consultantService;
   @Autowired
   private ProjectsClientService projectsClientService;
+  @Autowired
+  private AwsService awsService;
 
   @GetMapping("/consultants")
   public Flux<ConsultantResponse> getAll() {
@@ -27,13 +30,18 @@ public class ConsultantsController {
 
   @PostMapping("/consultants")
   public Mono<ConsultantResponse> saveConsultant(@RequestBody ConsultantRequest consultant) {
-    return consultantService.save(consultant);
+    return consultantService.save(consultant)
+        .map(saved -> {
+          awsService.publishMessage(saved.toString(), "CREATED");
+          return saved;
+        });
   }
 
   @DeleteMapping("/consultants/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void delete(@PathVariable("id") String uuid) {
-    consultantService.delete(uuid);
+    awsService.publishMessage(uuid, "DELETED");
+    this.consultantService.delete(uuid);
   }
 
   @GetMapping("/technology/{technology}")

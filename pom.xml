@@ -105,13 +105,11 @@
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>s3</artifactId>
             <version>${awssdk.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>software.amazon.awssdk</groupId>
             <artifactId>sns</artifactId>
             <version>${awssdk.version}</version>
-            <scope>test</scope>
         </dependency>
 
         <!-- Cucumber tests -->
