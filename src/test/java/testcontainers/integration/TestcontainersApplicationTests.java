@@ -2,6 +2,7 @@ package testcontainers.integration;
 
 import testcontainers.config.ContainersConfig;
 import testcontainers.entity.Consultant;
+import testcontainers.model.ConsultantRequest;
 import testcontainers.model.ConsultantResponse;
 import testcontainers.model.ConsultantsProjectResponse;
 import org.junit.jupiter.api.BeforeEach;
@@ -40,6 +41,19 @@ class TestcontainersApplicationTests {
   @Test
   void shouldFindAllConsultants() {
     webTestClient.get().uri(CONSULTANTS_URL)
+        .exchange()
+        .expectStatus().isOk()
+        .expectBodyList(ConsultantResponse.class)
+        .value(v -> v.forEach(System.out::println));
+  }
+
+  @Test
+  void shouldSaveConsultant() {
+    webTestClient.post().uri(CONSULTANTS_URL)
+        .bodyValue(ConsultantRequest.builder()
+            .name("Consultant 3")
+            .technology("Java")
+            .build())
         .exchange()
         .expectStatus().isOk()
         .expectBodyList(ConsultantResponse.class)
