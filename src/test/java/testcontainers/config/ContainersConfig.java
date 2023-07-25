@@ -23,8 +23,7 @@ public class ContainersConfig {
   @RestartScope // The Bean (container) is to be reused instead of recreating it with DevTools
   @ServiceConnection
   public MySQLContainer<?> mySQLContainer() {
-    return new MySQLContainer<>(DockerImageName.parse(fullImageName))
-        .withReuse(true);
+    return new MySQLContainer<>(DockerImageName.parse(fullImageName));
   }
 
   @Bean
