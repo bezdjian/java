@@ -5,27 +5,27 @@ import org.springframework.stereotype.Service;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.model.CreateTopicResponse;
 import software.amazon.awssdk.services.sns.model.PublishResponse;
-import software.amazon.awssdk.services.sns.model.Topic;
-
-import java.util.List;
+import software.amazon.awssdk.services.sqs.SqsClient;
+import software.amazon.awssdk.services.sqs.model.CreateQueueResponse;
+import software.amazon.awssdk.services.sqs.model.SendMessageResponse;
 
 @Slf4j
 @Service
 public class AwsService {
 
   public static final String TOPIC_NAME = "test-topic";
+  public static final String QUEUE_NAME = "test-queue";
   private final SnsClient snsClient;
+  private final SqsClient sqsClient;
   private final String topicArn;
+  private final String queueUrl;
 
-  public AwsService(SnsClient snsClient) {
+  public AwsService(SnsClient snsClient, SqsClient sqsClient) {
     this.snsClient = snsClient;
-    if (!isTopicExists(TOPIC_NAME)) {
-      log.info("Creating topic: {}", TOPIC_NAME);
-      topicArn = createTopic(TOPIC_NAME);
-    } else {
-      log.info("Topic already exists: {}", TOPIC_NAME);
-      topicArn = getTopicArn(TOPIC_NAME);
-    }
+    this.sqsClient = sqsClient;
+
+    topicArn = createTopic(TOPIC_NAME);
+    queueUrl = createQueue(QUEUE_NAME);
   }
 
   public void publishMessage(String message, String subject) {
@@ -35,31 +35,21 @@ public class AwsService {
     log.info("Published message with id: {}, subject: {}", publishResponse.messageId(), subject);
   }
 
+  public void sendSqsMessage(String message) {
+    SendMessageResponse response = sqsClient.sendMessage(builder -> builder.messageBody(message)
+        .queueUrl(queueUrl));
+    log.info("Published to SQS message with id: {}", response.messageId());
+  }
+
   private String createTopic(String topicName) {
     CreateTopicResponse topicResponse = snsClient.createTopic(builder -> builder.name(topicName));
     log.info("Created topic with arn: {}", topicResponse.topicArn());
     return topicResponse.topicArn();
   }
 
-  private String getTopicArn(String topicName) {
-    return getTopicsArn()
-        .stream()
-        .filter(arn -> arn.contains(topicName))
-        .findFirst()
-        .orElseThrow(() -> new RuntimeException("Topic not found"));
-  }
-
-  private boolean isTopicExists(String topicName) {
-    return getTopicsArn()
-        .stream()
-        .anyMatch(arn -> arn.contains(topicName));
-  }
-
-  private List<String> getTopicsArn() {
-    return snsClient.listTopics()
-        .topics()
-        .stream()
-        .map(Topic::topicArn)
-        .toList();
+  private String createQueue(String queueName) {
+    CreateQueueResponse queue = sqsClient.createQueue(builder -> builder.queueName(queueName));
+    log.info("Created queue with arn: {}", queue.queueUrl());
+    return queue.queueUrl();
   }
 }

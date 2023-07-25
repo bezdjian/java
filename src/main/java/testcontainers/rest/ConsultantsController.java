@@ -33,6 +33,7 @@ public class ConsultantsController {
     return consultantService.save(consultant)
         .map(saved -> {
           awsService.publishMessage(saved.toString(), "CREATED");
+          awsService.sendSqsMessage(saved.toString());
           return saved;
         });
   }

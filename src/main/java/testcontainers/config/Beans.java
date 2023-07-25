@@ -6,6 +6,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.SnsClientBuilder;
+import software.amazon.awssdk.services.sqs.SqsClient;
+import software.amazon.awssdk.services.sqs.SqsClientBuilder;
 
 import java.net.URI;
 
@@ -23,6 +25,16 @@ public class Beans {
 
     return snsEndpoint.equals("default") ? snsClientBuilder.build() :
         snsClientBuilder.endpointOverride(URI.create(snsEndpoint))
+            .build();
+  }
+
+  @Bean
+  public SqsClient sqsClient() {
+    SqsClientBuilder sqsClient = SqsClient.builder();
+    log.info("Using SQS client endpoint: {}", snsEndpoint);
+
+    return snsEndpoint.equals("default") ? sqsClient.build() :
+        sqsClient.endpointOverride(URI.create(snsEndpoint))
             .build();
   }
 }

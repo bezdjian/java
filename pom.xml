@@ -111,6 +111,11 @@
             <artifactId>sns</artifactId>
             <version>${awssdk.version}</version>
         </dependency>
+        <dependency>
+            <groupId>software.amazon.awssdk</groupId>
+            <artifactId>sqs</artifactId>
+            <version>${awssdk.version}</version>
+        </dependency>
 
         <!-- Cucumber tests -->
         <dependency>
