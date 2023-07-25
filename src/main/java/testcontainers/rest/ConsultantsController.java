@@ -12,7 +12,7 @@ import testcontainers.service.ConsultantService;
 import testcontainers.service.ProjectsClientService;
 
 @RestController
-@RequestMapping("/api/consultants")
+@RequestMapping("/api")
 public class ConsultantsController {
 
   @Autowired
@@ -20,17 +20,17 @@ public class ConsultantsController {
   @Autowired
   private ProjectsClientService projectsClientService;
 
-  @GetMapping("/")
+  @GetMapping("/consultants")
   public Flux<ConsultantResponse> getAll() {
     return consultantService.findAll();
   }
 
-  @PostMapping("/")
+  @PostMapping("/consultants")
   public Mono<ConsultantResponse> saveConsultant(@RequestBody ConsultantRequest consultant) {
     return consultantService.save(consultant);
   }
 
-  @DeleteMapping("/{id}")
+  @DeleteMapping("/consultants/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void delete(@PathVariable("id") String uuid) {
     consultantService.delete(uuid);

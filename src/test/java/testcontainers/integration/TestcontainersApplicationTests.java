@@ -17,7 +17,8 @@ import testcontainers.repository.ConsultantRepository;
 @SpringBootTest(classes = {ContainersConfig.class})
 class TestcontainersApplicationTests {
 
-  private static final String BASE_URL = "/api/consultants";
+  private static final String BASE_URL = "/api";
+  private static final String CONSULTANTS_URL = "/consultants";
   private WebTestClient webTestClient;
 
   @Autowired
@@ -38,7 +39,7 @@ class TestcontainersApplicationTests {
 
   @Test
   void shouldFindAllConsultants() {
-    webTestClient.get().uri("/")
+    webTestClient.get().uri(CONSULTANTS_URL)
         .exchange()
         .expectStatus().isOk()
         .expectBodyList(ConsultantResponse.class)
