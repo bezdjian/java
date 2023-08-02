@@ -23,4 +23,13 @@ public class ConsultantResponse {
         .technology(consultant.getTechnology())
         .build();
   }
+
+  @Override
+  public String toString() {
+    return "{" +
+        "uuid='" + uuid + '\'' +
+        ", name='" + name + '\'' +
+        ", technology='" + technology + '\'' +
+        '}';
+  }
 }

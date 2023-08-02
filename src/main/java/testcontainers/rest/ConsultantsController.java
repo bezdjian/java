@@ -5,6 +5,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+import testcontainers.model.ConsultantMessage;
 import testcontainers.model.ConsultantRequest;
 import testcontainers.model.ConsultantResponse;
 import testcontainers.model.ConsultantsProjectResponse;
@@ -28,12 +29,18 @@ public class ConsultantsController {
     return consultantService.findAll();
   }
 
+  @GetMapping("/consultants/messages")
+  public Flux<ConsultantMessage> readMessages() {
+    return awsService.getAndDeleteSqsMessage();
+  }
+
   @PostMapping("/consultants")
   public Mono<ConsultantResponse> saveConsultant(@RequestBody ConsultantRequest consultant) {
     return consultantService.save(consultant)
         .map(saved -> {
-          awsService.publishSnsMessage(saved.toString(), "CREATED");
-          awsService.sendSqsMessage(saved.toString());
+          String subjectCreated = "CREATED";
+          awsService.publishSnsMessage(saved.toString(), subjectCreated);
+          awsService.sendSqsMessage(saved.toString(), subjectCreated);
           return saved;
         });
   }
