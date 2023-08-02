@@ -32,7 +32,7 @@ public class ConsultantsController {
   public Mono<ConsultantResponse> saveConsultant(@RequestBody ConsultantRequest consultant) {
     return consultantService.save(consultant)
         .map(saved -> {
-          awsService.publishMessage(saved.toString(), "CREATED");
+          awsService.publishSnsMessage(saved.toString(), "CREATED");
           awsService.sendSqsMessage(saved.toString());
           return saved;
         });
@@ -41,7 +41,7 @@ public class ConsultantsController {
   @DeleteMapping("/consultants/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void delete(@PathVariable("id") String uuid) {
-    awsService.publishMessage(uuid, "DELETED");
+    awsService.publishSnsMessage(uuid, "DELETED");
     this.consultantService.delete(uuid);
   }
 

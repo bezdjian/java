@@ -28,7 +28,7 @@ public class AwsService {
     queueUrl = createQueue(QUEUE_NAME);
   }
 
-  public void publishMessage(String message, String subject) {
+  public void publishSnsMessage(String message, String subject) {
     PublishResponse publishResponse = snsClient.publish(builder -> builder.message(message)
         .subject(subject)
         .topicArn(topicArn));
