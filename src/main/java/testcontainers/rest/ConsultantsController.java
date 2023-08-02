@@ -1,6 +1,6 @@
 package testcontainers.rest;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
@@ -16,16 +16,13 @@ import testcontainers.service.SqsService;
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class ConsultantsController {
 
-  @Autowired
-  private ConsultantService consultantService;
-  @Autowired
-  private ProjectsClientService projectsClientService;
-  @Autowired
-  private SqsService sqsService;
-  @Autowired
-  private SnsService snsService;
+  private final ConsultantService consultantService;
+  private final ProjectsClientService projectsClientService;
+  private final SqsService sqsService;
+  private final SnsService snsService;
 
   @GetMapping("/consultants")
   public Flux<ConsultantResponse> getAll() {
