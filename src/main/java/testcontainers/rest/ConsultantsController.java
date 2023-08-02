@@ -9,9 +9,10 @@ import testcontainers.model.ConsultantMessage;
 import testcontainers.model.ConsultantRequest;
 import testcontainers.model.ConsultantResponse;
 import testcontainers.model.ConsultantsProjectResponse;
-import testcontainers.service.AwsService;
 import testcontainers.service.ConsultantService;
 import testcontainers.service.ProjectsClientService;
+import testcontainers.service.SnsService;
+import testcontainers.service.SqsService;
 
 @RestController
 @RequestMapping("/api")
@@ -22,7 +23,9 @@ public class ConsultantsController {
   @Autowired
   private ProjectsClientService projectsClientService;
   @Autowired
-  private AwsService awsService;
+  private SqsService sqsService;
+  @Autowired
+  private SnsService snsService;
 
   @GetMapping("/consultants")
   public Flux<ConsultantResponse> getAll() {
@@ -31,7 +34,7 @@ public class ConsultantsController {
 
   @GetMapping("/consultants/messages")
   public Flux<ConsultantMessage> readMessages() {
-    return awsService.getAndDeleteSqsMessage();
+    return sqsService.getAndDeleteSqsMessage();
   }
 
   @PostMapping("/consultants")
@@ -39,8 +42,8 @@ public class ConsultantsController {
     return consultantService.save(consultant)
         .map(saved -> {
           String subjectCreated = "CREATED";
-          awsService.publishSnsMessage(saved.toString(), subjectCreated);
-          awsService.sendSqsMessage(saved.toString(), subjectCreated);
+          snsService.publishSnsMessage(saved.toString(), subjectCreated);
+          sqsService.sendSqsMessage(saved.toString(), subjectCreated);
           return saved;
         });
   }
@@ -48,7 +51,7 @@ public class ConsultantsController {
   @DeleteMapping("/consultants/{id}")
   @ResponseStatus(HttpStatus.OK)
   public void delete(@PathVariable("id") String uuid) {
-    awsService.publishSnsMessage(uuid, "DELETED");
+    snsService.publishSnsMessage(uuid, "DELETED");
     this.consultantService.delete(uuid);
   }
 
