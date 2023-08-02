@@ -14,6 +14,5 @@ public class ConsultantMessage {
 
   String messageId;
   String body;
-  String receiptHandle;
   List<Map<String, String>> messageAttributes;
 }

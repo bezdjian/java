@@ -75,7 +75,6 @@ public class SqsService {
     return ConsultantMessage.builder()
         .messageId(message.messageId())
         .body(message.body())
-        .receiptHandle(message.receiptHandle())
         .messageAttributes(messageAttributes)
         .build();
   }
