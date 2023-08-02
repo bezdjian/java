@@ -24,8 +24,8 @@ public class AwsService {
     this.snsClient = snsClient;
     this.sqsClient = sqsClient;
 
-    topicArn = createTopic(TOPIC_NAME);
-    queueUrl = createQueue(QUEUE_NAME);
+    topicArn = createTopic();
+    queueUrl = createQueue();
   }
 
   public void publishSnsMessage(String message, String subject) {
@@ -41,14 +41,14 @@ public class AwsService {
     log.info("Published to SQS message with id: {}", response.messageId());
   }
 
-  private String createTopic(String topicName) {
-    CreateTopicResponse topicResponse = snsClient.createTopic(builder -> builder.name(topicName));
+  private String createTopic() {
+    CreateTopicResponse topicResponse = snsClient.createTopic(builder -> builder.name(TOPIC_NAME));
     log.info("Created topic with arn: {}", topicResponse.topicArn());
     return topicResponse.topicArn();
   }
 
-  private String createQueue(String queueName) {
-    CreateQueueResponse queue = sqsClient.createQueue(builder -> builder.queueName(queueName));
+  private String createQueue() {
+    CreateQueueResponse queue = sqsClient.createQueue(builder -> builder.queueName(QUEUE_NAME));
     log.info("Created queue with arn: {}", queue.queueUrl());
     return queue.queueUrl();
   }
