@@ -14,7 +14,6 @@ import testcontainers.model.ProjectResponse;
 import testcontainers.repository.ConsultantRepository;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -49,7 +48,7 @@ public class ProjectsClientService {
                 .filter(consultant -> consultant.getTechnology().equals(project.getTechnology()))
                 .map(consultant -> mapProjectResponse(project, consultant)))
             .distinct()
-            .collect(Collectors.toList()));
+            .toList());
   }
 
   private List<ProjectResponse> getProjectsByTechnology(String technology) {

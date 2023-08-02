@@ -11,7 +11,6 @@ import testcontainers.model.ConsultantResponse;
 import testcontainers.repository.ConsultantRepository;
 
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service
@@ -24,7 +23,7 @@ public class ConsultantService {
     return Flux.defer(() -> Flux.fromIterable(this.consultantRepository.findAll()
         .stream()
         .map(ConsultantResponse::toModel)
-        .collect(Collectors.toList())
+        .toList()
     ));
   }
 
@@ -45,7 +44,7 @@ public class ConsultantService {
     return Flux.defer(() -> Flux.fromIterable(consultantRepository.findConsultantsByTechnology(technology)
         .stream()
         .map(ConsultantResponse::toModel)
-        .collect(Collectors.toList())
+        .toList()
     ));
   }
 }
