@@ -17,7 +17,7 @@ import org.testcontainers.utility.DockerImageName;
 public class ContainersConfig {
 
   public static final String fullImageName = "mysql:8";
-  static String localstackImageName = "localstack/localstack:latest-arm64";
+  static String localstackImageName = "localstack/localstack:latest"; //Add arm-64 for local containers setup.
 
   @Bean
   @RestartScope // The Bean (container) is to be reused instead of recreating it with DevTools
