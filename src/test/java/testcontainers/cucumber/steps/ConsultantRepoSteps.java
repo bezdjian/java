@@ -1,22 +1,21 @@
 package testcontainers.cucumber.steps;
 
-import testcontainers.cucumber.CucumberSpringConfiguration;
-import testcontainers.entity.Consultant;
-import testcontainers.repository.ConsultantRepository;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.springframework.beans.factory.annotation.Autowired;
+import testcontainers.entity.Consultant;
+import testcontainers.repository.ConsultantRepository;
 
 import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class ConsultantRepoSteps  {
+public class ConsultantRepoSteps {
 
   @Autowired
   private ConsultantRepository consultantRepository;
@@ -43,7 +42,7 @@ public class ConsultantRepoSteps  {
   @When("I ask whether {string} has been saved")
   public void iAskWhetherHasBeenSaved(String name) {
     List<Consultant> consultantByName = consultantRepository.findConsultantByName(name);
-    assertTrue(consultantByName.size() > 0);
+    assertFalse(consultantByName.isEmpty());
     consultant = consultantByName.stream().findFirst().get();
 
     scenario.log("Total of {" + consultantByName.size() + "} consultants found");

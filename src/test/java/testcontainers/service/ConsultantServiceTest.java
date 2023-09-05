@@ -43,12 +43,8 @@ class ConsultantServiceTest {
 
     //Then
     StepVerifier.create(consultants)
-        .assertNext(c -> {
-          assertEquals("C1", c.getName());
-        })
-        .assertNext(c -> {
-          assertEquals("C2", c.getName());
-        })
+        .assertNext(c -> assertEquals("C1", c.getName()))
+        .assertNext(c -> assertEquals("C2", c.getName()))
         .verifyComplete();
   }
 
