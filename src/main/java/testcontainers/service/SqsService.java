@@ -60,9 +60,9 @@ public class SqsService {
 
   private void logAndDelete(Message message) {
     log.info("Received message: {} with message attributes {}", message.body(), message.messageAttributes());
-    log.info("Deleting message: {}", message.messageId());
     sqsClient.deleteMessage(builder -> builder.queueUrl(queueUrl)
         .receiptHandle(message.receiptHandle()));
+    log.info("Deleted message: {}", message.messageId());
   }
 
   private ConsultantMessage mapToConsultantMessage(Message message) {

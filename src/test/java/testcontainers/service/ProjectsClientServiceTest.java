@@ -1,38 +1,37 @@
 package testcontainers.service;
 
-import testcontainers.entity.Consultant;
-import testcontainers.model.ConsultantsProjectResponse;
-import testcontainers.model.ProjectResponse;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
+import testcontainers.entity.Consultant;
+import testcontainers.model.ConsultantsProjectResponse;
+import testcontainers.model.ProjectResponse;
 import testcontainers.repository.ConsultantRepository;
-import testcontainers.service.ProjectsClientService;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.when;
 import static org.mockito.MockitoAnnotations.openMocks;
 
-@Disabled("This test communicates to another service test container which by default is disabled.")
 class ProjectsClientServiceTest {
 
   @InjectMocks
   private ProjectsClientService service;
   @Mock
-  private RestTemplate restTemplate;
+  private WebClient webClient;
+  @Mock
+  private WebClient.RequestHeadersUriSpec requestHeadersUriSpec;
+  @Mock
+  private WebClient.RequestHeadersSpec requestHeadersSpec;
+  @Mock
+  private WebClient.ResponseSpec responseSpec;
   @Mock
   private ConsultantRepository consultantRepository;
 
@@ -45,31 +44,25 @@ class ProjectsClientServiceTest {
   void findConsultantsByProjectTechnology() {
     //Given
     String technology = "Java";
-    when(consultantRepository.findConsultantsByTechnology(technology))
-        .thenReturn(List.of(mockConsultant("C1", technology),
-            mockConsultant("C1", "technology")));
+    when(consultantRepository.findConsultantByTechnology(technology))
+        .thenReturn(Flux.just(mockConsultant("C1", technology),
+            mockConsultant("C2", "technology")));
 
-    when(restTemplate.exchange(eq("/projects/technology/"),
-        eq(HttpMethod.GET),
-        eq(null),
-        eq(new ParameterizedTypeReference<List<ProjectResponse>>() {
-        }),
-        anyString()))
-        .thenReturn(ResponseEntity.ok(
-            List.of(mockProjectResponse("P1", technology),
-                mockProjectResponse("P1.1", technology),
-                mockProjectResponse("P2", "anotherTech"))));
+    when(webClient.get()).thenReturn(requestHeadersUriSpec);
+    when(requestHeadersUriSpec.uri(anyString(), any(Object.class)))
+        .thenReturn(requestHeadersSpec);
+    when(requestHeadersSpec.retrieve()).thenReturn(responseSpec);
+    when(responseSpec.bodyToFlux(ProjectResponse.class))
+        .thenReturn(Flux.just(mockProjectResponse("P1", technology),
+            mockProjectResponse("P1.1", technology),
+            mockProjectResponse("P2", "anotherTech")));
 
     //When
     Flux<ConsultantsProjectResponse> result = service.findConsultantsByProjectTechnology(technology);
 
     StepVerifier.create(result)
-        .assertNext(p -> {
-          assertEquals(technology, p.getTechnology());
-        })
-        .assertNext(p -> {
-          assertEquals(technology, p.getTechnology());
-        })
+        .assertNext(p -> assertEquals(technology, p.getTechnology()))
+        .assertNext(p -> assertEquals(technology, p.getTechnology()))
         .verifyComplete();
   }
 

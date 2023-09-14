@@ -1,31 +1,26 @@
 package testcontainers.service;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.http.HttpMethod;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.RestTemplate;
+import org.springframework.web.reactive.function.client.WebClient;
 import reactor.core.publisher.Flux;
 import testcontainers.entity.Consultant;
 import testcontainers.model.ConsultantsProjectResponse;
 import testcontainers.model.ProjectResponse;
 import testcontainers.repository.ConsultantRepository;
 
-import java.util.List;
-
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class ProjectsClientService {
 
   @Value("${projects.url}")
   private String projectsUrl;
 
-  @Autowired
-  private RestTemplate restTemplate;
-  @Autowired
-  private ConsultantRepository consultantRepository;
+  private final WebClient webClient;
+  private final ConsultantRepository consultantRepository;
 
   private static ConsultantsProjectResponse mapProjectResponse(ProjectResponse project, Consultant consultant) {
     return ConsultantsProjectResponse.builder()
@@ -38,27 +33,23 @@ public class ProjectsClientService {
   }
 
   public Flux<ConsultantsProjectResponse> findConsultantsByProjectTechnology(String technology) {
-    List<ProjectResponse> projects = getProjectsByTechnology(technology);
+    Flux<ProjectResponse> projects = getProjectsByTechnology(technology);
 
-    return Flux.fromIterable(
-        projects.stream()
-            .peek(p -> log.info("*** Got project {}, {}", p.getName(), p.getTechnology()))
-            .flatMap(project -> consultantRepository.findConsultantsByTechnology(technology)
-                .stream()
-                .filter(consultant -> consultant.getTechnology().equals(project.getTechnology()))
-                .map(consultant -> mapProjectResponse(project, consultant)))
-            .distinct()
-            .toList());
+    return projects
+        .doOnNext(p -> log.info("*** Got project {}, {}", p.getName(), p.getTechnology()))
+        .map(project -> consultantRepository.findConsultantByTechnology(technology)
+            .filter(consultant -> consultant.getTechnology().equals(project.getTechnology()))
+            .map(consultant -> mapProjectResponse(project, consultant)))
+        .distinct()
+        .flatMap(f -> f);
   }
 
-  private List<ProjectResponse> getProjectsByTechnology(String technology) {
-    String path = projectsUrl + "/technology/" + technology;
+  private Flux<ProjectResponse> getProjectsByTechnology(String technology) {
+    String path = projectsUrl + "/technology/{technology}";
     log.info("******* projectsUrl: " + path);
-    return restTemplate.exchange(path,
-            HttpMethod.GET,
-            null,
-            new ParameterizedTypeReference<List<ProjectResponse>>() {
-            })
-        .getBody();
+    return webClient.get()
+        .uri(path, technology)
+        .retrieve()
+        .bodyToFlux(ProjectResponse.class);
   }
 }
