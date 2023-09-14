@@ -69,8 +69,8 @@ class TestcontainersApplicationTests {
         .value(v -> v.forEach(System.out::println));
   }
 
-  @Disabled("This test communicates to another service test container which by default is disabled.")
   @Test
+  @Disabled("This test communicates to another service test container which by default is disabled.")
   void shouldFindAllConsultantsByProjectTechnology() {
     webTestClient.get().uri("/projects/Java")
         .exchange()

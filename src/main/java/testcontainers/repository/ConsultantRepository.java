@@ -1,16 +1,16 @@
 package testcontainers.repository;
 
-import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import org.springframework.stereotype.Repository;
+import reactor.core.publisher.Flux;
 import testcontainers.entity.Consultant;
 
-import java.util.List;
 import java.util.UUID;
 
 @Repository
-public interface ConsultantRepository extends JpaRepository<Consultant, UUID> {
+public interface ConsultantRepository extends ReactiveMongoRepository<Consultant, UUID> {
 
-  List<Consultant> findConsultantsByTechnology(String technology);
+  Flux<Consultant> findConsultantByTechnology(String technology);
 
-  List<Consultant> findConsultantByName(String name);
+  Flux<Consultant> findConsultantByName(String name);
 }

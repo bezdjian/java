@@ -1,8 +1,5 @@
 package testcontainers.service;
 
-import testcontainers.entity.Consultant;
-import testcontainers.model.ConsultantRequest;
-import testcontainers.model.ConsultantResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
@@ -10,10 +7,11 @@ import org.mockito.Mock;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import reactor.test.StepVerifier;
+import testcontainers.entity.Consultant;
+import testcontainers.model.ConsultantRequest;
+import testcontainers.model.ConsultantResponse;
 import testcontainers.repository.ConsultantRepository;
-import testcontainers.service.ConsultantService;
 
-import java.util.List;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -36,7 +34,7 @@ class ConsultantServiceTest {
   @Test
   void shouldFindAllConsultants() {
     //Given
-    when(repository.findAll()).thenReturn(List.of(mockConsultant("C1"), mockConsultant("C2")));
+    when(repository.findAll()).thenReturn(Flux.just(mockConsultant("C1"), mockConsultant("C2")));
 
     //When
     Flux<ConsultantResponse> consultants = service.findAll();
@@ -52,7 +50,7 @@ class ConsultantServiceTest {
   void shouldSaveConsultant() {
     //Given
     String consultantName = "SavedConsultant";
-    when(repository.save(any(Consultant.class))).thenReturn(mockConsultant(consultantName));
+    when(repository.save(any(Consultant.class))).thenReturn(Mono.just(mockConsultant(consultantName)));
 
     //When
     Mono<ConsultantResponse> saved = service.save(ConsultantRequest.builder()
@@ -69,10 +67,11 @@ class ConsultantServiceTest {
   @Test
   void shouldDeleteConsultant() {
     //Given
-    doNothing().when(repository).deleteById(any(UUID.class));
+    UUID uuid = UUID.randomUUID();
+    when(repository.deleteById(eq(uuid))).thenReturn(Mono.empty());
 
     //When
-    service.delete(UUID.randomUUID().toString());
+    service.delete(uuid.toString());
 
     //Verify
     verify(repository, atMostOnce()).deleteById(any(UUID.class));

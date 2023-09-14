@@ -35,13 +35,14 @@ public class ConsultantRepoSteps {
             .name(name)
             .technology("Java")
             .build()
-    );
+    ).block();
     scenario.log("Consultant saved: " + consultant);
   }
 
   @When("I ask whether {string} has been saved")
   public void iAskWhetherHasBeenSaved(String name) {
-    List<Consultant> consultantByName = consultantRepository.findConsultantByName(name);
+    List<Consultant> consultantByName = consultantRepository.findConsultantByName(name).collectList().block();
+    assert consultantByName != null;
     assertFalse(consultantByName.isEmpty());
     consultant = consultantByName.stream().findFirst().get();
 

@@ -7,7 +7,7 @@ import org.springframework.boot.testcontainers.service.connection.ServiceConnect
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.testcontainers.containers.GenericContainer;
-import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.containers.localstack.LocalStackContainer;
 import org.testcontainers.images.PullPolicy;
 import org.testcontainers.utility.DockerImageName;
@@ -16,14 +16,14 @@ import org.testcontainers.utility.DockerImageName;
 @TestConfiguration(proxyBeanMethods = false)
 public class ContainersConfig {
 
-  public static final String fullImageName = "mysql:8";
+  public static final String fullImageName = "mongo:4.0.10";
   static String localstackImageName = "localstack/localstack:latest"; //Add arm-64 for local containers setup.
 
   @Bean
   @RestartScope // The Bean (container) is to be reused instead of recreating it with DevTools
   @ServiceConnection
-  public MySQLContainer<?> mySQLContainer() {
-    return new MySQLContainer<>(DockerImageName.parse(fullImageName));
+  public MongoDBContainer mongoDBContainer() {
+    return new MongoDBContainer(DockerImageName.parse(fullImageName));
   }
 
   @Bean

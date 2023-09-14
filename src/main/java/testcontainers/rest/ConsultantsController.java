@@ -1,5 +1,6 @@
 package testcontainers.rest;
 
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,7 @@ import testcontainers.service.ProjectsClientService;
 import testcontainers.service.SnsService;
 import testcontainers.service.SqsService;
 
+@Tag(name = "Consultants")
 @RestController
 @RequestMapping("/api")
 @RequiredArgsConstructor

@@ -1,16 +1,15 @@
 package testcontainers.repository;
 
-import testcontainers.config.ContainersConfig;
-import testcontainers.entity.Consultant;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.boot.test.autoconfigure.data.mongo.DataMongoTest;
 import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
-import org.testcontainers.containers.MySQLContainer;
+import org.testcontainers.containers.MongoDBContainer;
 import org.testcontainers.junit.jupiter.Container;
 import org.testcontainers.junit.jupiter.Testcontainers;
 import org.testcontainers.utility.DockerImageName;
+import testcontainers.config.ContainersConfig;
+import testcontainers.entity.Consultant;
 
 import java.util.List;
 import java.util.Optional;
@@ -18,9 +17,8 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-@DataJpaTest // This is isolated from spring boot, focuses only on JPA components.
+@DataMongoTest // This is isolated from spring boot, focuses only on JPA components.
 @Testcontainers
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE) // deactivate the default behaviour
 class ConsultantRepositoryTest {
 
   @Autowired
@@ -30,7 +28,7 @@ class ConsultantRepositoryTest {
   // Since 3.1.0, @ServiceConnection automatically configures the necessary Spring Boot properties
   // for the supporting containers. No need for @DynamicPropertySource.
   @ServiceConnection
-  static MySQLContainer mySQLContainer = new MySQLContainer<>(DockerImageName.parse(ContainersConfig.fullImageName))
+  static MongoDBContainer mongoDBContainer = new MongoDBContainer(DockerImageName.parse(ContainersConfig.fullImageName))
       .withReuse(true);
 
   @Test
@@ -51,12 +49,14 @@ class ConsultantRepositoryTest {
         .build();
 
     //When
-    Consultant saved1 = consultantRepository.save(consultant1);
-    Consultant saved2 = consultantRepository.save(consultant2);
+    Consultant saved1 = consultantRepository.save(consultant1).block();
+    Consultant saved2 = consultantRepository.save(consultant2).block();
 
     //Then
-    Optional<Consultant> savedConsultant1 = consultantRepository.findById(saved1.getId());
-    Optional<Consultant> savedConsultant2 = consultantRepository.findById(saved2.getId());
+    assert saved1 != null;
+    Optional<Consultant> savedConsultant1 = consultantRepository.findById(saved1.getId()).blockOptional();
+    assert saved2 != null;
+    Optional<Consultant> savedConsultant2 = consultantRepository.findById(saved2.getId()).blockOptional();
 
     assertTrue(savedConsultant1.isPresent());
     assertTrue(savedConsultant2.isPresent());
@@ -73,15 +73,17 @@ class ConsultantRepositoryTest {
         .technology("Java")
         .build();
 
-    UUID savedId = consultantRepository.save(consultant).getId();
-    Optional<Consultant> consultants = consultantRepository.findById(savedId);
+    Consultant saved = consultantRepository.save(consultant).block();
+    assert saved != null;
+    UUID savedId = saved.getId();
+    Optional<Consultant> consultants = consultantRepository.findById(savedId).blockOptional();
 
     assertFalse(consultants.isEmpty());
     assertEquals(consultants.get().getId(), savedId);
 
     //When
-    consultantRepository.deleteById(savedId);
-    Optional<Consultant> deletedConsultant = consultantRepository.findById(savedId);
+    consultantRepository.deleteById(savedId).block();
+    Optional<Consultant> deletedConsultant = consultantRepository.findById(savedId).blockOptional();
     //Then
     assertTrue(deletedConsultant.isEmpty());
   }
@@ -99,12 +101,13 @@ class ConsultantRepositoryTest {
         .name("Consultant 2")
         .technology("AWS")
         .build();
-    consultantRepository.save(consultant1);
-    consultantRepository.save(consultant2);
+    consultantRepository.save(consultant1).block();
+    consultantRepository.save(consultant2).block();
 
     //When
-    List<Consultant> consultants = consultantRepository.findConsultantsByTechnology("Java");
+    List<Consultant> consultants = consultantRepository.findConsultantByTechnology("Java").collectList().block();
 
+    assert consultants != null;
     assertFalse(consultants.isEmpty());
     assertEquals("Java", consultants.get(0).getTechnology());
   }

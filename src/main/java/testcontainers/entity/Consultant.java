@@ -1,25 +1,21 @@
 package testcontainers.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.*;
-import org.hibernate.annotations.UuidGenerator;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 import testcontainers.model.ConsultantResponse;
 
 import java.util.UUID;
 
-@Entity
+@Document("Consultant")
 @Builder
 @Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "Consultants")
 public class Consultant {
 
   @Id
-  @UuidGenerator
   private UUID id;
 
   private String name;

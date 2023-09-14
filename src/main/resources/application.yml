@@ -1,13 +1,17 @@
 spring:
-  datasource:
-    username: root
-    password: root
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/testcontainer
-  jpa:
-    show-sql: true
-    hibernate:
-      ddl-auto: update
+  data:
+    mongodb:
+      database: testcontainers
+      uri: mongodb://localhost:27017/testcontainers?readPreference=primary&appname=MongoDB%20Compass&directConnection=true&ssl=false
+
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+    operations-sorter: method
+
+# http://localhost:8080/v3/api-docs
+# http://localhost:8080/v3/api-docs.yaml
+# http://localhost:8080/swagger-ui.html
 
 projects:
   url: http://localhost:8081/api/projects
