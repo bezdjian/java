@@ -162,7 +162,7 @@
             </build>
         </profile>
         <profile>
-            <id>integration-test</id>
+            <id>integration-tests</id>
             <build>
                 <plugins>
                     <plugin>
@@ -180,7 +180,7 @@
             </build>
         </profile>
         <profile>
-            <id>cucumber-test</id>
+            <id>cucumber-tests</id>
             <build>
                 <plugins>
                     <plugin>

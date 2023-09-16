@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
+import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.S3ClientBuilder;
 import software.amazon.awssdk.services.sns.SnsClient;
 import software.amazon.awssdk.services.sns.SnsClientBuilder;
 import software.amazon.awssdk.services.sqs.SqsClient;
@@ -16,8 +18,10 @@ import java.net.URI;
 @Configuration
 public class Beans {
 
-  @Value("${localstack.sns.endpoint}")
-  private String snsEndpoint;
+  @Value("${localstack.url}")
+  private String localStackUrl;
+  @Value("${localstack.s3.url}")
+  private String s3LocalStackUrl;
 
   @Bean
   public WebClient webClient() {
@@ -26,21 +30,30 @@ public class Beans {
 
   @Bean
   public SnsClient snsClient() {
-    SnsClientBuilder snsClientBuilder = SnsClient.builder();
-    log.info("Using SNS client endpoint: {}", snsEndpoint);
+    SnsClientBuilder snsClient = SnsClient.builder();
+    log.info("Using SNS client endpoint: {}", localStackUrl);
 
-    return snsEndpoint.equals("default") ? snsClientBuilder.build() :
-        snsClientBuilder.endpointOverride(URI.create(snsEndpoint))
+    return localStackUrl.equals("default") ? snsClient.build() :
+        snsClient.endpointOverride(URI.create(localStackUrl))
             .build();
   }
 
   @Bean
   public SqsClient sqsClient() {
     SqsClientBuilder sqsClient = SqsClient.builder();
-    log.info("Using SQS client endpoint: {}", snsEndpoint);
+    log.info("Using SQS client endpoint: {}", localStackUrl);
 
-    return snsEndpoint.equals("default") ? sqsClient.build() :
-        sqsClient.endpointOverride(URI.create(snsEndpoint))
+    return localStackUrl.equals("default") ? sqsClient.build() :
+        sqsClient.endpointOverride(URI.create(localStackUrl))
             .build();
+  }
+
+  @Bean
+  public S3Client s3Client() {
+    S3ClientBuilder s3Client = S3Client.builder();
+    log.info("Using S3 client endpoint: {}", s3LocalStackUrl);
+
+    return s3LocalStackUrl.equals("default") ? s3Client.build() :
+        s3Client.endpointOverride(URI.create(s3LocalStackUrl)).build();
   }
 }

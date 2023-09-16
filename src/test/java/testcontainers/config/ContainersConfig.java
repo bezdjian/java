@@ -28,15 +28,12 @@ public class ContainersConfig {
 
   @Bean
   public LocalStackContainer localStackContainer(DynamicPropertyRegistry registry) {
-    LocalStackContainer localStackContainer = new LocalStackContainer(DockerImageName.parse(localstackImageName))
-        .withReuse(true);
+    LocalStackContainer localStackContainer = new LocalStackContainer(DockerImageName.parse(localstackImageName));
 
     registry.add("localstack.url", () -> String.format("http://%s:%d",
         localStackContainer.getHost(),
         localStackContainer.getFirstMappedPort()));
-    registry.add("localstack.sns.endpoint", () -> String.format("http://%s:%d",
-        localStackContainer.getHost(),
-        localStackContainer.getFirstMappedPort()));
+
     registry.add("localstack.s3.url", () -> String.format("http://s3.%s.localstack.cloud:%d",
         localStackContainer.getHost(),
         localStackContainer.getFirstMappedPort()));

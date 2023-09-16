@@ -17,9 +17,7 @@ projects:
   url: http://localhost:8081/api/projects
 
 localstack:
-  #Default url for most services protocol://service-code.region-code.amazonaws.com
-  sns:
-    #endpoint: https://sns.eu-north-1.amazonaws.com
-    endpoint: default
-  #s3:
-  #  endpoint: http://s3.%s.localstack.cloud:%d
+  # This way we can distinguish from real aws to localstack
+  url: default
+  s3:
+    url: default
