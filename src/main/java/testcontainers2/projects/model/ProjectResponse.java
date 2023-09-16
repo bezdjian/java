@@ -1,4 +1,4 @@
-package com.example.testcontainers.testcontainers.model;
+package testcontainers2.projects.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -13,6 +13,7 @@ public class ProjectResponse {
 
   private String uuid;
   private String name;
+  private String client;
   private String technology;
   private String description;
 

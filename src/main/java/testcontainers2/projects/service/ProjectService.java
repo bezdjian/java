@@ -1,6 +1,6 @@
-package com.example.testcontainers.testcontainers.service;
+package testcontainers2.projects.service;
 
-import com.example.testcontainers.testcontainers.model.ProjectResponse;
+import testcontainers2.projects.model.ProjectResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
@@ -22,26 +22,30 @@ public class ProjectService {
     ));
   }
 
+  public Flux<ProjectResponse> findAll() {
+    return Flux.defer(() -> Flux.fromIterable(makeProjectResponseList()));
+  }
+
   // Database
   private List<ProjectResponse> makeProjectResponseList() {
     return new ArrayList<>() {{
-      add(buildProjectResponse("Java"));
-      add(buildProjectResponse("Java"));
-      add(buildProjectResponse("AWS"));
-      add(buildProjectResponse("AWS"));
-      add(buildProjectResponse("Python"));
-      add(buildProjectResponse("DotNet"));
-      add(buildProjectResponse("NodeJs"));
-      add(buildProjectResponse("TypeScript"));
-      add(buildProjectResponse("Node"));
-      add(buildProjectResponse("JavaScript"));
+      add(buildProjectResponse("Java", "WirelessCar"));
+      add(buildProjectResponse("Java", "Volvo Cars"));
+      add(buildProjectResponse("AWS", "WirelessCar"));
+      add(buildProjectResponse("Python", "WirelessCar"));
+      add(buildProjectResponse("DotNet", "Microsoft"));
+      add(buildProjectResponse("NodeJs", "Google"));
+      add(buildProjectResponse("TypeScript", "Google"));
+      add(buildProjectResponse("Node", "NodeJsCompany"));
+      add(buildProjectResponse("JavaScript", "WirelessCar"));
     }};
   }
 
-  private static ProjectResponse buildProjectResponse(String technology) {
+  private static ProjectResponse buildProjectResponse(String technology, String client) {
     return ProjectResponse.builder()
         .uuid(UUID.randomUUID().toString())
         .name("Project_" + technology)
+        .client(client)
         .description("P1 Description")
         .technology(technology)
         .build();

@@ -8,6 +8,6 @@
 # Package stage
 FROM openjdk:17.0.1-jdk-slim
 #COPY --from=build /home/app/target/testcontainers2-0.0.1-SNAPSHOT.jar /usr/local/lib/demo.jar
-COPY target/testcontainers2-0.0.1-SNAPSHOT.jar /home/app/demo.jar
+COPY target/projects-0.0.1.jar /home/app/demo.jar
 EXPOSE 8080
 ENTRYPOINT ["java","-jar","/home/app/demo.jar"]
