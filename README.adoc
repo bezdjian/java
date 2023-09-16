@@ -1,0 +1,30 @@
+== Test containers with Spring boot
+
+=== Run locally
+`mvn spring-boot:test-run`
+
+This will run the Application.java under the test folder with Test Containers for local development
+
+=== Run 'prod'
+`mvn spring-boot:run`
+
+This will target local machines MongoDB and real AWS endpoint
+
+=== Run integration tests with test containers
+`mvn test -Pintegration-tests`
+
+=== Run cucumber tests with test containers
+`mvn test -Pcucumber-tests`
+
+=== Run unit tests
+`mvn test -Punit-tests`
+
+=== Run all tests
+`mvn test`
+
+=== Run with docker-compose
+`docker compose build`
+
+`docker compose up`
+
+This will use spring profile 'docker' with application-docker.yml file
