@@ -2,6 +2,7 @@ package testcontainers.integration;
 
 import testcontainers.config.ContainersConfig;
 import testcontainers.entity.Consultant;
+import testcontainers.model.BucketResponse;
 import testcontainers.model.ConsultantRequest;
 import testcontainers.model.ConsultantResponse;
 import testcontainers.model.ConsultantsProjectResponse;
@@ -36,6 +37,15 @@ class TestcontainersApplicationTests {
         .build();
 
     createData();
+  }
+
+  @Test
+  void shouldFetchBuckets() {
+    webTestClient.get().uri(CONSULTANTS_URL + "/buckets")
+        .exchange()
+        .expectStatus().isOk()
+        .expectBodyList(BucketResponse.class)
+        .value(v -> v.forEach(System.out::println));
   }
 
   @Test

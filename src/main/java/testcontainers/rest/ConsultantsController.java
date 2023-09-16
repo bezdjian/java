@@ -6,14 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import testcontainers.model.ConsultantMessage;
-import testcontainers.model.ConsultantRequest;
-import testcontainers.model.ConsultantResponse;
-import testcontainers.model.ConsultantsProjectResponse;
-import testcontainers.service.ConsultantService;
-import testcontainers.service.ProjectsClientService;
-import testcontainers.service.SnsService;
-import testcontainers.service.SqsService;
+import testcontainers.model.*;
+import testcontainers.service.*;
 
 @Tag(name = "Consultants")
 @RestController
@@ -25,6 +19,7 @@ public class ConsultantsController {
   private final ProjectsClientService projectsClientService;
   private final SqsService sqsService;
   private final SnsService snsService;
+  private final S3Service s3Service;
 
   @GetMapping("/consultants")
   public Flux<ConsultantResponse> getAll() {
@@ -52,6 +47,11 @@ public class ConsultantsController {
   public void delete(@PathVariable("id") String uuid) {
     snsService.publishSnsMessage(uuid, "DELETED");
     this.consultantService.delete(uuid);
+  }
+
+  @GetMapping("/consultants/buckets")
+  public Flux<BucketResponse> getBuckets() {
+    return s3Service.fetchBuckets();
   }
 
   @GetMapping("/technology/{technology}")
