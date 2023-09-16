@@ -1,0 +1,13 @@
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      database: testcontainers
+      # The name of the service in docker-compose.yml is mongo-db (as the uri)
+      uri: mongodb://root:example@mongo-db/testcontainers?directConnection=true&ssl=false&authSource=admin
+
+localstack:
+  url: http://host.docker.internal:4566
+  #Default url for most services protocol://service-code.region-code.amazonaws.com
+  s3:
+    url: http://s3.host.docker.internal.localstack.cloud:4566/

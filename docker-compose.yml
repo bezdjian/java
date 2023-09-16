@@ -1,6 +1,7 @@
 version: "3"
 services:
-  docker_compose_test:
+  consultant-service:
+    container_name: consultant-service
     build:
       dockerfile: Dockerfile
       context: .
@@ -11,5 +12,9 @@ services:
     environment:
       - TESTCONTAINERS_HOST_OVERRIDE=host.docker.internal
       - TESTCONTAINERS_RYUK_DISABLED=true
+      - SPRING_PROFILES_ACTIVE=docker
+      - AWS_REGION=eu-west-1
+      - AWS_ACCESS_KEY_ID=dummy
+      - AWS_SECRET_ACCESS_KEY=dummy
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
