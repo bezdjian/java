@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import software.amazon.awssdk.services.s3.S3Client;
+import software.amazon.awssdk.services.s3.model.BucketAlreadyOwnedByYouException;
 import software.amazon.awssdk.services.s3.model.CreateBucketResponse;
 import software.amazon.awssdk.services.s3.model.ListBucketsResponse;
 import testcontainers.model.BucketResponse;
@@ -28,7 +29,11 @@ public class S3Service {
   }
 
   private void createBucket() {
-    CreateBucketResponse response = s3Client.createBucket(builder -> builder.bucket(BUCKET_NAME));
-    log.info("Created bucket with arn: {}", response.location());
+    try {
+      CreateBucketResponse response = s3Client.createBucket(builder -> builder.bucket(BUCKET_NAME));
+      log.info("Created bucket with arn: {}", response.location());
+    } catch (BucketAlreadyOwnedByYouException e) {
+      log.info("Bucket {} already owned, skipping creation...", BUCKET_NAME);
+    }
   }
 }
