@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.reactive.function.client.WebClient;
+import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.S3ClientBuilder;
 import software.amazon.awssdk.services.sns.SnsClient;
@@ -35,6 +36,7 @@ public class Beans {
 
     return localStackUrl.equals("default") ? snsClient.build() :
         snsClient.endpointOverride(URI.create(localStackUrl))
+                .region(Region.EU_WEST_1)
             .build();
   }
 
@@ -45,6 +47,7 @@ public class Beans {
 
     return localStackUrl.equals("default") ? sqsClient.build() :
         sqsClient.endpointOverride(URI.create(localStackUrl))
+                .region(Region.EU_WEST_1)
             .build();
   }
 
@@ -54,6 +57,8 @@ public class Beans {
     log.info("Using S3 client endpoint: {}", s3LocalStackUrl);
 
     return s3LocalStackUrl.equals("default") ? s3Client.build() :
-        s3Client.endpointOverride(URI.create(s3LocalStackUrl)).build();
+        s3Client.endpointOverride(URI.create(s3LocalStackUrl))
+                .region(Region.EU_WEST_1)
+                .build();
   }
 }
