@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.annotation.Profile;
 import reactor.core.publisher.Flux;
 import reactor.test.StepVerifier;
 import software.amazon.awssdk.services.sns.SnsClient;
@@ -15,6 +16,7 @@ import testcontainers.service.SnsService;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@Profile("docker")
 @SpringBootTest(classes = {ContainersConfig.class})
 class AWSClientTest {
 

@@ -19,46 +19,55 @@ import java.net.URI;
 @Configuration
 public class Beans {
 
-  @Value("${localstack.url}")
-  private String localStackUrl;
-  @Value("${localstack.s3.url}")
-  private String s3LocalStackUrl;
+    @Value("${localstack.url}")
+    private String localStackUrl;
+    @Value("${localstack.s3.url}")
+    private String s3LocalStackUrl;
 
-  @Bean
-  public WebClient webClient() {
-    return WebClient.create();
-  }
+    @Bean
+    public WebClient webClient() {
+        return WebClient.create();
+    }
 
-  @Bean
-  public SnsClient snsClient() {
-    SnsClientBuilder snsClient = SnsClient.builder();
-    log.info("Using SNS client endpoint: {}", localStackUrl);
+    @Bean
+    public SnsClient snsClient() {
+        SnsClientBuilder snsClient = SnsClient.builder();
+        if (!localStackUrl.equals("default")) {
+            log.info("Using localstack SNS client with endpoint: {}", localStackUrl);
+            snsClient.endpointOverride(URI.create(localStackUrl))
+                    .region(Region.EU_WEST_1)
+                    .build();
+        }
 
-    return localStackUrl.equals("default") ? snsClient.build() :
-        snsClient.endpointOverride(URI.create(localStackUrl))
-                .region(Region.EU_WEST_1)
-            .build();
-  }
+        log.info("Using default SNS client");
+        return snsClient.build();
 
-  @Bean
-  public SqsClient sqsClient() {
-    SqsClientBuilder sqsClient = SqsClient.builder();
-    log.info("Using SQS client endpoint: {}", localStackUrl);
+    }
 
-    return localStackUrl.equals("default") ? sqsClient.build() :
-        sqsClient.endpointOverride(URI.create(localStackUrl))
-                .region(Region.EU_WEST_1)
-            .build();
-  }
+    @Bean
+    public SqsClient sqsClient() {
+        SqsClientBuilder sqsClient = SqsClient.builder();
+        if (!localStackUrl.equals("default")) {
+            log.info("Using localstack SQS client with endpoint: {}", localStackUrl);
+            return sqsClient.endpointOverride(URI.create(localStackUrl))
+                    .region(Region.EU_WEST_1)
+                    .build();
+        }
+        log.info("Using default SQS client");
+        return sqsClient.build();
 
-  @Bean
-  public S3Client s3Client() {
-    S3ClientBuilder s3Client = S3Client.builder();
-    log.info("Using S3 client endpoint: {}", s3LocalStackUrl);
+    }
 
-    return s3LocalStackUrl.equals("default") ? s3Client.build() :
-        s3Client.endpointOverride(URI.create(s3LocalStackUrl))
-                .region(Region.EU_WEST_1)
-                .build();
-  }
+    @Bean
+    public S3Client s3Client() {
+        S3ClientBuilder s3Client = S3Client.builder();
+        if (!s3LocalStackUrl.equals("default")) {
+            log.info("Using localstack S3 client with endpoint: {}", s3LocalStackUrl);
+            s3Client.endpointOverride(URI.create(s3LocalStackUrl))
+                    .region(Region.EU_WEST_1)
+                    .build();
+        }
+        log.info("Using default S3 client");
+        return s3Client.build();
+    }
 }

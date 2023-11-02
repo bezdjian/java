@@ -1,5 +1,6 @@
 package testcontainers.integration;
 
+import org.springframework.context.annotation.Profile;
 import testcontainers.config.ContainersConfig;
 import testcontainers.entity.Consultant;
 import testcontainers.model.BucketResponse;
@@ -16,6 +17,7 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 import testcontainers.repository.ConsultantRepository;
 
 // Todo: Important! Without config.ContainersConfig.class this test will target (application.yml) -> "prod".
+@Profile("docker")
 @SpringBootTest(classes = {ContainersConfig.class})
 class TestcontainersApplicationTests {
 

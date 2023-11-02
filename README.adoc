@@ -1,5 +1,9 @@
 == Test containers with Spring boot
 
+Prerequisites:
+- AWS credentials file (will not actually use the credentials)
+- Mongodb service/driver on the machine
+
 === Run locally
 `mvn spring-boot:test-run`
 
@@ -9,6 +13,8 @@ This will run the Application.java under the test folder with Test Containers fo
 `mvn spring-boot:run`
 
 This will target local machines MongoDB and real AWS endpoint
+
+Swagger: http://localhost:8080/swagger-ui.html
 
 === Run integration tests with test containers
 `mvn test -Pintegration-tests`
