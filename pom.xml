@@ -5,7 +5,7 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.1.0</version>
+        <version>3.2.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>testcontainers</groupId>
@@ -16,7 +16,7 @@
 
     <properties>
         <java.version>17</java.version>
-        <awssdk.version>2.20.103</awssdk.version>
+        <awssdk.version>2.20.157</awssdk.version>
         <cucumber.version>7.13.0</cucumber.version>
         <openapi.version>2.1.0</openapi.version>
 
@@ -42,10 +42,17 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>ch.qos.logback</groupId>
+                    <artifactId>logback-classic</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb-reactive</artifactId>
+            <version>3.2.2</version>
         </dependency>
         <dependency>
             <groupId>org.springdoc</groupId>
@@ -60,6 +67,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
             <optional>true</optional>
         </dependency>
 
