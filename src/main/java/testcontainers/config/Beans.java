@@ -19,6 +19,7 @@ import java.net.URI;
 @Configuration
 public class Beans {
 
+    public static final String DEFAULT_URL = "default";
     @Value("${localstack.url}")
     private String localStackUrl;
     @Value("${localstack.s3.url}")
@@ -32,7 +33,7 @@ public class Beans {
     @Bean
     public SnsClient snsClient() {
         SnsClientBuilder snsClient = SnsClient.builder();
-        if (!localStackUrl.equals("default")) {
+        if (!localStackUrl.equals(DEFAULT_URL)) {
             log.info("Using localstack SNS client with endpoint: {}", localStackUrl);
             snsClient.endpointOverride(URI.create(localStackUrl))
                     .region(Region.EU_WEST_1)
@@ -47,7 +48,7 @@ public class Beans {
     @Bean
     public SqsClient sqsClient() {
         SqsClientBuilder sqsClient = SqsClient.builder();
-        if (!localStackUrl.equals("default")) {
+        if (!localStackUrl.equals(DEFAULT_URL)) {
             log.info("Using localstack SQS client with endpoint: {}", localStackUrl);
             return sqsClient.endpointOverride(URI.create(localStackUrl))
                     .region(Region.EU_WEST_1)
@@ -61,7 +62,7 @@ public class Beans {
     @Bean
     public S3Client s3Client() {
         S3ClientBuilder s3Client = S3Client.builder();
-        if (!s3LocalStackUrl.equals("default")) {
+        if (!s3LocalStackUrl.equals(DEFAULT_URL)) {
             log.info("Using localstack S3 client with endpoint: {}", s3LocalStackUrl);
             s3Client.endpointOverride(URI.create(s3LocalStackUrl))
                     .region(Region.EU_WEST_1)
