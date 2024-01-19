@@ -84,9 +84,15 @@ public class SqsService {
   }
 
   private String createQueue() {
-    CreateQueueResponse queue = sqsClient.createQueue(builder -> builder.queueName(QUEUE_NAME));
-    log.info("Created queue with arn: {}", queue.queueUrl());
-    return queue.queueUrl();
+    try {
+      GetQueueUrlResponse response = sqsClient.getQueueUrl(b -> b.queueName(QUEUE_NAME));
+      log.info("Found queue with url: {}", response.queueUrl());
+      return response.queueUrl();
+    } catch (QueueDoesNotExistException e) {
+      CreateQueueResponse queue = sqsClient.createQueue(builder -> builder.queueName(QUEUE_NAME));
+      log.info("Created queue with url: {}", queue.queueUrl());
+      return queue.queueUrl();
+    }
   }
 
 }
