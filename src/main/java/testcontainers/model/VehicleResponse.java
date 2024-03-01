@@ -15,12 +15,14 @@ public class VehicleResponse {
   private String uuid;
   private String name;
   private String tenant;
+  private String classType;
 
   public static VehicleResponse toResponseModel(Vehicle vehicle) {
     return VehicleResponse.builder()
         .uuid(vehicle.getId().toString())
         .name(vehicle.getName())
         .tenant(vehicle.getTenant())
+        .classType(vehicle.getClass().getSimpleName())
         .build();
   }
 
@@ -30,6 +32,7 @@ public class VehicleResponse {
         "uuid='" + uuid + '\'' +
         ", name='" + name + '\'' +
         ", tenant='" + tenant + '\'' +
+        ", classType='" + classType + '\'' +
         '}';
   }
 }

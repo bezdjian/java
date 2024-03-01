@@ -2,8 +2,8 @@ package testcontainers.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import org.springframework.stereotype.Service;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import testcontainers.entity.Vehicle;
 import testcontainers.entity.VehicleAudi;
@@ -12,6 +12,7 @@ import testcontainers.entity.VehicleVW;
 import testcontainers.exceptions.TenantNotFoundException;
 import testcontainers.model.VehicleRequest;
 import testcontainers.model.VehicleResponse;
+import testcontainers.repository.VehicleRepository;
 
 import java.util.UUID;
 
@@ -20,18 +21,19 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class VehicleService {
 
-  private final ReactiveMongoTemplate mongoTemplate;
+  private final VehicleRepository vehicleRepository;
 
   public Mono<VehicleResponse> save(VehicleRequest vehicleRequest) {
-    // sim-vehicle-view-vw-iot, sim-vehicle-view-audi-iot etc.
-    String environment = "iot"; // gets from system env
-    String collectionName = String.format("sim-vehicle-view-%s-%s", vehicleRequest.getTenant().replace("/", "-"),
-      environment);
     Vehicle vehicle = getVehicleByTenant(vehicleRequest);
+    return vehicleRepository.save(vehicle)
+      .doFirst(() -> log.info("Saving vehicle: {}", vehicle))
+      .doOnSuccess(saved -> log.info("Successfully saved vehicle: {}", saved.toString()));
+  }
 
-    return mongoTemplate.save(vehicle, collectionName)
-      .doOnSuccess(saved -> log.info("Successfully saved vehicle: {}", saved.toString()))
-      .map(VehicleResponse::toResponseModel);
+  public Flux<VehicleResponse> findAll() {
+    return vehicleRepository.findAll()
+      .doFirst(() -> log.info("Getting all vehicles"))
+      .doOnComplete(() -> log.info("Successfully got all vehicles"));
   }
 
   private Vehicle getVehicleByTenant(VehicleRequest vehicleRequest) {

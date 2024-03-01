@@ -3,10 +3,8 @@ package testcontainers.rest;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import testcontainers.model.VehicleRequest;
 import testcontainers.model.VehicleResponse;
@@ -24,6 +22,12 @@ public class VehicleController {
   @PostMapping("/vehicle")
   public Mono<VehicleResponse> saveVehicle(@RequestBody VehicleRequest vehicleRequest) {
     return vehicleService.save(vehicleRequest)
-        .doOnError(error -> log.info("Exception while saving a vehicle!: {}", error.getMessage(), error));
+      .doOnError(error -> log.info("Exception while saving a vehicle!: {}", error.getMessage(), error));
+  }
+
+  @GetMapping("/vehicle")
+  public Flux<VehicleResponse> findAll() {
+    return vehicleService.findAll()
+      .doOnError(error -> log.info("Exception while getting a vehicle!: {}", error.getMessage(), error));
   }
 }
